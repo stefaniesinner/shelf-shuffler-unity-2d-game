@@ -21,12 +21,6 @@ public class Player : MonoBehaviour
     public float radius = 0.3f;
     public float groundRayDist = 0.5f;
 
-    // to use the ladder
-    private float moveVertical;
-    private bool isLadder; // to know if the player is standing to the ladder
-    private bool isClimbing;
-
-
     private Rigidbody2D rb;
     private Animator anim;
     private SpriteRenderer spr;
