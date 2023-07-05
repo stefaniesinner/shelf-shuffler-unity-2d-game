@@ -23,7 +23,10 @@ public class LadderMovement : MonoBehaviour
      */
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.CompareTag("Ladder"))
+        {
+            isLadder = true;
+        }
     }
 
     /*
