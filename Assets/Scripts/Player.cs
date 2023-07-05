@@ -76,6 +76,12 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(moveHorizontal * speed, rb.velocity.y);
+
+        if (isClimbing)
+        {
+            rb.gravityScale = 0f;
+            rb.velocity = new Vector2(rb.velocity.x, moveVertical * speed);
+        }
     }
 
     /*
