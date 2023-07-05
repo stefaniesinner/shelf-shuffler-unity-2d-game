@@ -18,11 +18,5 @@ public class LadderMovement : MonoBehaviour
         
     }
 
-    /*
-     * Check if the player is standing on the ladder.
-     */
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        
-    }
+
 }
