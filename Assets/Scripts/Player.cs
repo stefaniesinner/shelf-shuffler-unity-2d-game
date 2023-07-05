@@ -112,9 +112,4 @@ public class Player : MonoBehaviour
         obj = null;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        
-    }
-
 }
