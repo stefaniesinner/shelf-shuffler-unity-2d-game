@@ -112,27 +112,13 @@ public class Player : MonoBehaviour
         obj = null;
     }
 
-    /*
-     * Check if the player is standing next to the ladder.
-     */
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ladder"))
-        {
-            isLadder = true;
-        }
+        
     }
 
-    /*
-     * Check if the player is standing next to the ladder yet.
-     */
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ladder"))
-        {
-            isLadder = false;
-            isClimbing = false;
-        }
         
     }
 
