@@ -10,13 +10,15 @@ public class LadderMovement : MonoBehaviour
     private bool isLadder; // to know if the player is standing on the ladder
     private bool isClimbing;
 
-    [SerializeField] private Rigidbody2D rb;
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
 
     // Update is called once per frame
     void Update()
     {
         
     }
-
-
 }
