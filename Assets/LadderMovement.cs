@@ -23,19 +23,6 @@ public class LadderMovement : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
-        if (isClimbing)
-        {
-            rb.gravityScale = 0f;
-            rb.velocity = new Vector2(rb.velocity.x, moveVertical * speed);
-        }
-        else
-        {
-            rb.gravityScale = 5f;
-        }
-    }
-
     /*
      * Check if the player is standing on the ladder.
      */
