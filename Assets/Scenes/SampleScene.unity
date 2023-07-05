@@ -443,6 +443,7 @@ GameObject:
   - component: {fileID: 1326562062}
   - component: {fileID: 1326562063}
   - component: {fileID: 1326562064}
+  - component: {fileID: 1326562065}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -634,6 +635,19 @@ MonoBehaviour:
     m_Bits: 64
   radius: 0.3
   groundRayDist: 0.55
+--- !u!114 &1326562065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326562058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd1b07e1c191ae4eba4bc199fa09041, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1326562062}
 --- !u!1 &1807308879
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,7 +660,7 @@ GameObject:
   - component: {fileID: 1807308880}
   m_Layer: 0
   m_Name: Ladder
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
