@@ -137,15 +137,10 @@ public class Player : MonoBehaviour
     }
 
     /*
-     * ...
+     * 
      */
     private void climb()
     {
-        moveVertical = Input.GetAxis("Vertical");
 
-        if (isLadder && Mathf.Abs(moveVertical) > 0f)
-        {
-            isClimbing = true;
-        }
     }
 }
