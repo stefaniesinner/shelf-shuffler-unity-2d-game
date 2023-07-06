@@ -2,9 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/*
- * Helps the detector to recognize the ladder.
- */
 public class Ladder : MonoBehaviour
 {
     // Start is called before the first frame update
