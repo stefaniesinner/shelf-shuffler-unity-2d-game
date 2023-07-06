@@ -82,6 +82,7 @@ public class Player : MonoBehaviour
     {
         rb.velocity = new Vector2(moveHorizontal * speed, rb.velocity.y);
 
+
         if (isClimbing)
         {
             rb.gravityScale = 0f;
@@ -89,7 +90,7 @@ public class Player : MonoBehaviour
         } 
         else
         {
-            rb.gravityScale = speed;
+            rb.gravityScale = 3; // have an effect on players jump
         }
     }
 
