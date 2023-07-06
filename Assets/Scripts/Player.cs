@@ -62,6 +62,11 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
             jump();
 
+        if (isClimbing)
+        {
+            moveVertical = Input.GetAxisRaw("Vertical") * speed;
+        }
+
         anim.SetBool("isMoving", isMoving);
         anim.SetBool("isGrounded", isGrounded);
 
