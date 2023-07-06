@@ -16,14 +16,10 @@ public class Player : MonoBehaviour
     public float speed = 5f;
     public float jumpForce = 3;
     public float moveHorizontal;
-    public float moveVertical;
 
     public LayerMask groundLayer; // to know if and which floor the player is touching
     public float radius = 0.3f;
     public float groundRayDist = 0.5f;
-
-    // to use the ladder
-    public bool isClimbing;
 
     private Rigidbody2D rb;
     private Animator anim;
@@ -84,14 +80,6 @@ public class Player : MonoBehaviour
         if (!isGrounded) return;
 
         rb.velocity = Vector2.up * jumpForce;
-    }
-
-    /*
-     * Climb the ladder.
-     */
-    private void climb()
-    {
-        if (!isClimbing) return;
     }
 
     /*
