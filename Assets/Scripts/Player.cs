@@ -16,10 +16,15 @@ public class Player : MonoBehaviour
     public float speed = 5f;
     public float jumpForce = 3;
     public float moveHorizontal;
+    public float moveVertical;
 
     public LayerMask groundLayer; // to know if and which floor the player is touching
     public float radius = 0.3f;
     public float groundRayDist = 0.5f;
+
+    // to use the ladder
+    private bool isLadder; // to know if the player is standing next to the ladder
+    private bool isClimbing;
 
     private Rigidbody2D rb;
     private Animator anim;
@@ -50,6 +55,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         moveHorizontal = Input.GetAxisRaw("Horizontal");
+        moveVertical = Input.GetAxis("Vertical");
 
         isMoving = (moveHorizontal != 0);
 
@@ -57,6 +63,11 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
             jump();
+
+        if (isLadder && Mathf.Abs(moveVertical) > 0f)
+        {
+            isClimbing = true;
+        }
 
         anim.SetBool("isMoving", isMoving);
         anim.SetBool("isGrounded", isGrounded);
@@ -70,6 +81,16 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(moveHorizontal * speed, rb.velocity.y);
+
+        if (isClimbing)
+        {
+            rb.gravityScale = 0f;
+            rb.velocity = new Vector2(rb.velocity.x, moveVertical * speed);
+        } 
+        else
+        {
+            rb.gravityScale = speed;
+        }
     }
 
     /*
@@ -104,6 +125,29 @@ public class Player : MonoBehaviour
     private void OnDestroy()
     {
         obj = null;
+    }
+
+    /*
+     * Check if the player is standing to the ladder.
+     */
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ladder"))
+        {
+            isLadder = true;
+        }
+    }
+
+    /*
+     * Check if the player is standing to the ladder yet.
+     */
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ladder"))
+        {
+            isLadder = false;
+            isClimbing = false;
+        }
     }
 
 }
