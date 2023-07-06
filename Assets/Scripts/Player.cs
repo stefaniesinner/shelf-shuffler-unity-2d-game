@@ -79,6 +79,17 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(moveHorizontal * speed, rb.velocity.y);
+
+        if (isClimbing)
+        {
+            rb.isKinematic = true;
+            rb.velocity = new Vector2(moveHorizontal, moveVertical);
+        }
+        else
+        {
+            rb.isKinematic = false;
+            rb.velocity = new Vector2(moveHorizontal, rb.velocity.y);
+        }
     }
 
     /*
