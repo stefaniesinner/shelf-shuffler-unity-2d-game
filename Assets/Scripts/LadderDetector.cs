@@ -2,26 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/*
- * The detector has access to the player.
- */
 public class LadderDetector : MonoBehaviour
 {
-    [SerializeField] private Player player;
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    // Start is called before the first frame update
+    void Start()
     {
-        if (collision.GetComponent<Ladder>())
-        {
-            player.isClimbing = true;
-        }
+        
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    // Update is called once per frame
+    void Update()
     {
-        if (collision.GetComponent<Ladder>())
-        {
-            player.isClimbing = false;
-        }
+        
     }
 }
