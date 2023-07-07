@@ -7,10 +7,8 @@ public class Player : MonoBehaviour
 
     public static Player obj;
 
-    public int lives = 3;
     public bool isGrounded = false;
     public bool isMoving = false;
-    public bool isImmune = false;
 
     // to control the movements of the player
     public float speed = 5f;
