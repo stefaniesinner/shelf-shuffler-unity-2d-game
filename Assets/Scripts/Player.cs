@@ -12,8 +12,8 @@ public class Player : MonoBehaviour
 
     public bool isGrounded = false;
     public bool isMoving = false;
-    private bool isTouchingLadder;
-    private bool isClimbing;
+    private bool isTouchingLadder = false;
+    private bool isClimbing = false;
 
     public float speed = 5f;
     public float jumpForce = 3;
