@@ -119,14 +119,6 @@ public class Player : MonoBehaviour
     }
 
     /*
-     * ...
-     */
-    private void OnDestroy()
-    {
-        player = null;
-    }
-
-    /*
      * Check if the player is standing to the ladder.
      */
     private void OnTriggerEnter2D(Collider2D collision)
@@ -147,6 +139,14 @@ public class Player : MonoBehaviour
             isLadder = false;
             isClimbing = false;
         }
+    }
+
+    /*
+     * ...
+     */
+    private void OnDestroy()
+    {
+        player = null;
     }
 
 }
