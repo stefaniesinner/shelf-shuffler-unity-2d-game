@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    public static Player obj;
+    public static Player player;
 
     public bool isGrounded = false;
     public bool isMoving = false;
@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
      */
     private void Awake()
     {
-        obj = this;
+        player = this;
     }
 
     /*
@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
         isGrounded = Physics2D.CircleCast(transform.position, radius, Vector3.down, groundRayDist, groundLayer);
 
         if (Input.GetKeyDown(KeyCode.Space))
-            jump();
+            Jump();
 
         if (isLadder && Mathf.Abs(moveVertical) > 0f)
         {
@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
         anim.SetBool("isMoving", isMoving);
         anim.SetBool("isGrounded", isGrounded);
 
-        flip(moveHorizontal);
+        Flip(moveHorizontal);
     }
 
     /*
@@ -95,7 +95,7 @@ public class Player : MonoBehaviour
     /*
      * ...
      */
-    private void jump()
+    private void Jump()
     {
         if (!isGrounded) return;
 
@@ -105,7 +105,7 @@ public class Player : MonoBehaviour
     /*
      * Flips the sprites of our player according to where he moves (left or right).
      */
-    private void flip(float _xValue)
+    private void Flip(float _xValue)
     {
         Vector3 theScale = transform.localScale;
 
@@ -123,7 +123,7 @@ public class Player : MonoBehaviour
      */
     private void OnDestroy()
     {
-        obj = null;
+        player = null;
     }
 
     /*
