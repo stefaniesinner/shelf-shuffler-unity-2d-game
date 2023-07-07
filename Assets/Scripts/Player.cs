@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         moveHorizontal = Input.GetAxisRaw("Horizontal");
-        moveVertical = Input.GetAxis("Vertical");
+        moveVertical = Input.GetAxisRaw("Vertical");
 
         isMoving = (moveHorizontal != 0);
 
