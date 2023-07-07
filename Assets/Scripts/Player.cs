@@ -15,12 +15,13 @@ public class Player : MonoBehaviour
     private bool isTouchingLadder = false;
     private bool isClimbing = false;
 
-    public float speed = 5f;
-    public float jumpForce = 3;
     public float moveHorizontal;
     public float moveVertical;
+    public float speed = 5f;
+    public float jumpForce = 3;
 
-    public LayerMask groundLayer; // To know if and which floor the player is touching
+    // To know if and which floor the player is touching
+    public LayerMask groundLayer;
     public float radius = 0.3f;
     public float groundRayDist = 0.5f;
 
