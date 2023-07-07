@@ -119,6 +119,10 @@ public class Player : MonoBehaviour
         transform.localScale = playerScale;
     }
 
+    /// <summary>
+    /// Check if the player is standing to the collision object.
+    /// </summary>
+    /// <param name="collision">The respective collision object.</param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Ladder"))
@@ -127,6 +131,10 @@ public class Player : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Check if the player is standing to the collision object yet.
+    /// </summary>
+    /// <param name="collision">The respective collision object.</param>
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Ladder"))
