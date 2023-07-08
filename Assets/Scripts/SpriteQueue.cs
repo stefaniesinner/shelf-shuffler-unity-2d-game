@@ -10,35 +10,31 @@ public class SpriteQueue : MonoBehaviour
     public float maxSpawnInterval = 5f; // Maximum time interval between each sprite spawn
     public int maxQueueSize = 5; // Maximum size of the queue
 
+    public Player player; // Reference to the player object
+
     private Queue<GameObject> spriteQueue;
     private List<GameObject> spriteList;
     private float spawnTimer; // Timer for sprite spawning
     private Vector3 initialPosition = new Vector3(-4.29f, -0.25f, 0f); // Initial position of the first sprite
     private Vector3 targetPosition = new Vector3(0.90f, -0.25f, 0f); // Target position for the first sprite
+    private Vector3 newTargetPosition; 
     private float xOffset = 1f;
     private float movementSpeed = 2f; // Speed at which the sprites move towards the target position
-    //private bool isFirstSprite = true;
+
+    private bool isSpriteMoving; // Flag to check if the sprite is currently moving
 
     private void Start()
     {
         spriteQueue = new Queue<GameObject>();
         spriteList = new List<GameObject>();
         spawnTimer = Random.Range(minSpawnInterval, maxSpawnInterval);
+        newTargetPosition = new Vector3(4.95f, targetPosition.y, targetPosition.z);
 
         SpawnFirstSprite();
     }
 
     private void Update()
     {
-        // Decrease the spawn timer
-        spawnTimer -= Time.deltaTime;
-
-        if (spriteQueue.Count < maxQueueSize && spawnTimer <= 0f)
-        {
-            SpawnSprite(); // Spawn a new sprite
-            spawnTimer = Random.Range(minSpawnInterval, maxSpawnInterval);
-        }
-
         MoveSpritesTowardsTarget();
     }
 
@@ -49,28 +45,18 @@ public class SpriteQueue : MonoBehaviour
         StartCoroutine(MoveSprite(firstSprite, targetPosition));
         spriteQueue.Enqueue(firstSprite);
         spriteList.Add(firstSprite);
+
+        StartCoroutine(RestartMovementAfterDelay(firstSprite));
     }
 
-    public void SpawnSprite()
-    {
-        if (spriteQueue.Count >= maxQueueSize)
-        {
-            return;
-        }
+  private IEnumerator RestartMovementAfterDelay(GameObject sprite)
+{
+    yield return new WaitForSeconds(5f); 
 
-        GameObject newSprite = Instantiate(spritePrefab, initialPosition, Quaternion.identity);
-        spriteQueue.Enqueue(newSprite);
-        spriteList.Add(newSprite);
+    Vector3 newTargetPosition = new Vector3(4.95f, sprite.transform.position.y, sprite.transform.position.z);
+    StartCoroutine(MoveSprite(sprite, newTargetPosition));
+}
 
-        Vector3 targetPosition = this.targetPosition + new Vector3(-xOffset * (spriteList.Count - 1), 0f, 0f);
-        StartCoroutine(MoveSprite(newSprite, targetPosition - new Vector3(xOffset * 0.5f, 0f, 0f)));
-
-        if (spriteQueue.Count > 1)
-        {
-            GameObject stoppedSprite = spriteQueue.Dequeue();
-            SpawnNewCircleSprite(stoppedSprite.transform.position);
-        }
-    }
 
     public void UpdateSpritePositions()
     {
@@ -96,35 +82,80 @@ public class SpriteQueue : MonoBehaviour
 
     private IEnumerator MoveSprite(GameObject sprite, Vector3 targetPosition)
     {
-        Vector3 startPosition = sprite.transform.position;
-        float distance = Vector3.Distance(startPosition, targetPosition);
-        float time = distance / movementSpeed;
-        float elapsedTime = 0f;
+    if (isSpriteMoving)
+        yield break;
 
-        while (elapsedTime < time)
+    isSpriteMoving = true;
+
+    Rigidbody2D spriteRigidbody = sprite.GetComponent<Rigidbody2D>();
+
+    Vector3 startPosition = sprite.transform.position;
+    float distance = Vector3.Distance(startPosition, targetPosition);
+    float time = distance / movementSpeed;
+    float elapsedTime = 0f;
+
+    while (elapsedTime < time)
+    {
+        float t = elapsedTime / time;
+        sprite.transform.position = Vector3.Lerp(startPosition, targetPosition, t);
+        elapsedTime += Time.deltaTime;
+
+        yield return null;
+    }
+
+    sprite.transform.position = targetPosition;
+
+    if (targetPosition == this.targetPosition)
+    {
+        spriteRigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
+        GameObject circleSprite = SpawnNewCircleSprite(targetPosition);
+        StartCoroutine(DisappearCircleAfterDelay(circleSprite, 5f));
+    }
+    else if (targetPosition == newTargetPosition)
+    {
+        Destroy(sprite);
+    }
+
+    if (sprite == spriteList[spriteList.Count - 1])
+    {
+        if (spriteQueue.Count > 1)
         {
-            float t = elapsedTime / time;
-            sprite.transform.position = Vector3.Lerp(startPosition, targetPosition, t);
-            elapsedTime += Time.deltaTime;
-            yield return null;
+            GameObject stoppedSprite = spriteQueue.Dequeue();
+            SpawnNewCircleSprite(stoppedSprite.transform.position);
         }
+    }
 
-        sprite.transform.position = targetPosition;
+    isSpriteMoving = false;
+}
 
-        if (sprite == spriteList[spriteList.Count - 1])
+
+    private IEnumerator DisappearCircleAfterDelay(GameObject circleSprite, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (circleSprite != null)
+            Destroy(circleSprite);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
         {
-            if (spriteQueue.Count > 1)
+            GameObject sprite = other.gameObject;
+            Rigidbody2D spriteRigidbody = sprite.GetComponent<Rigidbody2D>();
+
+            if (!isSpriteMoving && spriteRigidbody != null && spriteRigidbody.velocity == Vector2.zero)
             {
-                GameObject stoppedSprite = spriteQueue.Dequeue();
-                SpawnNewCircleSprite(stoppedSprite.transform.position);
+                StartCoroutine(MoveSprite(sprite, targetPosition));
             }
         }
     }
 
-    private void SpawnNewCircleSprite(Vector3 position)
+    private GameObject SpawnNewCircleSprite(Vector3 position)
     {
         GameObject newCircleSprite = Instantiate(circlePrefab, position + new Vector3(0f, 1f, 0f), Quaternion.identity);
         newCircleSprite.GetComponent<SpriteRenderer>().color = GetRandomColor();
+        return newCircleSprite;
     }
 
     private Color GetRandomColor()
