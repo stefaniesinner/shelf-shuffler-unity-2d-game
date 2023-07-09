@@ -65,6 +65,7 @@ public class Player : MonoBehaviour
 
         anim.SetBool("isMoving", isMoving);
         anim.SetBool("isGrounded", isGrounded);
+        anim.SetBool("isClimbing", isClimbing);
 
         Flip(moveHorizontal);
     }
