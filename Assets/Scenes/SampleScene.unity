@@ -692,8 +692,43 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5984530137384331834, guid: 2c1d2dbab48704cbca9fa0c8a8231ada, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1660895155609550644}
   m_SourcePrefab: {fileID: 100100000, guid: 2c1d2dbab48704cbca9fa0c8a8231ada, type: 3}
+--- !u!1 &1660895155609550643 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5984530137384331834, guid: 2c1d2dbab48704cbca9fa0c8a8231ada, type: 3}
+  m_PrefabInstance: {fileID: 1660895155609550642}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &1660895155609550644
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660895155609550643}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &4718662902094386883
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -753,8 +788,43 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3977643899371293988, guid: a916c2f82b07c458184b5d4659ee8dd8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4718662902094386885}
   m_SourcePrefab: {fileID: 100100000, guid: a916c2f82b07c458184b5d4659ee8dd8, type: 3}
+--- !u!1 &4718662902094386884 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3977643899371293988, guid: a916c2f82b07c458184b5d4659ee8dd8, type: 3}
+  m_PrefabInstance: {fileID: 4718662902094386883}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &4718662902094386885
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4718662902094386884}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &6823321247245262252
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -814,5 +884,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3472224057945490841, guid: 2775d7db0e03649d79f5094058c36cf9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6823321247245262254}
   m_SourcePrefab: {fileID: 100100000, guid: 2775d7db0e03649d79f5094058c36cf9, type: 3}
+--- !u!1 &6823321247245262253 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3472224057945490841, guid: 2775d7db0e03649d79f5094058c36cf9, type: 3}
+  m_PrefabInstance: {fileID: 6823321247245262252}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &6823321247245262254
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6823321247245262253}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
