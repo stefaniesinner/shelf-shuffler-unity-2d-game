@@ -5,7 +5,6 @@ using UnityEngine;
 /// </summary>
 public class Player : MonoBehaviour
 {
-    public static Player obj;
 
     public static Player player;
 
@@ -38,7 +37,6 @@ public class Player : MonoBehaviour
     }
 
     private void Start()
-    private void Start() 
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -57,9 +55,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
             Jump();
         {
-            Jump();
-        }
-
+        
         if (isTouchingLadder && Mathf.Abs(moveVertical) > 0f)
         {
             isClimbing = true;
@@ -75,6 +71,7 @@ public class Player : MonoBehaviour
         anim.SetBool("isVertical", vertical);
 
         Flip(moveHorizontal);
+    }
     }
 
     private void FixedUpdate()
@@ -106,7 +103,6 @@ public class Player : MonoBehaviour
         rb.velocity = Vector2.up * jumpForce;
     }
 
-    private void Flip(float _xValue)
     /// <summary>
     /// Flip the sprites of the player according to his movements. If the player moves to the opposite direction (to the left), 
     /// flip the player's scale. Otherwise, maintain the original scale without changes.
@@ -116,10 +112,6 @@ public class Player : MonoBehaviour
     {
         Vector3 playerScale = transform.localScale;
 
-        if (_xValue < 0)
-            theScale.x = Mathf.Abs(theScale.x) * -1;
-        else if (_xValue > 0)
-            theScale.x = Mathf.Abs(theScale.x);
         if (xDirection < 0)
         {
             playerScale.x = Mathf.Abs(playerScale.x) * -1;
