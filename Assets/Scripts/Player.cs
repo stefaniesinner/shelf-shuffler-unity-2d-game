@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public bool isMoving = false;
     private bool isTouchingLadder = false;
     private bool isClimbing = false;
+    private bool vertical = false;
 
     public float moveHorizontal;
     public float moveVertical;
@@ -61,10 +62,16 @@ public class Player : MonoBehaviour
         if (isTouchingLadder && Mathf.Abs(moveVertical) > 0f)
         {
             isClimbing = true;
+            vertical = true;
+        } else if ( Mathf.Abs(moveVertical) == 0)
+        {
+            vertical = false;
         }
 
         anim.SetBool("isMoving", isMoving);
         anim.SetBool("isGrounded", isGrounded);
+        anim.SetBool("isClimbing", isClimbing);
+        anim.SetBool("isVertical", vertical);
 
         Flip(moveHorizontal);
     }
