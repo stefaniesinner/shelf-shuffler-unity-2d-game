@@ -25,13 +25,19 @@ public class Dialogue : MonoBehaviour
     // Wait for next boolean
     private bool waitForNext;
 
+    private void Awake()
+    {
+        ToggleIndicator(false);
+        ToggleWindow(false);
+    }
+
 
     private void ToggleWindow(bool show)
     {
         window.SetActive(show);
     }
 
-    private void ToggleIndicator(bool show)
+    public void ToggleIndicator(bool show)
     {
         indicator.SetActive(show);
     }
