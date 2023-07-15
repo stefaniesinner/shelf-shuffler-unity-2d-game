@@ -95,7 +95,7 @@ public class Dialogue : MonoBehaviour
 
     private void Update()
     {
-        if (started)
+        if (!started)
             return;
 
         if (waitForNext && Input.GetKeyDown(KeyCode.E))

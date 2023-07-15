@@ -68,7 +68,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.448, y: -2.547}
+  m_AnchoredPosition: {x: 0.448, y: -3.16}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &9198761990699260293
@@ -298,6 +298,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1424068819200551882}
+  - component: {fileID: 3834749650069552064}
   m_Layer: 0
   m_Name: Dialogue 1
   m_TagString: Untagged
@@ -320,8 +321,25 @@ Transform:
   - {fileID: 1163371999457104672}
   - {fileID: 2709110964784374403}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3834749650069552064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2587296496557444147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 173755048f1447045a7442ea5ea9c6bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  window: {fileID: 1116021001276759316}
+  indicator: {fileID: 1389843782741105565}
+  dialogueText: {fileID: 3667126109113803327}
+  dialogues: []
+  writingSpeed: 0.3
 --- !u!1 &5332421330665971227
 GameObject:
   m_ObjectHideFlags: 0
