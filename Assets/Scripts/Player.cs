@@ -32,11 +32,57 @@ public class Player : MonoBehaviour
         player = GetComponent<Player>();
     }
 
+    // Start is called before the first frame update
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         spr = GetComponent<SpriteRenderer>();
+    }
+
+    // Update is called once per frame
+    private void Update()
+    {
+        moveHorizontal = Input.GetAxisRaw("Horizontal");
+        moveVertical = Input.GetAxisRaw("Vertical");
+
+        isMoving = (moveHorizontal != 0);
+        inOnGround = Physics2D.CircleCast(transform.position, radius, Vector3.down, groundRayDist, groundLayer);
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Jump();
+        }
+
+        if (isTouchingLadder && Mathf.Abs(moveVertical) > 0f)
+        {
+            isClimbing = true;
+            isOnLadder = true;
+        }
+        else if (Mathf.Abs(moveVertical) == 0)
+        {
+            isOnLadder = false;
+        }
+
+        AnimatePlayer();
+
+        FlipSprite(moveHorizontal);
+    }
+
+    private void FixedUpdate()
+    {
+        rb.velocity = new Vector2(moveHorizontal * speed, rb.velocity.y);
+
+
+        if (isClimbing)
+        {
+            rb.gravityScale = 0f;
+            rb.velocity = new Vector2(rb.velocity.x, moveVertical * speed);
+        }
+        else
+        {
+            rb.gravityScale = 3;
+        }
     }
 
     private void Walk()
@@ -85,50 +131,6 @@ public class Player : MonoBehaviour
         anim.SetBool("isGrounded", inOnGround);
         anim.SetBool("isClimbing", isClimbing);
         anim.SetBool("isVertical", isOnLadder);
-    }
-
-    private void Update()
-    {
-        moveHorizontal = Input.GetAxisRaw("Horizontal");
-        moveVertical = Input.GetAxisRaw("Vertical");
-
-        isMoving = (moveHorizontal != 0);
-        inOnGround = Physics2D.CircleCast(transform.position, radius, Vector3.down, groundRayDist, groundLayer);
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Jump();
-        }
-
-        if (isTouchingLadder && Mathf.Abs(moveVertical) > 0f)
-        {
-            isClimbing = true;
-            isOnLadder = true;
-        }
-        else if (Mathf.Abs(moveVertical) == 0)
-        {
-            isOnLadder = false;
-        }
-
-        AnimatePlayer();
-
-        FlipSprite(moveHorizontal);
-    }
-
-    private void FixedUpdate()
-    {
-        rb.velocity = new Vector2(moveHorizontal * speed, rb.velocity.y);
-
-
-        if (isClimbing)
-        {
-            rb.gravityScale = 0f;
-            rb.velocity = new Vector2(rb.velocity.x, moveVertical * speed);
-        }
-        else
-        {
-            rb.gravityScale = 3;
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
