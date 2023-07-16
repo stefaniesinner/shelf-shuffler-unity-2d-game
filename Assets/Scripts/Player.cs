@@ -41,10 +41,14 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        // Look at the respective direction
         moveHorizontal = Input.GetAxisRaw("Horizontal");
         moveVertical = Input.GetAxisRaw("Vertical");
 
         isMoving();
+        isOnGround();
+
+        Walk();
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -68,8 +72,6 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Walk();
-
         if (isClimbing)
         {
             rb.gravityScale = 0f;
