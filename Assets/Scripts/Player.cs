@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-
     public static Player player;
 
-    public bool isGrounded = false;
-    public bool isMoving = false;
-    private bool isTouchingLadder = false;
-    private bool isClimbing = false;
-    private bool vertical = false;
+    public bool isGrounded;
+    public bool isMoving;
+    private bool isTouchingLadder;
+    private bool isClimbing;
+    private bool vertical;
 
     public float moveHorizontal;
     public float moveVertical;
