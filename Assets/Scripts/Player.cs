@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     private bool inOnGround;
     private bool isTouchingLadder;
     private bool isClimbing;
-    private bool vertical;
+    private bool isOnLadder;
 
     private float moveHorizontal;
     private float moveVertical;
@@ -39,6 +39,11 @@ public class Player : MonoBehaviour
         spr = GetComponent<SpriteRenderer>();
     }
 
+    private void Walk()
+    {
+
+    }
+
     private void Jump()
     {
         if (!inOnGround)
@@ -47,6 +52,11 @@ public class Player : MonoBehaviour
         }
 
         rb.velocity = Vector2.up * jumpForce;
+    }
+
+    private void Climb()
+    {
+
     }
 
     private void FlipSprite(float xDirection)
@@ -74,7 +84,7 @@ public class Player : MonoBehaviour
         anim.SetBool("isMoving", isMoving);
         anim.SetBool("isGrounded", inOnGround);
         anim.SetBool("isClimbing", isClimbing);
-        anim.SetBool("isVertical", vertical);
+        anim.SetBool("isVertical", isOnLadder);
     }
 
     private void Update()
@@ -83,9 +93,7 @@ public class Player : MonoBehaviour
         moveVertical = Input.GetAxisRaw("Vertical");
 
         isMoving = (moveHorizontal != 0);
-
         inOnGround = Physics2D.CircleCast(transform.position, radius, Vector3.down, groundRayDist, groundLayer);
-
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -95,11 +103,11 @@ public class Player : MonoBehaviour
         if (isTouchingLadder && Mathf.Abs(moveVertical) > 0f)
         {
             isClimbing = true;
-            vertical = true;
+            isOnLadder = true;
         }
         else if (Mathf.Abs(moveVertical) == 0)
         {
-            vertical = false;
+            isOnLadder = false;
         }
 
         AnimatePlayer();
