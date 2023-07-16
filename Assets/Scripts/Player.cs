@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
 
     public float speed = 5f;
     public float jumpForce = 3;
+    public float gravityScale = 3;
 
     public LayerMask groundLayer; // To know if and which ground the player is touching
     public float radius = 0.3f;
@@ -41,28 +42,18 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        // Look at the respective direction
         moveHorizontal = Input.GetAxisRaw("Horizontal");
         moveVertical = Input.GetAxisRaw("Vertical");
 
         isMoving();
         isOnGround();
+        isUsingLadder();
 
         Walk();
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Jump();
-        }
-
-        if (isTouchingLadder && Mathf.Abs(moveVertical) > 0f)
-        {
-            isClimbing = true;
-            isOnLadder = true;
-        }
-        else if (Mathf.Abs(moveVertical) == 0)
-        {
-            isOnLadder = false;
         }
 
         AnimatePlayer();
@@ -72,15 +63,7 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isClimbing)
-        {
-            rb.gravityScale = 0f;
-            rb.velocity = new Vector2(rb.velocity.x, moveVertical * speed);
-        }
-        else
-        {
-            rb.gravityScale = 3;
-        }
+        Climb();
     }
 
     private bool isMoving()
@@ -103,6 +86,21 @@ public class Player : MonoBehaviour
         return false;
     }
 
+    private bool isUsingLadder()
+    {
+        if (isTouchingLadder && Mathf.Abs(moveVertical) > 0f)
+        {
+            isClimbing = true;
+            isOnLadder = true;
+        }
+        else if (Mathf.Abs(moveVertical) == 0)
+        {
+            isOnLadder = false;
+        }
+
+        return false;
+    }
+
     private void Walk()
     {
         rb.velocity = new Vector2(moveHorizontal * speed, rb.velocity.y);
@@ -120,7 +118,15 @@ public class Player : MonoBehaviour
 
     private void Climb()
     {
-
+        if (isClimbing)
+        {
+            rb.gravityScale = 0f;
+            rb.velocity = new Vector2(rb.velocity.x, moveVertical * speed);
+        }
+        else
+        {
+            rb.gravityScale = gravityScale;
+        }
     }
 
     private void FlipSprite(float xDirection)
