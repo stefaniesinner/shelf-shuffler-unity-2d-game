@@ -6,19 +6,19 @@ public class Player : MonoBehaviour
 {
     public static Player player;
 
-    public bool isGrounded;
-    public bool isMoving;
+    private bool isMoving;
+    private bool inOnGround;
     private bool isTouchingLadder;
     private bool isClimbing;
     private bool vertical;
 
-    public float moveHorizontal;
-    public float moveVertical;
+    private float moveHorizontal;
+    private float moveVertical;
+
     public float speed = 5f;
     public float jumpForce = 3;
 
-    // To know if and which floor the player is touching
-    public LayerMask groundLayer;
+    public LayerMask groundLayer; // To know if and which ground the player is touching
     public float radius = 0.3f;
     public float groundRayDist = 0.5f;
 
@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
 
     private void Jump()
     {
-        if (!isGrounded)
+        if (!inOnGround)
         {
             return;
         }
@@ -72,7 +72,7 @@ public class Player : MonoBehaviour
     private void AnimatePlayer()
     {
         anim.SetBool("isMoving", isMoving);
-        anim.SetBool("isGrounded", isGrounded);
+        anim.SetBool("isGrounded", inOnGround);
         anim.SetBool("isClimbing", isClimbing);
         anim.SetBool("isVertical", vertical);
     }
@@ -84,7 +84,7 @@ public class Player : MonoBehaviour
 
         isMoving = (moveHorizontal != 0);
 
-        isGrounded = Physics2D.CircleCast(transform.position, radius, Vector3.down, groundRayDist, groundLayer);
+        inOnGround = Physics2D.CircleCast(transform.position, radius, Vector3.down, groundRayDist, groundLayer);
 
 
         if (Input.GetKeyDown(KeyCode.Space))
