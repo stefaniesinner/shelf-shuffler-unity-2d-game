@@ -6,7 +6,6 @@ public class Player : MonoBehaviour
 {
     public static Player player;
 
-    private bool inOnGround;
     private bool isTouchingLadder;
     private bool isClimbing;
     private bool isOnLadder;
@@ -46,8 +45,6 @@ public class Player : MonoBehaviour
         moveVertical = Input.GetAxisRaw("Vertical");
 
         isMoving();
-
-        inOnGround = Physics2D.CircleCast(transform.position, radius, Vector3.down, groundRayDist, groundLayer);
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -94,6 +91,16 @@ public class Player : MonoBehaviour
         return false;
     }
 
+    private bool isOnGround()
+    {
+        if (Physics2D.CircleCast(transform.position, radius, Vector3.down, groundRayDist, groundLayer))
+        {
+            return true;
+        }
+
+        return false;
+    }
+
     private void Walk()
     {
         rb.velocity = new Vector2(moveHorizontal * speed, rb.velocity.y);
@@ -101,7 +108,7 @@ public class Player : MonoBehaviour
 
     private void Jump()
     {
-        if (!inOnGround)
+        if (!isOnGround())
         {
             return;
         }
@@ -137,7 +144,7 @@ public class Player : MonoBehaviour
     private void AnimatePlayer()
     {
         anim.SetBool("isMoving", isMoving());
-        anim.SetBool("isGrounded", inOnGround);
+        anim.SetBool("isGrounded", isOnGround());
         anim.SetBool("isClimbing", isClimbing);
         anim.SetBool("isVertical", isOnLadder);
     }
