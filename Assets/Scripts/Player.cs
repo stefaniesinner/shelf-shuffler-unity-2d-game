@@ -8,26 +8,24 @@ public class Player : MonoBehaviour
 
     public float speed = 5f;
     public float jumpingPower = 5;
-    public float gravityScale = 3;
+    public float gravityScale = 2;
 
     public LayerMask groundLayer; // To know if and which ground the player is touching
     public float groundRadius = 0.3f;
     public float groundRayDist = 0.5f;
-
-    // Ladder Variables
-    public bool canClimb = false;
-    public bool bottomLadder = false;
-    public bool topLadder = false;
 
     private float moveHorizontal;
     private float moveVertical;
 
     private bool isJumping;
 
+    private bool isTouchingLadder;
+    private bool isClimbing;
+    private bool isOnLadder;
+
     private Rigidbody2D rb;
     private Animator anim;
     private SpriteRenderer spr;
-
 
     private void Awake()
     {
@@ -47,9 +45,11 @@ public class Player : MonoBehaviour
     {
         isMoving();
         isOnGround();
+        isUsingLadder();
 
         Move();
         Jump();
+        Climb();
 
         AnimatePlayer();
         FlipSprite(moveHorizontal);
@@ -75,6 +75,20 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void Climb()
+    {
+        if (isClimbing)
+        {
+            rb.gravityScale = 0f;
+            rb.velocity = new Vector2(rb.velocity.x, moveVertical * speed);
+        }
+        else
+        {
+            rb.gravityScale = gravityScale;
+        }
+    }
+
+
     private bool isMoving()
     {
         moveHorizontal = Input.GetAxisRaw("Horizontal");
@@ -93,6 +107,21 @@ public class Player : MonoBehaviour
         if (Physics2D.CircleCast(transform.position, groundRadius, Vector3.down, groundRayDist, groundLayer))
         {
             return true;
+        }
+
+        return false;
+    }
+
+    private bool isUsingLadder()
+    {
+        if (isTouchingLadder && Mathf.Abs(moveVertical) > 0f)
+        {
+            isClimbing = true;
+            isOnLadder = true;
+        }
+        else if (Mathf.Abs(moveVertical) == 0)
+        {
+            isOnLadder = false;
         }
 
         return false;
@@ -122,8 +151,25 @@ public class Player : MonoBehaviour
     {
         anim.SetBool("isMoving", isMoving());
         anim.SetBool("isGrounded", isOnGround());
-        //anim.SetBool("isClimbing", isClimbing);
-        //anim.SetBool("isVertical", isOnLadder);
+        anim.SetBool("isClimbing", isClimbing);
+        anim.SetBool("isVertical", isOnLadder);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ladder"))
+        {
+            isTouchingLadder = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ladder"))
+        {
+            isTouchingLadder = false;
+            isClimbing = false;
+        }
     }
 
     private void OnDestroy()
