@@ -46,17 +46,13 @@ public class Player : MonoBehaviour
     private void Update()
     {
         isMoving();
-
-        AnimatePlayer();
-        FlipSprite(moveHorizontal);
-    }
-
-    private void FixedUpdate()
-    {
         isOnGround();
 
         Move();
         Jump();
+
+        AnimatePlayer();
+        FlipSprite(moveHorizontal);
     }
 
     private void Move()
