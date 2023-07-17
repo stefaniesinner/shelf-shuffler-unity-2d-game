@@ -6,20 +6,18 @@ public class Player : MonoBehaviour
 {
     public static Player player;
 
-    //private bool isTouchingLadder;
-    //private bool isClimbing;
-    //private bool isOnLadder;
+    public float speed = 5f;
+    public float jumpingPower = 5;
+    public float gravityScale = 3;
+
+    public LayerMask groundLayer; // To know if and which ground the player is touching
+    public float groundRadius = 0.3f;
+    public float groundRayDist = 0.5f;
 
     private float moveHorizontal;
     private float moveVertical;
 
-    public float speed = 5f;
-    public float jumpForce = 3;
-    public float gravityScale = 3;
-
-    public LayerMask groundLayer; // To know if and which ground the player is touching
-    public float radius = 0.3f;
-    public float groundRayDist = 0.5f;
+    private bool isJumping;
 
     private Rigidbody2D rb;
     private Animator anim;
@@ -49,11 +47,7 @@ public class Player : MonoBehaviour
         isOnGround();
 
         Walk();
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Jump();
-        }
+        Jump();
 
         AnimatePlayer();
 
@@ -77,7 +71,7 @@ public class Player : MonoBehaviour
 
     private bool isOnGround()
     {
-        if (Physics2D.CircleCast(transform.position, radius, Vector3.down, groundRayDist, groundLayer))
+        if (Physics2D.CircleCast(transform.position, groundRadius, Vector3.down, groundRayDist, groundLayer))
         {
             return true;
         }
@@ -92,12 +86,17 @@ public class Player : MonoBehaviour
 
     private void Jump()
     {
-        if (!isOnGround())
+        if ((Input.GetKeyDown(KeyCode.Space)) && !isJumping)
         {
-            return;
+            rb.velocity = new Vector3(0, jumpingPower, 0);
+            isJumping = true;
         }
 
-        rb.velocity = Vector2.up * jumpForce;
+        // Stop multiple jumping at a time
+        if (rb.velocity.y == 0)
+        {
+            isJumping = false;
+        }
     }
 
     private void Climb()
