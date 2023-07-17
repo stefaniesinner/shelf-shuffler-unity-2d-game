@@ -40,17 +40,12 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        moveHorizontal = Input.GetAxisRaw("Horizontal");
-        moveVertical = Input.GetAxisRaw("Vertical");
-
-        isMoving();
         isOnGround();
 
-        Walk();
+        Move();
         Jump();
 
         AnimatePlayer();
-
         FlipSprite(moveHorizontal);
     }
 
@@ -79,8 +74,13 @@ public class Player : MonoBehaviour
         return false;
     }
 
-    private void Walk()
+    private void Move()
     {
+        moveHorizontal = Input.GetAxisRaw("Horizontal");
+        moveVertical = Input.GetAxisRaw("Vertical");
+
+        isMoving();
+
         rb.velocity = new Vector2(moveHorizontal * speed, rb.velocity.y);
     }
 
