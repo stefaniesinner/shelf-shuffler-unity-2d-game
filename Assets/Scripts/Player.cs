@@ -54,25 +54,6 @@ public class Player : MonoBehaviour
         Climb();
     }
 
-    private bool isMoving()
-    {
-        if (moveHorizontal != 0)
-        {
-            return true;
-        }
-
-        return false;
-    }
-
-    private bool isOnGround()
-    {
-        if (Physics2D.CircleCast(transform.position, groundRadius, Vector3.down, groundRayDist, groundLayer))
-        {
-            return true;
-        }
-
-        return false;
-    }
 
     private void Move()
     {
@@ -102,6 +83,26 @@ public class Player : MonoBehaviour
     private void Climb()
     {
 
+    }
+
+    private bool isMoving()
+    {
+        if (moveHorizontal != 0)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    private bool isOnGround()
+    {
+        if (Physics2D.CircleCast(transform.position, groundRadius, Vector3.down, groundRayDist, groundLayer))
+        {
+            return true;
+        }
+
+        return false;
     }
 
     private void FlipSprite(float xDirection)
