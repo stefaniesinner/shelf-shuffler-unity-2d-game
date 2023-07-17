@@ -10,6 +10,8 @@ public class Dialogue : MonoBehaviour
     public GameObject window;
     // Indicator
     public GameObject indicator;
+    // Selection
+    public GameObject selection;
     // Text component
     public TMP_Text dialogueText;
     // Dialogue list
