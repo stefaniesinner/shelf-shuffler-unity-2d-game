@@ -6,9 +6,9 @@ public class Player : MonoBehaviour
 {
     public static Player player;
 
-    private bool isTouchingLadder;
-    private bool isClimbing;
-    private bool isOnLadder;
+    //private bool isTouchingLadder;
+    //private bool isClimbing;
+    //private bool isOnLadder;
 
     private float moveHorizontal;
     private float moveVertical;
@@ -47,7 +47,6 @@ public class Player : MonoBehaviour
 
         isMoving();
         isOnGround();
-        isUsingLadder();
 
         Walk();
 
@@ -86,21 +85,6 @@ public class Player : MonoBehaviour
         return false;
     }
 
-    private bool isUsingLadder()
-    {
-        if (isTouchingLadder && Mathf.Abs(moveVertical) > 0f)
-        {
-            isClimbing = true;
-            isOnLadder = true;
-        }
-        else if (Mathf.Abs(moveVertical) == 0)
-        {
-            isOnLadder = false;
-        }
-
-        return false;
-    }
-
     private void Walk()
     {
         rb.velocity = new Vector2(moveHorizontal * speed, rb.velocity.y);
@@ -118,15 +102,7 @@ public class Player : MonoBehaviour
 
     private void Climb()
     {
-        if (isClimbing)
-        {
-            rb.gravityScale = 0f;
-            rb.velocity = new Vector2(rb.velocity.x, moveVertical * speed);
-        }
-        else
-        {
-            rb.gravityScale = gravityScale;
-        }
+
     }
 
     private void FlipSprite(float xDirection)
@@ -153,25 +129,8 @@ public class Player : MonoBehaviour
     {
         anim.SetBool("isMoving", isMoving());
         anim.SetBool("isGrounded", isOnGround());
-        anim.SetBool("isClimbing", isClimbing);
-        anim.SetBool("isVertical", isOnLadder);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Ladder"))
-        {
-            isTouchingLadder = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Ladder"))
-        {
-            isTouchingLadder = false;
-            isClimbing = false;
-        }
+        //anim.SetBool("isClimbing", isClimbing);
+        //anim.SetBool("isVertical", isOnLadder);
     }
 
     private void OnDestroy()
