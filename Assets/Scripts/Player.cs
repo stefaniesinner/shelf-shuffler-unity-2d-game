@@ -40,10 +40,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        isOnGround();
-
-        Move();
-        Jump();
+        isMoving();
 
         AnimatePlayer();
         FlipSprite(moveHorizontal);
@@ -51,17 +48,14 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Climb();
-    }
+        isOnGround();
 
+        Move();
+        Jump();
+    }
 
     private void Move()
     {
-        moveHorizontal = Input.GetAxisRaw("Horizontal");
-        moveVertical = Input.GetAxisRaw("Vertical");
-
-        isMoving();
-
         rb.velocity = new Vector2(moveHorizontal * speed, rb.velocity.y);
     }
 
@@ -80,13 +74,11 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void Climb()
-    {
-
-    }
-
     private bool isMoving()
     {
+        moveHorizontal = Input.GetAxisRaw("Horizontal");
+        moveVertical = Input.GetAxisRaw("Vertical");
+
         if (moveHorizontal != 0)
         {
             return true;
