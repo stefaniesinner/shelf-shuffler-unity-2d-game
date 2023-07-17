@@ -18,8 +18,32 @@ public class Ladder : MonoBehaviour
                     player.canClimb = true;
                     break;
                 case LadderPart.bottom:
+                    player.bottomLadder = true;
                     break;
                 case LadderPart.top:
+                    player.topLadder = true;
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.GetComponent<Player>())
+        {
+            Player player = collision.GetComponent<Player>();
+            switch (part)
+            {
+                case LadderPart.complete:
+                    player.canClimb = false;
+                    break;
+                case LadderPart.bottom:
+                    player.bottomLadder = false;
+                    break;
+                case LadderPart.top:
+                    player.topLadder = false;
                     break;
                 default:
                     break;
