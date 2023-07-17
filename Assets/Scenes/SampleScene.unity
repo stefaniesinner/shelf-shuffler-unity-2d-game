@@ -1038,7 +1038,7 @@ GameObject:
   - component: {fileID: 1326562064}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1215,17 +1215,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcf1b4d806e08604a91c9e817f34a99e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isGrounded: 0
-  isMoving: 0
-  moveHorizontal: 0
-  moveVertical: 0
   speed: 5
-  jumpForce: 7
+  jumpingPower: 5
+  gravityScale: 3
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  radius: 0.3
+  groundRadius: 0.3
   groundRayDist: 0.55
+  canClimb: 0
+  bottomLadder: 0
+  topLadder: 0
 --- !u!1001 &1344685951
 PrefabInstance:
   m_ObjectHideFlags: 0
