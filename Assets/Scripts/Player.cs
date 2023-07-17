@@ -14,6 +14,11 @@ public class Player : MonoBehaviour
     public float groundRadius = 0.3f;
     public float groundRayDist = 0.5f;
 
+    // Ladder Variables
+    public bool canClimb = false;
+    public bool bottomLadder = false;
+    public bool topLadder = false;
+
     private float moveHorizontal;
     private float moveVertical;
 

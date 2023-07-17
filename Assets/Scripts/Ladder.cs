@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class Ladder : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private enum LadderPart { complete, bottom, top };
+    [SerializeField] LadderPart part = LadderPart.complete;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.GetComponent<Player>())
+        {
+            Player player = collision.GetComponent<Player>();
+            switch (part)
+            {
+                case LadderPart.complete:
+                    player.canClimb = true;
+                    break;
+                case LadderPart.bottom:
+                    break;
+                case LadderPart.top:
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }
