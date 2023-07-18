@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ladder
+  - Books
   layers:
   - Default
   - TransparentFX
