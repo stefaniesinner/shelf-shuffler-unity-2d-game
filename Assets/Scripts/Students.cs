@@ -14,7 +14,6 @@ public class Students : MonoBehaviour
     private Vector3 startingPosition;
     private Vector3 outsidePosition;
 
-    // Reference to the WaitingQueue script
     private WaitingQueue waitingQueue;
 
     private bool isWalkingToEntrance = false;
@@ -30,7 +29,6 @@ public class Students : MonoBehaviour
         outsidePosition = new Vector3(-10f, startingPosition.y, startingPosition.z);
         transform.position = outsidePosition;
 
-        // Find the WaitingQueue script in the scene
         waitingQueue = FindObjectOfType<WaitingQueue>();
     }
 
@@ -45,9 +43,10 @@ public class Students : MonoBehaviour
         timeElapsed += Time.deltaTime;
 
         // Check if the student needs to move to the entrance position
-        if (isWalkingToEntrance && waitingQueue.CanEnter())
+        if (isWalkingToEntrance && waitingQueue.CanEnter(this))
         {
             isWalkingToEntrance = false;
+            Vector3 entrancePosition = waitingQueue.GetEntrancePosition();   
             MoveToEntrancePosition();
         }
     }
@@ -63,35 +62,44 @@ public class Students : MonoBehaviour
     }
 
     public void MoveTo(Vector3 targetPosition, System.Action callback = null)
+{
+    StartCoroutine(MoveToCoroutine(targetPosition, callback));
+}
+
+IEnumerator MoveToCoroutine(Vector3 targetPosition, System.Action callback)
+{
+    // Set the animation state to "Walk_student 1"
+    Animator animator = GetComponent<Animator>();
+    animator.Play("Walk_student 1");
+
+    // Move the student to the target position over time
+    float speed = 2.0f;
+    float distance = Vector3.Distance(transform.position, targetPosition);
+    float duration = distance / speed;
+    float elapsedTime = 0f;
+    Vector3 startPosition = transform.position;
+
+    while (elapsedTime < duration)
     {
-        StartCoroutine(MoveToCoroutine(targetPosition, callback));
+        transform.position = Vector3.Lerp(startPosition, targetPosition, elapsedTime / duration);
+        elapsedTime += Time.deltaTime;
+        yield return null;
     }
 
-    IEnumerator MoveToCoroutine(Vector3 targetPosition, System.Action callback)
+    transform.position = targetPosition;
+
+    animator.Play("Idle_student1");
+
+    callback?.Invoke();
+}
+
+
+      public void MoveToEntrancePosition(System.Action callback = null)
     {
-        float speed = 2.0f;
-        float distance = Vector3.Distance(transform.position, targetPosition);
-        float duration = distance / speed;
-        float elapsedTime = 0f;
-        Vector3 startPosition = transform.position;
-
-        while (elapsedTime < duration)
+        if (waitingQueue.CanEnter(this))
         {
-            transform.position = Vector3.Lerp(startPosition, targetPosition, elapsedTime / duration);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-
-        transform.position = targetPosition;
-
-        callback?.Invoke();
-    }
-
-    public void MoveToEntrancePosition(System.Action callback = null)
-    {
-        if (waitingQueue.CanEnter())
-        {
-            MoveTo(startingPosition, callback);
+            Vector3 entrancePosition = waitingQueue.GetEntrancePosition();
+            MoveTo(entrancePosition, callback);
         }
         else
         {
@@ -103,4 +111,5 @@ public class Students : MonoBehaviour
     {
         MoveTo(outsidePosition, callback);
     }
+   
 }

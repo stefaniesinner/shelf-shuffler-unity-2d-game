@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameHandler : MonoBehaviour
 {
-    public List<GameObject> studentPrefabs;
+    public List<Students> studentsList;
 
     private void Start()
     {
@@ -18,6 +18,6 @@ public class GameHandler : MonoBehaviour
         }
 
         WaitingQueue waitingQueue = GetComponent<WaitingQueue>();
-        waitingQueue.Initialize(waitingQueuePositionList, studentPrefabs);
+        waitingQueue.Initialize(waitingQueuePositionList, studentsList);
     }
 }
