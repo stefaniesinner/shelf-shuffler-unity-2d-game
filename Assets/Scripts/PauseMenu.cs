@@ -20,6 +20,10 @@ public class PauseMenu : MonoBehaviour
 
     }
 
+    public void RestartGame(){
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
     public void Home(int sceneID){
         Time.timeScale = 1f; 
 
@@ -31,7 +35,7 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void Quit(){
-
+        SceneManager.LoadScene("StartMenu");
     }
 
 }
