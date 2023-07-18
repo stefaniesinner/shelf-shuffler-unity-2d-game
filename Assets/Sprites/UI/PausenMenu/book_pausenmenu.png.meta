@@ -43,13 +43,13 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 0, y: 0, z: 72, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -108,18 +108,238 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: book_pausenmenu_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 16
+        width: 60
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fc5e069ea593544ab07302542e4a7f4
+      internalID: -226697200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: book_pausenmenu_1
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 16
+        width: 60
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65ee7dca60a76544fa77d83f4637b07b
+      internalID: -593161201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: book_pausenmenu_2
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 16
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ca63886c685fa54999e06a3b77921c9
+      internalID: -1470693546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: book_pausenmenu_3
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 16
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ea6e9c3313739848a5a2e4a807f9705
+      internalID: 1274501841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: book_pausenmenu_4
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 16
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fefe38bbc35736645a376e0515dd69e2
+      internalID: 1129966063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: book_pausenmenu_5
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 16
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db6346e8b5faa1246adc829456b9ad8f
+      internalID: 2013123241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: book_pausenmenu_6
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 16
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 186b4fa7f5d9ae44bb5253c99c5e6ae5
+      internalID: -1584596460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: book_pausenmenu_7
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 16
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c502ba5e7a334b43afd84179beafcd4
+      internalID: -1362842656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: book_pausenmenu_8
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 16
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ad0e90d9b4a4f04dbd541d64a151d3d
+      internalID: 808486460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: book_pausenmenu_9
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 16
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d379ab83cb099144aa74a95785e519df
+      internalID: 514343319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      book_pausenmenu_0: -226697200
+      book_pausenmenu_1: -593161201
+      book_pausenmenu_2: -1470693546
+      book_pausenmenu_3: 1274501841
+      book_pausenmenu_4: 1129966063
+      book_pausenmenu_5: 2013123241
+      book_pausenmenu_6: -1584596460
+      book_pausenmenu_7: -1362842656
+      book_pausenmenu_8: 808486460
+      book_pausenmenu_9: 514343319
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
