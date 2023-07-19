@@ -13,7 +13,6 @@ public class Dialogue : MonoBehaviour
     // Selected BookshelfSection
     public Selection selection;
 
-
     // Text component
     public TMP_Text dialogueText;
     // Dialogue list
@@ -29,10 +28,17 @@ public class Dialogue : MonoBehaviour
     // Wait for next boolean
     private bool waitForNext;
 
+    private int currentBookshelfSection;
+
     private void Awake()
     {
         ToggleIndicator(false);
         ToggleWindow(false);
+    }
+
+    private void setSelectedInformation() 
+    {
+        currentBookshelfSection = selection.getCurrentBookshelfSection();
     }
 
 

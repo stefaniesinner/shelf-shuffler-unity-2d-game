@@ -6,6 +6,7 @@ public class Selection : MonoBehaviour
 {
     public GameObject[] bookSectionArray;
     private BookshelfSection currentSelectedSection;
+    private int currentBookshelfSection;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,7 @@ public class Selection : MonoBehaviour
             {
                 section.setVisible(section.getHighlight(), true);
                 currentSelectedSection = section;
+                currentBookshelfSection = i;
             } else {
                 section.setVisible(section.getHighlight(), false);
                 currentSelectedSection = null;
@@ -38,8 +40,8 @@ public class Selection : MonoBehaviour
         }
     }
 
-    public BookshelfSection getCurrentBookshelfSection() 
+    public int getCurrentBookshelfSection() 
     {
-        return currentSelectedSection;
+        return currentBookshelfSection;
     }
 }
