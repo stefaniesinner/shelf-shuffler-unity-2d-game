@@ -30,6 +30,7 @@ public class BookSelection : MonoBehaviour
 
     public void selectNextBook(int currentBook, int orientation) 
     {
+        
             if (currentBook == 0)
             {
                 currentBook = currentBook + orientation;
