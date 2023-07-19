@@ -15,6 +15,11 @@ public class InteractionSystem : MonoBehaviour
     // List of picked Items
     public List<GameObject> pickedItems = new List<GameObject>();
 
+    public GameObject grabbedObject;
+    public float grabbedObjectYValue;
+    public Transform grabPoint;
+    public bool isGrabbing;
+
     // Update is called once per frame
     void Update()
     {
@@ -57,5 +62,36 @@ public class InteractionSystem : MonoBehaviour
     public void PickUpItem(GameObject item)
     {
         pickedItems.Add(item);
+    }
+
+    public void GrabDrop()
+    {
+        // Check if we do have a grabbed object
+        if (isGrabbing)
+        {
+            // Make the isGrabbing false
+            isGrabbing = false;
+            // Unparent the grabbed Object
+            grabbedObject.transform.parent = null;
+            // Set the y position to its origin
+            grabbedObject.transform.position =
+                new Vector3(grabbedObject.transform.position.x, grabbedObjectYValue, grabbedObject.transform.position.z);
+            // null the grabbed object reference
+            grabbedObject = null;
+        }
+        // Check if we have nothing grabbed grab the detected item
+        else
+        {
+            // Enable the isGrabbing bool
+            isGrabbing = true;
+            // Assign the grabbed object to the object itself
+            grabbedObject = detectedObject;
+            // Parent the grabbed object to the player
+            grabbedObject.transform.parent = transform;
+            // Cache the y value of the object
+            grabbedObjectYValue = grabbedObject.transform.position.y;
+            // Adjust the position of the grabbed object to be closer to hands
+            grabbedObject.transform.localPosition = grabPoint.localPosition;
+        }
     }
 }
