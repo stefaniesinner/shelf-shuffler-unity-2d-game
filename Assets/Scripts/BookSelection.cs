@@ -4,14 +4,27 @@ using UnityEngine;
 
 public class BookSelection : MonoBehaviour
 {
+    public GameObject dialog;
+    public GameObject booksection;
+
     public GameObject redBook;
     public GameObject blueBook;
     public GameObject greenBook;
     public GameObject purpleBook;
     public GameObject orangeBook;
 
-    private List<GameObject> bookList = new List<GameObject>(); 
-    private int currentBook;
+    public GameObject redBookHighlight;
+    public GameObject blueBookHighlight;
+    public GameObject greenBookHighlight;
+    public GameObject purpleBookHighlight;
+    public GameObject orangeBookHighlight;
+
+    private List<GameObject> bookList = new List<GameObject>();
+    private List<GameObject> highlights = new List<GameObject>();
+
+    private int currentBook = 0;
+    private int takenBook;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -20,64 +33,85 @@ public class BookSelection : MonoBehaviour
         bookList.Add(greenBook);
         bookList.Add(purpleBook);
         bookList.Add(orangeBook);
+
+        highlights.Add(redBookHighlight);
+        highlights.Add(blueBookHighlight);
+        highlights.Add(greenBookHighlight);
+        highlights.Add(purpleBookHighlight);
+        highlights.Add(orangeBookHighlight);
+
+        
+
+        selectBook();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
+        if (Input.GetKeyDown(KeyCode.L)) //Platzhalter, lieber pfeiltasten?
+        {
+            if (currentBook == bookList.Count - 1)
+            {
+                currentBook = 0;
+                selectBook();
 
-    public void selectNextBook(int currentBook, int orientation) 
-    {
-        
+            } 
+            else
+            {
+                currentBook++;
+                selectBook();
+            }
+        } 
+        if (Input.GetKeyDown(KeyCode.J)) //Platzhalter, lieber pfeiltasten?
+        {
             if (currentBook == 0)
             {
-                currentBook = currentBook + orientation;
-                blueBook.SetActive(false); //Platzhalter
+                currentBook = bookList.Count - 1 ;
+                selectBook();
+
             } 
-             else if (currentBook == 1)
+            else
             {
-                currentBook = currentBook + orientation;
-                greenBook.SetActive(false); //Platzhalter
+                currentBook--;
+                selectBook();
             }
-            else if (currentBook == 2)
-            {
-                currentBook = currentBook + orientation;
-                purpleBook.SetActive(false); //Platzhalter
-            }
-            else if (currentBook == 3)
-            {
-                currentBook = currentBook + orientation;
-                orangeBook.SetActive(false); //Platzhalter
-            }
-            else if (currentBook == 4)
-            {
-                currentBook = currentBook + orientation;
-                redBook.SetActive(false); //Platzhalter
-            }
-            else if (currentBook == 5)
-            {
-                currentBook = 1;
-                blueBook.SetActive(false); //Platzhalter
-            }
-            else if (currentBook == -1)
-            {
-                currentBook = 3;
-                purpleBook.SetActive(false);
-            }
-    }
-    public void unselectAll() 
-    {
-        redBook.SetActive(true);
-        blueBook.SetActive(true);
-        greenBook.SetActive(true);
-        purpleBook.SetActive(true);
-        orangeBook.SetActive(true);
+        }
+        if (Input.GetKeyDown(KeyCode.K)) //Platzhalter
+        {
+            takeSelectedBook();
+        }
     }
 
-    public int getCurrentSelected() 
+    public void selectBook() 
+    {
+        unselectAllHighlights();
+        highlights[currentBook].SetActive(true);
+    }
+
+    private void takeSelectedBook() {
+        bookList[currentBook].SetActive(false);
+        bookList.RemoveAt(currentBook);
+        highlights.RemoveAt(currentBook);
+        takenBook = currentBook;
+        currentBook = 0;
+        dialog.GetComponent<Dialogue>().EndDialogue();
+    }
+
+    public void unselectAllHighlights() 
+    {
+        for (int i = 0; i < bookList.Count; i++)
+        {
+            highlights[i].SetActive(false);
+        }
+    }
+
+    public int getTakenBook() 
     {
         return currentBook;
+    }
+
+    public void setBookSection(GameObject booksection) 
+    {
+        this.booksection = booksection;
     }
 }

@@ -37,4 +37,9 @@ public class Selection : MonoBehaviour
             section.setVisible(section.getHighlight(), false);
         }
     }
+
+    public BookshelfSection getCurrentBookshelfSection() 
+    {
+        return currentSelectedSection;
+    }
 }

@@ -10,11 +10,9 @@ public class Dialogue : MonoBehaviour
     public GameObject window;
     // Indicator
     public GameObject indicator;
-    // Selection
-    public BookSelection selection;
+    // Selected BookshelfSection
+    public Selection selection;
 
-    private List<GameObject> bookList; 
-    private int currentBook;
 
     // Text component
     public TMP_Text dialogueText;
@@ -61,9 +59,9 @@ public class Dialogue : MonoBehaviour
         // Hide the indicator
         ToggleIndicator(false);
         // Start with first dialogue
-        GetDialogue(0);
+        //GetDialogue(0);
     }
-
+    /*
     private void GetDialogue(int i)
     {
         // Start index at zero
@@ -74,7 +72,7 @@ public class Dialogue : MonoBehaviour
         dialogueText.text = string.Empty;
         // Start writing
         StartCoroutine(Writing());
-    }
+    } */
 
     // End Dialogue
     public void EndDialogue()
@@ -82,6 +80,7 @@ public class Dialogue : MonoBehaviour
         // Hide the window
         ToggleWindow(false);
     }
+    /*
     // Writing logic
     IEnumerator Writing()
     {
@@ -103,20 +102,17 @@ public class Dialogue : MonoBehaviour
             // End this sentence and wait for the next one
             waitForNext = true;
         }
-    }
+    } */
+
+
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L)) //Platzhalter, lieber pfeiltasten?
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            selection.unselectAll();
-            selection.selectNextBook(selection.getCurrentSelected(), 1);
+            StartDialogue();
+        }
 
-        } else if (Input.GetKeyDown(KeyCode.J)) //Platzhalter, lieber pfeiltasten?
-            {
-                selection.unselectAll();
-                selection.selectNextBook(selection.getCurrentSelected(), -1);
-            }
         /*if (!started)
             return;
 

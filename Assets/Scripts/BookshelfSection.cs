@@ -27,9 +27,6 @@ public class BookshelfSection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if the collider in bookshelf is finding something
-        //set selectedField to first books ->get it from List
-        //highlight selected field
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -37,7 +34,6 @@ public class BookshelfSection : MonoBehaviour
         // If we triggered the player enable playerdetected and show indicator
         if (collision.tag == "Player")
         {
-            //setVisible(highlight, true);
             selected = true;
         }
     }
@@ -47,7 +43,6 @@ public class BookshelfSection : MonoBehaviour
         // If we lost trigger with the player disable playerdetected and hide indicator
         if (collision.tag == "Player")
         {
-            //setVisible(highlight, false);
             selected = false;
         }
     }
