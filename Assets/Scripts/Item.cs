@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class Item : MonoBehaviour
 {
     public enum InteractionType { NONE, PickUp, GrabDrop }
+    public enum Color { Red, Green, Blue, }
     public InteractionType type;
+
+    public UnityEvent customEvent;
 
     private void Reset()
     {
@@ -33,5 +38,8 @@ public class Item : MonoBehaviour
                 Debug.Log("NULL ITEM");
                 break;
         }
+
+        // Invoke (call) of custom event
+        customEvent.Invoke();
     }
 }
