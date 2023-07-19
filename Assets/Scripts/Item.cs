@@ -21,8 +21,8 @@ public class Item : MonoBehaviour
             case InteractionType.PickUp:
                 // Add the object to the PickUpItems list
                 FindObjectOfType<InteractionSystem>().PickUpItem(gameObject);
-                // Delete the object
-                Destroy(gameObject);
+                // Disable the object
+                gameObject.SetActive(false);
                 break;
             case InteractionType.Examine:
                 Debug.Log("EXAMINE");
