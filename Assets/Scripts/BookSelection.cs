@@ -10,7 +10,7 @@ public class BookSelection : MonoBehaviour
     public GameObject purpleBook;
     public GameObject orangeBook;
 
-    private List<GameObject> bookList; 
+    private List<GameObject> bookList = new List<GameObject>(); 
     private int currentBook;
     // Start is called before the first frame update
     void Start()
