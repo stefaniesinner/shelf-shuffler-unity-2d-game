@@ -11,13 +11,7 @@ public class Dialogue : MonoBehaviour
     // Indicator
     public GameObject indicator;
     // Selection
-    public GameObject selection;
-
-    public GameObject redBook;
-    public GameObject blueBook;
-    public GameObject greenBook;
-    public GameObject purpleBook;
-    public GameObject orangeBook;
+    public BookSelection selection;
 
     private List<GameObject> bookList; 
     private int currentBook;
@@ -41,12 +35,6 @@ public class Dialogue : MonoBehaviour
     {
         ToggleIndicator(false);
         ToggleWindow(false);
-        currentBook = 0;
-        bookList.Add(redBook);
-        bookList.Add(blueBook);
-        bookList.Add(greenBook);
-        bookList.Add(purpleBook);
-        bookList.Add(orangeBook);
     }
 
 
@@ -73,7 +61,6 @@ public class Dialogue : MonoBehaviour
         // Hide the indicator
         ToggleIndicator(false);
         // Start with first dialogue
-        redBook.SetActive(false);
         GetDialogue(0);
     }
 
@@ -118,55 +105,17 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-    private void unselectAll() 
-    {
-        for (int i = 0; i < 5; i++)
-        {
-            bookList[i].SetActive(true); //Platzhalter
-        }
-    }
-
-    private void selectNextBook(int currentBook, bool orientation) 
-    {
-        if (orientation == true)
-        {
-            if (currentBook == 5)
-            {
-                currentBook = 0;
-                bookList[currentBook].SetActive(false); //Platzhalter
-            } 
-             else
-            {
-                currentBook++;
-                bookList[currentBook].SetActive(false); //Platzhalter
-            }
-        } 
-        else 
-        {
-            if (currentBook == 5)
-            {
-                currentBook = 0;
-                bookList[currentBook].SetActive(false); //Platzhalter
-            } 
-             else
-            {
-                currentBook++;
-                bookList[currentBook].SetActive(false); //Platzhalter
-            }
-        }
-    }
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.L)) //Platzhalter, lieber pfeiltasten?
         {
-            unselectAll();
-            selectNextBook(currentBook, true);
+            selection.unselectAll();
+            selection.selectNextBook(selection.getCurrentSelected(), 1);
 
         } else if (Input.GetKeyDown(KeyCode.J)) //Platzhalter, lieber pfeiltasten?
             {
-                unselectAll();
-                selectNextBook(currentBook, false);
+                selection.unselectAll();
+                selection.selectNextBook(selection.getCurrentSelected(), -1);
             }
         /*if (!started)
             return;
