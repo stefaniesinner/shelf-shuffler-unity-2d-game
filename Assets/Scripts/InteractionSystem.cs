@@ -12,6 +12,8 @@ public class InteractionSystem : MonoBehaviour
     public LayerMask detectionLayer;
     // Cached Trigger Object
     public GameObject detectedObject;
+    // List of picked Items
+    public List<GameObject> pickedItems = new List<GameObject>();
 
     // Update is called once per frame
     void Update()
@@ -20,10 +22,15 @@ public class InteractionSystem : MonoBehaviour
         {
             if (InteractInput())
             {
-                // Debug.Log("INTERACT");
                 detectedObject.GetComponent<Item>().Interact();
             }
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawSphere(detectionPoint.position, detectionRadius);
     }
 
     bool InteractInput()
@@ -47,9 +54,8 @@ public class InteractionSystem : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmosSelected()
+    public void PickUpItem(GameObject item)
     {
-        Gizmos.color = Color.green;
-        Gizmos.DrawSphere(detectionPoint.position, detectionRadius);
+        pickedItems.Add(item);
     }
 }
