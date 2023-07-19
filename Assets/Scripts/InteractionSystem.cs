@@ -64,17 +64,6 @@ public class InteractionSystem : MonoBehaviour
         pickedItems.Add(item);
     }
 
-    public void GiveItem(int id)
-    {
-        Debug.Log($"GIVED AWAY {pickedItems[id].name} to Student");
-        // Invoke the custom event
-        pickedItems[id].GetComponent<Item>().customEvent.Invoke();
-        // Clear the item from the list
-        pickedItems.Remove(pickedItems[id]);
-        // Destroy the item
-
-    }
-
     public void GrabDrop()
     {
         // Check if we do have a grabbed object
