@@ -3639,6 +3639,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2462336436382474885, guid: 8f502133c61c8c4408f18feae3296182, type: 3}
+      propertyPath: m_Name
+      value: BookshelfFrame
+      objectReference: {fileID: 0}
+    - target: {fileID: 2462336436382474885, guid: 8f502133c61c8c4408f18feae3296182, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -3703,8 +3707,16 @@ PrefabInstance:
       value: How are you?
       objectReference: {fileID: 0}
     - target: {fileID: 5332421330665971227, guid: 8f502133c61c8c4408f18feae3296182, type: 3}
+      propertyPath: m_Name
+      value: IndicatorText
+      objectReference: {fileID: 0}
+    - target: {fileID: 5332421330665971227, guid: 8f502133c61c8c4408f18feae3296182, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6721780957820673834, guid: 8f502133c61c8c4408f18feae3296182, type: 3}
+      propertyPath: m_text
+      value: '[Press ''E'' to Open the Book Section]'
       objectReference: {fileID: 0}
     - target: {fileID: 8635957688845468534, guid: 8f502133c61c8c4408f18feae3296182, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -3712,7 +3724,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3834749650069552064, guid: 8f502133c61c8c4408f18feae3296182, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5332421330665971227, guid: 8f502133c61c8c4408f18feae3296182, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1163371999457104672, guid: 8f502133c61c8c4408f18feae3296182, type: 3}
       insertIndex: -1
@@ -3721,9 +3734,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2587296496557444147, guid: 8f502133c61c8c4408f18feae3296182, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1311765821}
-    - targetCorrespondingSourceObject: {fileID: 5332421330665971227, guid: 8f502133c61c8c4408f18feae3296182, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 1389843782741105565, guid: 8f502133c61c8c4408f18feae3296182, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -6038,7 +6048,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 756479044080140626, guid: 8096d98c0155824498d5af3c91e54100, type: 3}
       propertyPath: m_Name
-      value: SIngleBooks
+      value: SingleBooks
       objectReference: {fileID: 0}
     - target: {fileID: 1589938695381062530, guid: 8096d98c0155824498d5af3c91e54100, type: 3}
       propertyPath: m_RootOrder
