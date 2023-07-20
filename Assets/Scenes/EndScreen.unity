@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 251885658}
   - component: {fileID: 251885657}
+  - component: {fileID: 251885659}
   m_Layer: 0
   m_Name: EndScreen Controller
   m_TagString: Untagged
@@ -167,6 +168,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &251885659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251885656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d21756deb8d4450da6cf8f895bd9417, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &325777371
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,7 +453,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -24, y: -349}
-  m_SizeDelta: {x: 189, y: 36}
+  m_SizeDelta: {x: 205, y: 46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1336157912
 MonoBehaviour:
@@ -462,7 +475,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5130454e719874a1286accc8ad07b47a, type: 3}
+  m_Sprite: {fileID: -365550283, guid: f87e4592a566f4c1aa5cdf9c739067f3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -509,7 +522,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 8473832a9bf5b470fa42479a12f1d80d, type: 3}
+    m_HighlightedSprite: {fileID: -1852368064, guid: f87e4592a566f4c1aa5cdf9c739067f3, type: 3}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -523,7 +536,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1336157912}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 251885659}
+        m_TargetAssemblyTypeName: EndScreen, Assembly-CSharp
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1653482027
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,8 +585,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -24, y: -200}
-  m_SizeDelta: {x: 189, y: 36}
+  m_AnchoredPosition: {x: -24, y: -187}
+  m_SizeDelta: {x: 205, y: 46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1653482029
 MonoBehaviour:
@@ -592,7 +617,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 825c5c19d64cd4cc089e101d2eec0a49, type: 3}
+    m_HighlightedSprite: {fileID: -1240856558, guid: f87e4592a566f4c1aa5cdf9c739067f3, type: 3}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -607,13 +632,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 251885659}
+        m_TargetAssemblyTypeName: EndScreen, Assembly-CSharp
+        m_MethodName: PlayAgain
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -639,7 +664,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ba1eadd75090e47ba8c7643abafbd848, type: 3}
+  m_Sprite: {fileID: -1690909697, guid: f87e4592a566f4c1aa5cdf9c739067f3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
