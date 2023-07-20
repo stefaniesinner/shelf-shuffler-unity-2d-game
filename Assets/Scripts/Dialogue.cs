@@ -38,7 +38,7 @@ public class Dialogue : MonoBehaviour
 
     private void setSelectedInformation() 
     {
-        currentBookshelfSection = selection.getCurrentBookshelfSection();
+        currentBookshelfSection = selection.getCurrentBookshelfSectionIndex();
     }
 
 

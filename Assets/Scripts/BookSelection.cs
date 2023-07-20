@@ -5,7 +5,7 @@ using UnityEngine;
 public class BookSelection : MonoBehaviour
 {
     public GameObject dialog;
-    public GameObject booksection;
+    public GameObject controller;
 
     public GameObject redBook;
     public GameObject blueBook;
@@ -23,7 +23,7 @@ public class BookSelection : MonoBehaviour
     private List<GameObject> highlights = new List<GameObject>();
 
     private int currentBook = 0;
-    private int takenBook;
+    private int takenBookIndex = -1;
     
     // Start is called before the first frame update
     void Start()
@@ -40,7 +40,7 @@ public class BookSelection : MonoBehaviour
         highlights.Add(purpleBookHighlight);
         highlights.Add(orangeBookHighlight);
 
-        
+
 
         selectBook();
     }
@@ -54,7 +54,6 @@ public class BookSelection : MonoBehaviour
             {
                 currentBook = 0;
                 selectBook();
-
             } 
             else
             {
@@ -68,7 +67,6 @@ public class BookSelection : MonoBehaviour
             {
                 currentBook = bookList.Count - 1 ;
                 selectBook();
-
             } 
             else
             {
@@ -92,7 +90,7 @@ public class BookSelection : MonoBehaviour
         bookList[currentBook].SetActive(false);
         bookList.RemoveAt(currentBook);
         highlights.RemoveAt(currentBook);
-        takenBook = currentBook;
+        takenBookIndex = currentBook;
         currentBook = 0;
         dialog.GetComponent<Dialogue>().EndDialogue();
     }
@@ -105,13 +103,13 @@ public class BookSelection : MonoBehaviour
         }
     }
 
-    public int getTakenBook() 
+    public void resetAll() 
     {
-        return currentBook;
+        
     }
 
-    public void setBookSection(GameObject booksection) 
+    public int getTakenBookIndex() 
     {
-        this.booksection = booksection;
+        return takenBookIndex;
     }
 }
