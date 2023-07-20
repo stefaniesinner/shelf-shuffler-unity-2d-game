@@ -50,6 +50,8 @@ public class PlayerController : MonoBehaviour
         isOnGround();
         isUsingLadder();
 
+        Jump();
+
         FlipSprite(moveHorizontal);
         AnimatePlayer();
     }
@@ -57,7 +59,6 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
-        Jump();
         ClimbLadder();
     }
 
