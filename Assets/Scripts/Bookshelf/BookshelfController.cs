@@ -41,6 +41,7 @@ public class BookshelfController : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isDetectingPlayer = true;
+            ShowButtonIndicator(true);
         }
     }
 
@@ -49,6 +50,7 @@ public class BookshelfController : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isDetectingPlayer = false;
+            ShowButtonIndicator(false);
         }
     }
 
