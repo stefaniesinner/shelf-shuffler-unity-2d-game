@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Script to manage the items and invoke their interaction with the player
 public class ItemManager : MonoBehaviour
 {
     public enum Interaction { NONE, GrabAndDrop }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Script to manage the interactions with the player
 public class InteractionManager : MonoBehaviour
 {
     [SerializeField]
@@ -20,7 +21,7 @@ public class InteractionManager : MonoBehaviour
     [SerializeField]
     private float grabbedItemYValue;
 
-    private bool isDetecting;
+    private bool isDetectingItem;
     private bool isGrabbing;
 
     private void Update()
@@ -29,7 +30,7 @@ public class InteractionManager : MonoBehaviour
 
         OnTriggerEnter2D(item);
 
-        if (isDetecting)
+        if (isDetectingItem)
         {
             detectedItem.GetComponent<ItemManager>().Interact();
         }
@@ -58,7 +59,7 @@ public class InteractionManager : MonoBehaviour
     {
         if (collision != null)
         {
-            isDetecting = true;
+            isDetectingItem = true;
             detectedItem = collision.gameObject;
         }
     }
@@ -67,7 +68,7 @@ public class InteractionManager : MonoBehaviour
     {
         if (collision == null)
         {
-            isDetecting = false;
+            isDetectingItem = false;
         }
     }
 
