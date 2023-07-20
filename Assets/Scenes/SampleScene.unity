@@ -129,7 +129,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 849303741}
+    m_TransformParent: {fileID: 451343986}
     m_Modifications:
     - target: {fileID: 352563022136857223, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_SortingLayer
@@ -165,7 +165,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1018637515903892995, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.04
+      value: -0.039999984
       objectReference: {fileID: 0}
     - target: {fileID: 1018637515903892995, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -305,7 +305,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8722112487471873127, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_Name
-      value: Books (2)
+      value: Books_C
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -558,7 +558,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 849303741}
+    m_TransformParent: {fileID: 451343986}
     m_Modifications:
     - target: {fileID: 352563022136857223, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_SortingLayer
@@ -734,7 +734,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8722112487471873127, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_Name
-      value: Books (17)
+      value: Books_R
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -746,6 +746,57 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1018637515903892995, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
   m_PrefabInstance: {fileID: 416750516}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &451343985
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 451343986}
+  m_Layer: 0
+  m_Name: BookSelection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &451343986
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451343985}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1441813023}
+  - {fileID: 1344240739}
+  - {fileID: 30336840}
+  - {fileID: 1260494124}
+  - {fileID: 1136882774}
+  - {fileID: 874292104}
+  - {fileID: 1402152671}
+  - {fileID: 1006007198}
+  - {fileID: 1525004713}
+  - {fileID: 1473648605}
+  - {fileID: 2129842147}
+  - {fileID: 577270603}
+  - {fileID: 1483389589}
+  - {fileID: 1230768699}
+  - {fileID: 1777776140}
+  - {fileID: 560685690}
+  - {fileID: 798479884}
+  - {fileID: 416750517}
+  - {fileID: 914347355}
+  - {fileID: 1277709140}
+  m_Father: {fileID: 849303741}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &481828248 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6746998436875475647, guid: 8096d98c0155824498d5af3c91e54100, type: 3}
@@ -931,7 +982,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 849303741}
+    m_TransformParent: {fileID: 451343986}
     m_Modifications:
     - target: {fileID: 352563022136857223, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_SortingLayer
@@ -1107,7 +1158,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8722112487471873127, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_Name
-      value: Books (15)
+      value: Books_P
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1202,7 +1253,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 849303741}
+    m_TransformParent: {fileID: 451343986}
     m_Modifications:
     - target: {fileID: 352563022136857223, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_SortingLayer
@@ -1238,7 +1289,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1018637515903892995, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.723
+      value: -0.72299993
       objectReference: {fileID: 0}
     - target: {fileID: 1018637515903892995, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1378,7 +1429,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8722112487471873127, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_Name
-      value: Books (11)
+      value: Books_L
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1401,7 +1452,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 849303741}
+    m_TransformParent: {fileID: 451343986}
     m_Modifications:
     - target: {fileID: 352563022136857223, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_SortingLayer
@@ -1577,7 +1628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8722112487471873127, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_Name
-      value: Books (16)
+      value: Books_Q
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1705,26 +1756,7 @@ Transform:
   m_Children:
   - {fileID: 1507320623}
   - {fileID: 1311765819}
-  - {fileID: 1441813023}
-  - {fileID: 1344240739}
-  - {fileID: 30336840}
-  - {fileID: 1260494124}
-  - {fileID: 1136882774}
-  - {fileID: 874292104}
-  - {fileID: 1402152671}
-  - {fileID: 1006007198}
-  - {fileID: 1525004713}
-  - {fileID: 1473648605}
-  - {fileID: 2129842147}
-  - {fileID: 577270603}
-  - {fileID: 1483389589}
-  - {fileID: 1230768699}
-  - {fileID: 1777776140}
-  - {fileID: 560685690}
-  - {fileID: 798479884}
-  - {fileID: 416750517}
-  - {fileID: 914347355}
-  - {fileID: 1277709140}
+  - {fileID: 451343986}
   - {fileID: 1025235723}
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -1795,7 +1827,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 849303741}
+    m_TransformParent: {fileID: 451343986}
     m_Modifications:
     - target: {fileID: 352563022136857223, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_SortingLayer
@@ -1971,7 +2003,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8722112487471873127, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_Name
-      value: Books (5)
+      value: Books_F
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1989,7 +2021,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 849303741}
+    m_TransformParent: {fileID: 451343986}
     m_Modifications:
     - target: {fileID: 352563022136857223, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_SortingLayer
@@ -2165,7 +2197,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8722112487471873127, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_Name
-      value: Books (18)
+      value: Books_S
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2279,7 +2311,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 849303741}
+    m_TransformParent: {fileID: 451343986}
     m_Modifications:
     - target: {fileID: 352563022136857223, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_SortingLayer
@@ -2455,7 +2487,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8722112487471873127, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_Name
-      value: Books (7)
+      value: Books_H
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2701,7 +2733,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 849303741}
+    m_TransformParent: {fileID: 451343986}
     m_Modifications:
     - target: {fileID: 352563022136857223, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_SortingLayer
@@ -2733,11 +2765,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1018637515903892995, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.145
+      value: 1.1450001
       objectReference: {fileID: 0}
     - target: {fileID: 1018637515903892995, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.04
+      value: -0.039999984
       objectReference: {fileID: 0}
     - target: {fileID: 1018637515903892995, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2877,7 +2909,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8722112487471873127, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_Name
-      value: Books (4)
+      value: Books_E
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2952,7 +2984,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 849303741}
+    m_TransformParent: {fileID: 451343986}
     m_Modifications:
     - target: {fileID: 352563022136857223, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_SortingLayer
@@ -3128,7 +3160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8722112487471873127, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_Name
-      value: Books (13)
+      value: Books_N
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3156,7 +3188,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 849303741}
+    m_TransformParent: {fileID: 451343986}
     m_Modifications:
     - target: {fileID: 352563022136857223, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_SortingLayer
@@ -3192,7 +3224,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1018637515903892995, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.04
+      value: -0.039999984
       objectReference: {fileID: 0}
     - target: {fileID: 1018637515903892995, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3332,7 +3364,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8722112487471873127, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_Name
-      value: Books (3)
+      value: Books_D
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3350,7 +3382,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 849303741}
+    m_TransformParent: {fileID: 451343986}
     m_Modifications:
     - target: {fileID: 352563022136857223, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_SortingLayer
@@ -3382,7 +3414,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1018637515903892995, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.145
+      value: 1.1450001
       objectReference: {fileID: 0}
     - target: {fileID: 1018637515903892995, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3526,7 +3558,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8722112487471873127, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_Name
-      value: Books (19)
+      value: Books_T
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3546,6 +3578,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 849303741}
     m_Modifications:
+    - target: {fileID: 1116021001276759316, guid: 8f502133c61c8c4408f18feae3296182, type: 3}
+      propertyPath: m_Name
+      value: BookshelfWindow
+      objectReference: {fileID: 0}
     - target: {fileID: 1163371999457104672, guid: 8f502133c61c8c4408f18feae3296182, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.083
@@ -3554,6 +3590,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: e6fb69194124e0848ac33d5831796cf0, type: 3}
+    - target: {fileID: 1389843782741105565, guid: 8f502133c61c8c4408f18feae3296182, type: 3}
+      propertyPath: m_Name
+      value: ButtonIndicator
+      objectReference: {fileID: 0}
     - target: {fileID: 1424068819200551882, guid: 8f502133c61c8c4408f18feae3296182, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -3604,7 +3644,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2587296496557444147, guid: 8f502133c61c8c4408f18feae3296182, type: 3}
       propertyPath: m_Name
-      value: Dialogue 1
+      value: BookshelfUI
       objectReference: {fileID: 0}
     - target: {fileID: 2587296496557444147, guid: 8f502133c61c8c4408f18feae3296182, type: 3}
       propertyPath: m_IsActive
@@ -3976,7 +4016,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 849303741}
+    m_TransformParent: {fileID: 451343986}
     m_Modifications:
     - target: {fileID: 352563022136857223, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_SortingLayer
@@ -4012,7 +4052,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1018637515903892995, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.04
+      value: -0.039999984
       objectReference: {fileID: 0}
     - target: {fileID: 1018637515903892995, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4152,7 +4192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8722112487471873127, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_Name
-      value: Books (1)
+      value: Books_B
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4266,7 +4306,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 849303741}
+    m_TransformParent: {fileID: 451343986}
     m_Modifications:
     - target: {fileID: 352563022136857223, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_SortingLayer
@@ -4442,7 +4482,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8722112487471873127, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_Name
-      value: Books (6)
+      value: Books_G
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4555,7 +4595,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 849303741}
+    m_TransformParent: {fileID: 451343986}
     m_Modifications:
     - target: {fileID: 352563022136857223, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_SortingLayer
@@ -4587,7 +4627,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1018637515903892995, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.145
+      value: 1.1450001
       objectReference: {fileID: 0}
     - target: {fileID: 1018637515903892995, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4731,7 +4771,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8722112487471873127, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_Name
-      value: Books (9)
+      value: Books_J
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4749,7 +4789,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 849303741}
+    m_TransformParent: {fileID: 451343986}
     m_Modifications:
     - target: {fileID: 352563022136857223, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_SortingLayer
@@ -4925,7 +4965,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8722112487471873127, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_Name
-      value: Books (12)
+      value: Books_M
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4999,7 +5039,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 849303741}
+    m_TransformParent: {fileID: 451343986}
     m_Modifications:
     - target: {fileID: 352563022136857223, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_SortingLayer
@@ -5175,7 +5215,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8722112487471873127, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_Name
-      value: Books (8)
+      value: Books_I
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5203,7 +5243,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 849303741}
+    m_TransformParent: {fileID: 451343986}
     m_Modifications:
     - target: {fileID: 352563022136857223, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_SortingLayer
@@ -5235,7 +5275,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1018637515903892995, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.145
+      value: 1.1450001
       objectReference: {fileID: 0}
     - target: {fileID: 1018637515903892995, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5379,7 +5419,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8722112487471873127, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_Name
-      value: Books (14)
+      value: Books_O
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5800,7 +5840,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 849303741}
+    m_TransformParent: {fileID: 451343986}
     m_Modifications:
     - target: {fileID: 352563022136857223, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_SortingLayer
@@ -5976,7 +6016,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8722112487471873127, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_Name
-      value: Books (10)
+      value: Books_K
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6095,7 +6135,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 849303741}
+    m_TransformParent: {fileID: 451343986}
     m_Modifications:
     - target: {fileID: 352563022136857223, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_SortingLayer
@@ -6131,7 +6171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1018637515903892995, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.04
+      value: -0.039999984
       objectReference: {fileID: 0}
     - target: {fileID: 1018637515903892995, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6271,7 +6311,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8722112487471873127, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_Name
-      value: Books
+      value: Books_A
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
