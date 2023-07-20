@@ -6,11 +6,14 @@ public class ItemManager : MonoBehaviour
 {
     public enum Interaction { NONE, GrabAndDrop }
 
-    public Interaction interaction;
+    [SerializeField]
+    private Interaction interactionType;
+    [SerializeField]
+    private KeyCode interactionKey;
 
     public void Interact()
     {
-        switch (interaction)
+        switch (interactionType)
         {
             case Interaction.GrabAndDrop:
                 FindObjectOfType<InteractionManager>().GrabAndDropItem();
@@ -20,5 +23,10 @@ public class ItemManager : MonoBehaviour
                 Debug.Log("NONE INTERACTION");
                 break;
         }
+    }
+
+    public KeyCode getInteractionKey
+    {
+        get { return interactionKey; }
     }
 }

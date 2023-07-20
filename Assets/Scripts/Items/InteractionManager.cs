@@ -12,8 +12,6 @@ public class InteractionManager : MonoBehaviour
     private Transform detectionPoint;
     [SerializeField]
     private float detectionRadius = 0.2f;
-    [SerializeField]
-    private KeyCode interactionKey;
 
     [SerializeField]
     private Transform grabPoint;
@@ -33,7 +31,7 @@ public class InteractionManager : MonoBehaviour
 
         if (isDetecting)
         {
-            if (Input.GetKeyDown(interactionKey)) {
+            if (Input.GetKeyDown(FindObjectOfType<ItemManager>().getInteractionKey)) {
                 detectedItem.GetComponent<ItemManager>().Interact();
             }
         }
@@ -64,7 +62,6 @@ public class InteractionManager : MonoBehaviour
         {
             isDetecting = true;
             detectedItem = collision.gameObject;
-            Debug.Log($"OBJECT DETECTED {detectedItem}");
         }
     }
 
