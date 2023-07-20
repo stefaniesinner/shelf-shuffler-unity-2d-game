@@ -10,9 +10,12 @@ public class ItemManager : MonoBehaviour
     [SerializeField]
     private Interaction interactionType;
 
+    [SerializeField]
+    private KeyCode grabKey = KeyCode.G;
+
     public void Interact()
     {
-        if (interactionType == Interaction.GrabAndDrop && Input.GetKeyDown(KeyCode.G))
+        if (interactionType == Interaction.GrabAndDrop && Input.GetKeyDown(grabKey))
         {
             FindObjectOfType<InteractionManager>().GrabAndDropItem();
             Debug.Log("GRABBED ITEM");

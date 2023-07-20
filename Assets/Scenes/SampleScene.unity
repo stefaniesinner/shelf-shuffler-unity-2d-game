@@ -5536,6 +5536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionType: 1
+  grabKey: 103
 --- !u!1001 &1833220453
 PrefabInstance:
   m_ObjectHideFlags: 0
