@@ -987,7 +987,7 @@ GameObject:
   - component: {fileID: 245634577}
   - component: {fileID: 245634576}
   - component: {fileID: 245634575}
-  - component: {fileID: 245634574}
+  - component: {fileID: 245634578}
   m_Layer: 0
   m_Name: TestBookshelf
   m_TagString: Untagged
@@ -995,19 +995,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &245634574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 245634573}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27a25730cb6450f4381487d84f81bf8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bookshelf: {fileID: 1609833744}
 --- !u!61 &245634575
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1143,6 +1130,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &245634578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245634573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 209a29e572e149b419286d517fc69b87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bookshelfWindow: {fileID: 1609833742}
+  buttonIndicator: {fileID: 1609833739}
 --- !u!1001 &288204376
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8891,9 +8892,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2587296496557444147, guid: 8f502133c61c8c4408f18feae3296182, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1609833745}
-    - targetCorrespondingSourceObject: {fileID: 2587296496557444147, guid: 8f502133c61c8c4408f18feae3296182, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1609833744}
     - targetCorrespondingSourceObject: {fileID: 5332421330665971227, guid: 8f502133c61c8c4408f18feae3296182, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -8926,20 +8924,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2587296496557444147, guid: 8f502133c61c8c4408f18feae3296182, type: 3}
   m_PrefabInstance: {fileID: 1609833738}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1609833744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1609833743}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 209a29e572e149b419286d517fc69b87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bookshelfWindow: {fileID: 1609833742}
-  buttonIndicator: {fileID: 1609833739}
 --- !u!212 &1609833745
 SpriteRenderer:
   m_ObjectHideFlags: 0
