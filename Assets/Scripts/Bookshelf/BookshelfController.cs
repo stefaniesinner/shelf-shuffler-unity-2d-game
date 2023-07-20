@@ -56,28 +56,8 @@ public class BookshelfController : MonoBehaviour
 
     private void OnDestroy()
     {
-        
+        bookshelfWindow = null;
+        buttonIndicator = null;
     }
-
-    /*
-    public GameObject bookshelfWindow;
-    public GameObject buttonIndicator; // To inform the player which button to press to open/close the bookshelf window
-
-    private void Start()
-    {
-        ShowBookshelfWindow(false);
-        ShowButtonIndicator(false);
-    }
-
-    public void ShowBookshelfWindow(bool isShowing)
-    {
-        bookshelfWindow.SetActive(isShowing);
-    }
-
-    public void ShowButtonIndicator(bool isShowing)
-    {
-        buttonIndicator.SetActive(isShowing);
-    }
-    */
 
 }
