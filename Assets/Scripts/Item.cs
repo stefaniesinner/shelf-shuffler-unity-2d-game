@@ -11,7 +11,7 @@ public class Item : MonoBehaviour
     private void Reset()
     {
         GetComponent<Collider2D>().isTrigger = true;
-        gameObject.layer = 7; // Layer number of "Item"
+        gameObject.layer = 8; // Layer number of "Item"
     }
 
     public void Interact()

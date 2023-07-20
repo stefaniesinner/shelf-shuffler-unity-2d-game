@@ -1129,7 +1129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 563884359}
   - component: {fileID: 563884360}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TopOfLadder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1584,6 +1584,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1018637515903892995, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
   m_PrefabInstance: {fileID: 798479883}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &832950957
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 832950958}
+  m_Layer: 0
+  m_Name: DetectionPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &832950958
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832950957}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.067, y: -0.061, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1326562060}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &849303739
 GameObject:
   m_ObjectHideFlags: 0
@@ -2577,6 +2608,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8e5980c059426c47be98e77cb9c42d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1021572739
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1021572740}
+  m_Layer: 0
+  m_Name: GrabPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1021572740
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021572739}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.061, y: 0.257, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1326562060}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1021634190 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2754148106461278203, guid: 8096d98c0155824498d5af3c91e54100, type: 3}
@@ -3702,6 +3764,7 @@ GameObject:
   - component: {fileID: 1326562062}
   - component: {fileID: 1326562063}
   - component: {fileID: 1326562064}
+  - component: {fileID: 1326562065}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3772,7 +3835,9 @@ Transform:
   m_LocalPosition: {x: -3.699, y: -1.687, z: 0}
   m_LocalScale: {x: 3.304, y: 3.304, z: 3.304}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 832950958}
+  - {fileID: 1021572740}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3889,6 +3954,28 @@ MonoBehaviour:
     m_Bits: 64
   groundRadius: 0.3
   groundRayDist: 0.55
+--- !u!114 &1326562065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326562058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6afb0d8af3729e438ce8975ae995976, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionPoint: {fileID: 832950958}
+  detectionLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  detectedObject: {fileID: 0}
+  pickedItems: []
+  grabbedObject: {fileID: 0}
+  grabbedObjectYValue: 0
+  grabPoint: {fileID: 1021572740}
+  isGrabbing: 0
 --- !u!1001 &1344240738
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5317,7 +5404,7 @@ GameObject:
   - component: {fileID: 1807308880}
   - component: {fileID: 1807308882}
   - component: {fileID: 1807308883}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Ladder
   m_TagString: Ladder
   m_Icon: {fileID: 0}
