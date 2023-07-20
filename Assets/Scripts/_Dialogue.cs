@@ -10,6 +10,12 @@ public class Dialogue : MonoBehaviour
     public GameObject window;
     // Indicator
     public GameObject indicator;
+    // Selected BookshelfSection
+    public Selection selection;
+    //Controller that sets and gives all current information about
+    //the bookshelf
+    public BookShelfController controller;
+
     // Text component
     public TMP_Text dialogueText;
     // Dialogue list
@@ -25,10 +31,17 @@ public class Dialogue : MonoBehaviour
     // Wait for next boolean
     private bool waitForNext;
 
+    private int currentBookshelfSection;
+
     private void Awake()
     {
         ToggleIndicator(false);
         ToggleWindow(false);
+    }
+
+    private void setSelectedInformation() 
+    {
+        currentBookshelfSection = controller.getCurrentBookshelfSectionIndex();
     }
 
 
@@ -55,9 +68,9 @@ public class Dialogue : MonoBehaviour
         // Hide the indicator
         ToggleIndicator(false);
         // Start with first dialogue
-        GetDialogue(0);
+        //GetDialogue(0);
     }
-
+    /*
     private void GetDialogue(int i)
     {
         // Start index at zero
@@ -68,14 +81,16 @@ public class Dialogue : MonoBehaviour
         dialogueText.text = string.Empty;
         // Start writing
         StartCoroutine(Writing());
-    }
+    } */
 
     // End Dialogue
     public void EndDialogue()
     {
         // Hide the window
         ToggleWindow(false);
+        started = false;
     }
+    /*
     // Writing logic
     IEnumerator Writing()
     {
@@ -97,11 +112,18 @@ public class Dialogue : MonoBehaviour
             // End this sentence and wait for the next one
             waitForNext = true;
         }
-    }
+    } */
+
+
 
     private void Update()
     {
-        if (!started)
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            StartDialogue();
+        }
+
+        /*if (!started)
             return;
 
         if (waitForNext && Input.GetKeyDown(KeyCode.E))
@@ -117,6 +139,6 @@ public class Dialogue : MonoBehaviour
             {
                 EndDialogue();
             }
-        }
+        } */
     }
 }

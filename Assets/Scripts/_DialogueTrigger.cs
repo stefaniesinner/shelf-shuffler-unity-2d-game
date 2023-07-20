@@ -5,6 +5,8 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogueScript;
+    public GameObject bookShelfSection;
+    public GameObject book;
     private bool playerDetected;
 
     // Detect trigger with player
