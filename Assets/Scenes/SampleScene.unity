@@ -3716,7 +3716,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6721780957820673834, guid: 8f502133c61c8c4408f18feae3296182, type: 3}
       propertyPath: m_text
-      value: '[Press ''E'' to Open the Book Section]'
+      value: '[Press ''E'' to Open/Close the Book Section]'
       objectReference: {fileID: 0}
     - target: {fileID: 8635957688845468534, guid: 8f502133c61c8c4408f18feae3296182, type: 3}
       propertyPath: m_AnchoredPosition.x
