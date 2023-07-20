@@ -12,6 +12,8 @@ public class InteractionManager : MonoBehaviour
     private Transform detectionPoint;
     [SerializeField]
     private float detectionRadius = 0.2f;
+    [SerializeField]
+    private KeyCode interactionKey;
 
     [SerializeField]
     private Transform grabPoint;
@@ -29,11 +31,17 @@ public class InteractionManager : MonoBehaviour
 
         OnTriggerEnter2D(item);
 
+        if (isDetecting)
+        {
+            if (Input.GetKeyDown(interactionKey)) {
+                detectedItem.GetComponent<ItemManager>().Interact();
+            }
+        }
     }
 
-    private void GrabAndDropItem()
+    public void GrabAndDropItem()
     {
-        if (Input.GetKeyDown(KeyCode.G) && isGrabbing)
+        if (isGrabbing)
         {
             isGrabbing = false;
             grabbedItem.transform.parent = null;
