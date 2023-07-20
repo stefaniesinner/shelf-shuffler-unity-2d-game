@@ -8,25 +8,14 @@ public class ItemManager : MonoBehaviour
 
     [SerializeField]
     private Interaction interactionType;
-    [SerializeField]
-    private KeyCode interactionKey;
 
     public void Interact()
     {
-        switch (interactionType)
+        if (interactionType == Interaction.GrabAndDrop && Input.GetKeyDown(KeyCode.G))
         {
-            case Interaction.GrabAndDrop:
-                FindObjectOfType<InteractionManager>().GrabAndDropItem();
-                Debug.Log("GRAB");
-                break;
-            default:
-                Debug.Log("NONE INTERACTION");
-                break;
+            FindObjectOfType<InteractionManager>().GrabAndDropItem();
+            Debug.Log("GRABBED ITEM");
         }
     }
 
-    public KeyCode getInteractionKey
-    {
-        get { return interactionKey; }
-    }
 }

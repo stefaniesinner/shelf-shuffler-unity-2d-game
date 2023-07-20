@@ -5,7 +5,7 @@ using UnityEngine;
 public class InteractionManager : MonoBehaviour
 {
     [SerializeField]
-    private LayerMask detectionLayer; // Only objects with the respective Layer attached can interact
+    private LayerMask detectionLayer; // Only objects attaching the respective Layer can be interact with the player
     [SerializeField]
     private GameObject detectedItem;
     [SerializeField]
@@ -22,7 +22,7 @@ public class InteractionManager : MonoBehaviour
 
     private bool isDetecting;
     private bool isGrabbing;
-    
+
     private void Update()
     {
         Collider2D item = Physics2D.OverlapCircle(detectionPoint.position, detectionRadius, detectionLayer);
@@ -31,9 +31,7 @@ public class InteractionManager : MonoBehaviour
 
         if (isDetecting)
         {
-            if (Input.GetKeyDown(FindObjectOfType<ItemManager>().getInteractionKey)) {
-                detectedItem.GetComponent<ItemManager>().Interact();
-            }
+            detectedItem.GetComponent<ItemManager>().Interact();
         }
     }
 
@@ -77,4 +75,5 @@ public class InteractionManager : MonoBehaviour
     {
         detectedItem = null;
     }
+
 }
