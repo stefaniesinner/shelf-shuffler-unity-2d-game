@@ -9,29 +9,46 @@ public class BookshelfController : MonoBehaviour
     private GameObject bookshelfWindow;
     [SerializeField]
     private GameObject buttonIndicator; // To inform the player which button to press to open/close the bookshelf window
+    [SerializeField]
+    private KeyCode windowKey = KeyCode.E;
 
     private bool isDetectingPlayer;
+    private bool isOpen;
 
     private void Start()
     {
-        ShowBookshelfWindow(false);
-        ShowBookshelfWindow(false);
+        ActivateBookshelfWindow(false);
+        ActivateBookshelfWindow(false);
     }
 
     private void Update()
     {
-        if (isDetectingPlayer && Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(windowKey))
         {
-            bookshelfWindow.SetActive(true);
+            OpenAndCloseBookshelfWindow();
         }
     }
 
-    private void ShowBookshelfWindow(bool isShowing)
+    private void OpenAndCloseBookshelfWindow()
+    {
+        if (!isOpen)
+        {
+            isOpen = true;
+            bookshelfWindow.SetActive(true);
+        }
+        else
+        {
+            isOpen = false;
+            bookshelfWindow.SetActive(false);
+        }
+    }
+
+    private void ActivateBookshelfWindow(bool isShowing)
     {
         bookshelfWindow.SetActive(isShowing);
     }
 
-    private void ShowButtonIndicator(bool isShowing)
+    private void ActivateButtonIndicator(bool isShowing)
     {
         buttonIndicator.SetActive(isShowing);
     }
@@ -41,7 +58,7 @@ public class BookshelfController : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isDetectingPlayer = true;
-            ShowButtonIndicator(true);
+            ActivateButtonIndicator(true);
         }
     }
 
@@ -50,7 +67,7 @@ public class BookshelfController : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isDetectingPlayer = false;
-            ShowButtonIndicator(false);
+            ActivateButtonIndicator(false);
         }
     }
 
