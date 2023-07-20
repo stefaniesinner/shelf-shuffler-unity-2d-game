@@ -2,17 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Script to show the Bookshelf Window
 public class BookshelfController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private GameObject bookshelfWindow;
+    private GameObject indicator; // To inform the player which button to press to open the window
+
+    private void Awake()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         
     }
+
+
 }
