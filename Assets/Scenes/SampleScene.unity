@@ -1234,7 +1234,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.07558778, y: 0.210711}
+  m_Offset: {x: -0.07558778, y: 0.23781288}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1245,7 +1245,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.13118714, y: 0.0786916}
+  m_Size: {x: 0.13118714, y: 0.024487868}
   m_EdgeRadius: 0
 --- !u!1001 &577270602
 PrefabInstance:
@@ -3718,6 +3718,10 @@ PrefabInstance:
       propertyPath: m_text
       value: '[Press ''E'' to Open/Close the Book Section]'
       objectReference: {fileID: 0}
+    - target: {fileID: 6721780957820673834, guid: 8f502133c61c8c4408f18feae3296182, type: 3}
+      propertyPath: m_margin.w
+      value: 4.708711
+      objectReference: {fileID: 0}
     - target: {fileID: 8635957688845468534, guid: 8f502133c61c8c4408f18feae3296182, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.451
@@ -5560,7 +5564,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.075743176, y: -0.062048987}
+  m_Offset: {x: -0.075743176, y: -0.0363022}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -5571,7 +5575,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.12975629, y: 0.4650626}
+  m_Size: {x: 0.12975629, y: 0.51655614}
   m_EdgeRadius: 0
 --- !u!114 &1807308883
 MonoBehaviour:
