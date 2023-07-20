@@ -31,7 +31,7 @@ public class BookshelfController : MonoBehaviour
 
     private void OpenAndCloseBookshelfWindow()
     {
-        if (!isOpen)
+        if (!isOpen && isDetectingPlayer)
         {
             isOpen = true;
             bookshelfWindow.SetActive(true);
