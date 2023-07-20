@@ -2,98 +2,100 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-    public static Player player;
-
-    public float speed = 5f;
-    public float jumpingPower = 5;
-    public float gravityScale = 2;
-
-    public LayerMask groundLayer; // To know if and which ground the player is touching
-    public float groundRadius = 0.3f;
-    public float groundRayDist = 0.5f;
-
+    public static PlayerController player;
+    
+    [SerializeField]
+    private float speed = 5f;
+    [SerializeField]
+    private float jumpingPower = 5;
+    [SerializeField]
+    private float gravityScale;
     private float moveHorizontal;
     private float moveVertical;
 
-    private bool isJumping;
+    [SerializeField]
+    private LayerMask groundLayer;
+    [SerializeField]
+    private float groundRadius = 0.3f;
+    [SerializeField]
+    private float groundRayDist = 0.5f;
 
+    private bool isJumping;
     private bool isTouchingLadder;
     private bool isClimbing;
     private bool isOnLadder;
 
-    private Rigidbody2D rb;
+    private Rigidbody2D rb2D;
     private Animator anim;
-    private SpriteRenderer spr;
 
     private void Awake()
     {
-        player = GetComponent<Player>();
+        player = GetComponent<PlayerController>();
     }
 
-    // Start is called before the first frame update
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb2D = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        spr = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
     private void Update()
     {
+        moveHorizontal = Input.GetAxisRaw("Horizontal");
+        moveVertical = Input.GetAxisRaw("Vertical");
+
         isMoving();
         isOnGround();
         isUsingLadder();
 
+        FlipSprite(moveHorizontal);
+        AnimatePlayer();
+    }
+
+    private void FixedUpdate()
+    {
         Move();
         Jump();
-        Climb();
-
-        AnimatePlayer();
-        FlipSprite(moveHorizontal);
+        ClimbLadder();
     }
 
     private void Move()
     {
-        rb.velocity = new Vector2(moveHorizontal * speed, rb.velocity.y);
+        rb2D.velocity = new Vector2(moveHorizontal * speed, rb2D.velocity.y);
     }
 
     private void Jump()
     {
-        if ((Input.GetKeyDown(KeyCode.Space)) && !isJumping)
+        if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
         {
-            rb.velocity = new Vector3(0, jumpingPower, 0);
+            rb2D.velocity = new Vector2(0, jumpingPower);
             isJumping = true;
         }
 
         // Stop multiple jumping at a time
-        if (rb.velocity.y == 0)
+        if (rb2D.velocity.y == 0)
         {
             isJumping = false;
         }
     }
 
-    private void Climb()
+    private void ClimbLadder()
     {
         if (isClimbing)
         {
-            rb.gravityScale = 0f;
-            rb.velocity = new Vector2(rb.velocity.x, moveVertical * speed);
+            rb2D.gravityScale = 0f;
+            rb2D.velocity = new Vector2(rb2D.velocity.x, moveVertical * speed);
         }
         else
         {
-            rb.gravityScale = gravityScale;
+            rb2D.gravityScale = gravityScale;
         }
     }
 
-
     private bool isMoving()
     {
-        moveHorizontal = Input.GetAxisRaw("Horizontal");
-        moveVertical = Input.GetAxisRaw("Vertical");
-
         if (moveHorizontal != 0)
         {
             return true;
@@ -104,7 +106,7 @@ public class Player : MonoBehaviour
 
     private bool isOnGround()
     {
-        if (Physics2D.CircleCast(transform.position, groundRadius, Vector3.down, groundRayDist, groundLayer))
+        if (Physics2D.CircleCast(transform.position, groundRadius, Vector2.down, groundRayDist, groundLayer))
         {
             return true;
         }
@@ -127,18 +129,18 @@ public class Player : MonoBehaviour
         return false;
     }
 
-    private void FlipSprite(float xDirection)
+    private void FlipSprite(float xValue)
     {
-        Vector3 scaleOfPlayer = transform.localScale;
+        Vector2 scaleOfPlayer = transform.localScale;
 
-        // Moves to the left
-        if (xDirection < 0)
+        // Move to the left
+        if (xValue < 0)
         {
             // Flip the player's scale
             scaleOfPlayer.x = Mathf.Abs(scaleOfPlayer.x) * -1;
         }
-        // Moves to the right
-        else if (xDirection > 0)
+        // Move to the right
+        else if (xValue > 0)
         {
             // Maintain the original scale without changes
             scaleOfPlayer.x = Mathf.Abs(scaleOfPlayer.x);
@@ -176,5 +178,4 @@ public class Player : MonoBehaviour
     {
         player = null;
     }
-
 }
