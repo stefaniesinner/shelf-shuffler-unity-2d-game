@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class BookShelfController : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    public Dialogue dialogueScript;
     public Selection selection;
     public BookSelection singleBooks;
 
     public List<BookshelfSection> bookSectionScripts = new List<BookshelfSection>();
-    public int currentBookshelfIndex;
+    public int currentBookshelfSectionIndex;
     public bool[] visibleBooks;
 
     public int takenBookIndex;
@@ -22,10 +23,13 @@ public class BookShelfController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentBookshelfIndex = selection.getCurrentBookshelfSectionIndex();
-        if (currentBookshelfIndex != -1)
+        currentBookshelfSectionIndex = selection.getCurrentBookshelfSectionIndex();
+        if (currentBookshelfSectionIndex != -1)
         {
-            visibleBooks = bookSectionScripts[currentBookshelfIndex].getVisibleBooks();
+            visibleBooks = bookSectionScripts[currentBookshelfSectionIndex].getVisibleBooks();
+        }
+        if (false) //On Dialogue close
+        {
             takenBookIndex = singleBooks.getTakenBookIndex();
         }
     }
@@ -33,5 +37,10 @@ public class BookShelfController : MonoBehaviour
     public bool[] getVisibleBooks()
     {
         return visibleBooks;
+    }
+
+    public int getCurrentBookshelfSectionIndex()
+    {
+        return currentBookshelfSectionIndex;
     }
 }

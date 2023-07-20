@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BookSelection : MonoBehaviour
 {
-    public GameObject dialog;
+    public GameObject dialog; //Kann weg wenn im Controller das Dialog Object eingefügt wurde
     public BookShelfController controller;
 
     public GameObject redBook;
@@ -78,6 +78,13 @@ public class BookSelection : MonoBehaviour
         {
             takeSelectedBook();
         }
+
+        if (false) //Jedes Mal wenn ein Fenster geöffnet wird -> Problem: Fenster geht nur 1 mal auf
+        //Controller braucht zugriff auf Info, dass das Fenster offen oder zu ist
+        {
+            resetAll();
+            setAll();
+        }
     }
 
     public void selectBook() 
@@ -92,7 +99,7 @@ public class BookSelection : MonoBehaviour
         highlights.RemoveAt(currentBook);
         takenBookIndex = currentBook;
         currentBook = 0;
-        dialog.GetComponent<Dialogue>().EndDialogue();
+        dialog.GetComponent<Dialogue>().EndDialogue(); //Mit Controller Methode ersetzen
     }
 
     public void unselectAllHighlights() 
@@ -105,7 +112,11 @@ public class BookSelection : MonoBehaviour
 
     public void resetAll() 
     {
-
+        for (int i = 0; i < bookList.Count; i++)
+        {
+            bookList[i].SetActive(true);
+            takenBookIndex = -1;
+        }
     }
 
     public void setAll() 
@@ -113,6 +124,7 @@ public class BookSelection : MonoBehaviour
         bool[] visibleBooks = controller.getVisibleBooks();
         for (int i = 0; i < visibleBooks.Length; i++)
         {
+            bookList[i].SetActive(visibleBooks[i]);
             if (visibleBooks[i] == false)
             {
                 bookList.RemoveAt(i);

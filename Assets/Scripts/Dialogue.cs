@@ -12,6 +12,9 @@ public class Dialogue : MonoBehaviour
     public GameObject indicator;
     // Selected BookshelfSection
     public Selection selection;
+    //Controller that sets and gives all current information about
+    //the bookshelf
+    public BookShelfController controller;
 
     // Text component
     public TMP_Text dialogueText;
@@ -38,7 +41,7 @@ public class Dialogue : MonoBehaviour
 
     private void setSelectedInformation() 
     {
-        currentBookshelfSection = selection.getCurrentBookshelfSectionIndex();
+        currentBookshelfSection = controller.getCurrentBookshelfSectionIndex();
     }
 
 
@@ -85,6 +88,7 @@ public class Dialogue : MonoBehaviour
     {
         // Hide the window
         ToggleWindow(false);
+        started = false;
     }
     /*
     // Writing logic
