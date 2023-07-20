@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Script to manage the interactions with the player
+// Script to manage the interactions between player and item
 public class InteractionManager : MonoBehaviour
 {
     [SerializeField]
-    private LayerMask detectionLayer; // Only objects attaching the respective Layer can be interact with the player
+    private LayerMask detectionLayer; // Only items attaching the respective Layer can be interact with the player
     [SerializeField]
     private GameObject detectedItem;
     [SerializeField]
@@ -21,16 +21,13 @@ public class InteractionManager : MonoBehaviour
     [SerializeField]
     private float grabbedItemYValue;
 
-    private bool isDetectingItem;
     private bool isGrabbing;
 
     private void Update()
     {
         Collider2D item = Physics2D.OverlapCircle(detectionPoint.position, detectionRadius, detectionLayer);
 
-        OnTriggerEnter2D(item);
-
-        if (isDetectingItem)
+        if (isDetecting(item))
         {
             detectedItem.GetComponent<ItemManager>().Interact();
         }
@@ -55,21 +52,17 @@ public class InteractionManager : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private bool isDetecting(Collider2D collider)
     {
-        if (collision != null)
+        if (collider != null)
         {
-            isDetectingItem = true;
-            detectedItem = collision.gameObject;
+            detectedItem = collider.gameObject;
+            return true;
         }
-    }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision == null)
-        {
-            isDetectingItem = false;
-        }
+        detectedItem = null;
+
+        return false;
     }
 
     private void OnDestroy()

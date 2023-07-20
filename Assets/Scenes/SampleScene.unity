@@ -2072,7 +2072,7 @@ GameObject:
   m_Component:
   - component: {fileID: 563884359}
   - component: {fileID: 563884360}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: TopOfLadder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6267,12 +6267,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2587296496557444147, guid: 8f502133c61c8c4408f18feae3296182, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1311765821}
-    - targetCorrespondingSourceObject: {fileID: 5332421330665971227, guid: 8f502133c61c8c4408f18feae3296182, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 1389843782741105565, guid: 8f502133c61c8c4408f18feae3296182, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 8f502133c61c8c4408f18feae3296182, type: 3}
 --- !u!4 &1311765819 stripped
 Transform:
