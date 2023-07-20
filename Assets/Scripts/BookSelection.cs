@@ -5,7 +5,7 @@ using UnityEngine;
 public class BookSelection : MonoBehaviour
 {
     public GameObject dialog;
-    public GameObject controller;
+    public BookShelfController controller;
 
     public GameObject redBook;
     public GameObject blueBook;
@@ -105,7 +105,19 @@ public class BookSelection : MonoBehaviour
 
     public void resetAll() 
     {
-        
+
+    }
+
+    public void setAll() 
+    {
+        bool[] visibleBooks = controller.getVisibleBooks();
+        for (int i = 0; i < visibleBooks.Length; i++)
+        {
+            if (visibleBooks[i] == false)
+            {
+                bookList.RemoveAt(i);
+            }
+        }
     }
 
     public int getTakenBookIndex() 

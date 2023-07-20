@@ -29,4 +29,9 @@ public class BookShelfController : MonoBehaviour
             takenBookIndex = singleBooks.getTakenBookIndex();
         }
     }
+
+    public bool[] getVisibleBooks()
+    {
+        return visibleBooks;
+    }
 }
