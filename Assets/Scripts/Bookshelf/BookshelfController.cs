@@ -18,7 +18,7 @@ public class BookshelfController : MonoBehaviour
     private void Start()
     {
         ActivateBookshelfWindow(false);
-        ActivateBookshelfWindow(false);
+        ActivateButtonIndicator(false);
     }
 
     private void Update()
