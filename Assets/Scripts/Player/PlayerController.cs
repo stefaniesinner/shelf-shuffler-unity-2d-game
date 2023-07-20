@@ -30,13 +30,9 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb2D;
     private Animator anim;
 
-    private void Awake()
-    {
-        player = GetComponent<PlayerController>();
-    }
-
     private void Start()
     {
+        player = GetComponent<PlayerController>();
         rb2D = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
