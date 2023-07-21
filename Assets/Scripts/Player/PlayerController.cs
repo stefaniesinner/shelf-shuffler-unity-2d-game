@@ -34,7 +34,6 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
 
     [SerializeField] private AudioSource jumpingSound;
-    [SerializeField] private AudioSource walkingLibrarianSound;
     [SerializeField] private AudioSource ladderSound;
     [SerializeField] private AudioSource backgroundMusic;
 
@@ -70,7 +69,7 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         rb2D.velocity = new Vector2(moveHorizontal * speed, rb2D.velocity.y);
-        walkingLibrarianSound.Play();
+        
     }
 
     private void Jump()
