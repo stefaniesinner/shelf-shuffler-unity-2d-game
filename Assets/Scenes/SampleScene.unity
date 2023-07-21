@@ -1815,7 +1815,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 849303739}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 209a29e572e149b419286d517fc69b87, type: 3}
+  m_Script: {fileID: 11500000, guid: 173755048f1447045a7442ea5ea9c6bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bookshelfWindow: {fileID: 1738020129}
@@ -2727,6 +2727,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bookSectionObjects: []
   bookshelfSectionScripts: []
+  currentSelectedSection: {fileID: 0}
 --- !u!1001 &1136882773
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2957,7 +2958,6 @@ MonoBehaviour:
   purpleBook: {fileID: 0}
   orangeBook: {fileID: 0}
   highlight: {fileID: 0}
-  visibleBooks: 
 --- !u!4 &1196129517
 Transform:
   m_ObjectHideFlags: 0
@@ -5040,13 +5040,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f3c4fa66898153419cec74273f10d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueScript: {fileID: 0}
+  bookshelfUI: {fileID: 0}
   selection: {fileID: 1025235724}
   singleBooks: {fileID: 1019399548}
-  bookSectionScripts: []
-  currentBookshelfSectionIndex: 0
-  visibleBooks: 
-  takenBookIndex: 0
 --- !u!1001 &1525004712
 PrefabInstance:
   m_ObjectHideFlags: 0
