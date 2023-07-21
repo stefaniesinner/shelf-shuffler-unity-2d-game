@@ -25,11 +25,13 @@ public class BookSelectionController : MonoBehaviour
     private GameObject purpleBookHighlight;
     private GameObject orangeBookHighlight;
 
-    private List<GameObject> bookList = new List<GameObject>();
+   private List<GameObject> bookList = new List<GameObject>();
     private List<GameObject> highlights = new List<GameObject>();
 
     private int currentBook = 0;
     private int takenBookIndex = -1;
+    public int totalbooks; 
+    
 
     private void Start()
     {
@@ -47,6 +49,7 @@ public class BookSelectionController : MonoBehaviour
 
         SelectBook();
     }
+
 
     private void Update()
     {

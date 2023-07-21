@@ -56,7 +56,7 @@ public class StudentController : MonoBehaviour{
         StartCoroutine(goToSeat()); 
     }
 
-/*
+
     private GameObject bookImage; 
 
     void Init(){
@@ -65,10 +65,11 @@ public class StudentController : MonoBehaviour{
         bookImage.name = "studentNeeds";
         bookImage.transform.localScale = new Vector3(0.18f, 0.1f, 0.13f);
         bookImage.transform.parent = requestBubble.transform;
-        
+
+
     }
 
-    */
+   
 
     private float timeVariance; 
 

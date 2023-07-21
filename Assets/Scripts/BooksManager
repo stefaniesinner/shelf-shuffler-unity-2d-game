@@ -1,0 +1,11 @@
+using UnityEngine;
+using System.Collections;
+
+public class BooksManager : MonoBehaviour {
+
+
+    public int totalbooks; 
+
+    public int[] books; 
+
+}
