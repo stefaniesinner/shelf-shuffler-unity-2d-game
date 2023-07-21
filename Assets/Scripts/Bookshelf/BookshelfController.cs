@@ -20,7 +20,7 @@ public class BookshelfController : MonoBehaviour
     [SerializeField]
     private int takenBookIndex;
     [SerializeField]
-    private int takenBookSection = -1;
+    private int takenBookSection = - 1;
 
     private List<BookshelfSectionManager> bookSectionScripts = new List<BookshelfSectionManager>();
 
@@ -74,11 +74,11 @@ public class BookshelfController : MonoBehaviour
         if (takenBook == 0)
         {
             currentBookSection.RedBook.SetActive(isPlaced);
-        }
+        } 
         else if (takenBook == 1)
         {
             currentBookSection.BlueBook.SetActive(isPlaced);
-        }
+        } 
         else if (takenBook == 2)
         {
             currentBookSection.GreenBook.SetActive(isPlaced);

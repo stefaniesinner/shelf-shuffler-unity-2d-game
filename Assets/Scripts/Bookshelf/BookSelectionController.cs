@@ -2,144 +2,94 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Script to choose a book from the respective bookshelf section in the bookshelf window
-public class BookSelectionController : MonoBehaviour
+/* Script to show how many books are left in all bookshelf sections. Therefore, it updates 
+   all book sections by removing the books from the respective section
+ */
+public class BookshelfController : MonoBehaviour
 {
     [SerializeField]
-    private BookshelfController controller;
+    public BookshelfUI bookshelfUI;
     [SerializeField]
-    private BookshelfHighlighter highlighter;
+    private BookshelfHighlighter selection;
+    [SerializeField]
+    private BookSelectionController singleBooks;
+    [SerializeField]
+    private int currentBookshelfSectionIndex;
+    [SerializeField]
+    private bool[] visibleBooks;
+    [SerializeField]
+    private int takenBookIndex;
+    [SerializeField]
+    private int takenBookSection = - 1;
 
-    [SerializeField]
-    private GameObject redBook;
-    [SerializeField]
-    private GameObject blueBook;
-    [SerializeField]
-    private GameObject greenBook;
-    [SerializeField]
-    private GameObject purpleBook;
-    [SerializeField]
-    private GameObject orangeBook;
-    [SerializeField]
-    private GameObject redBookHighlight;
-    [SerializeField]
-    private GameObject blueBookHighlight;
-    [SerializeField]
-    private GameObject greenBookHighlight;
-    [SerializeField]
-    private GameObject purpleBookHighlight;
-    [SerializeField]
-    private GameObject orangeBookHighlight;
-    [SerializeField]
-    private int currentBook = 0;
+    private List<BookshelfSectionManager> bookSectionScripts = new List<BookshelfSectionManager>();
 
-    private List<GameObject> bookList;
-    private List<GameObject> highlights = new List<GameObject>();
-    private int takenBookIndex = -1;
 
     private void Start()
     {
-
-    
-        ResetAll();
-        SetAll();
-        SelectBook();
-
-
+        bookSectionScripts = selection.BookSectionScripts;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L)) // Platzhalter, lieber pfeiltasten?
+        currentBookshelfSectionIndex = selection.CurrentBookshelfSectionIndex;
+        takenBookIndex = singleBooks.TakenBookIndex;
+        if (currentBookshelfSectionIndex != -1)
         {
-            if (currentBook == bookList.Count - 1)
-            {
-                currentBook = 0;
-                SelectBook();
-            }
-            else
-            {
-                currentBook++;
-                SelectBook();
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.J)) // Platzhalter, lieber pfeiltasten?
-        {
-            if (currentBook == 0)
-            {
-                currentBook = bookList.Count - 1;
-                SelectBook();
-            }
-            else
-            {
-                currentBook--;
-                SelectBook();
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.K)) // Platzhalter
-        {
-            TakeSelectedBook();
-        }
-        
-    }
-
-    private void SelectBook()
-    {
-        UnselectAllHighlights();
-        highlights[currentBook].SetActive(true);
-    }
-
-    private void TakeSelectedBook()
-    {
-        bookList[currentBook].SetActive(false);
-       // bookList.RemoveAt(currentBook);
-       // highlights.RemoveAt(currentBook);
-        takenBookIndex = currentBook;
-        currentBook = 0;
-        //controller.GetComponent<BookshelfUI>().OpenAndCloseBookshelfWindow();
-    }
-
-    private void UnselectAllHighlights()
-    {
-        for (int i = 0; i < bookList.Count; i++)
-        {
-            highlights[i].SetActive(false);
+            visibleBooks = bookSectionScripts[currentBookshelfSectionIndex].VisibleBooks;
         }
     }
 
-    private void ResetAll()
+
+    public bool[] VisibleBooks
     {
-        bookList = new List<GameObject>();
-        bookList.Add(redBook);
-        bookList.Add(blueBook);
-        bookList.Add(greenBook);
-        bookList.Add(purpleBook);
-        bookList.Add(orangeBook);
-
-        highlights = new List<GameObject>();
-        highlights.Add(redBookHighlight);
-        highlights.Add(blueBookHighlight);
-        highlights.Add(greenBookHighlight);
-        highlights.Add(purpleBookHighlight);
-        highlights.Add(orangeBookHighlight);
-
-        for (int i = 0; i < 5; i++)
-        {
-            bookList[i].SetActive(true);
-        }
-        takenBookIndex = -1;
+        get { return visibleBooks; }
     }
 
-    private void SetAll()
+    public int CurrentBookshelfSectionIndex
     {
-        bool[] visibleBooks = controller.VisibleBooks;
-        for (int i = 0; i < visibleBooks.Length; i++)
+        get { return currentBookshelfSectionIndex; }
+    }
+
+    public BookshelfUI BookshelfUI
+    {
+        get { return bookshelfUI; }
+    }
+    public void setTakenBook(int takenBook)
+    {
+        takenBookIndex = takenBook;
+    }
+
+    /// <summary>
+    /// Place or remove the currently selected book.
+    /// </summary>
+    /// <param name="takenBook"></param> is the book color that is placed
+    /// <param name="isPlaced"></param> false for removing book from the current booksection, true to place book
+    public void PlaceTakenBook(int takenBook, bool isPlaced)
+    {
+        BookshelfSectionManager currentBookSection = bookSectionScripts[currentBookshelfSectionIndex];
+        takenBookIndex = takenBook;
+        takenBookSection = currentBookshelfSectionIndex;
+
+        if (takenBook == 0)
         {
-            bookList[i].SetActive(visibleBooks[i]);
-            if (visibleBooks[i] == false)
-            {
-                bookList.RemoveAt(i);
-            }
+            currentBookSection.RedBook.SetActive(isPlaced);
+        } 
+        else if (takenBook == 1)
+        {
+            currentBookSection.BlueBook.SetActive(isPlaced);
+        } 
+        else if (takenBook == 2)
+        {
+            currentBookSection.GreenBook.SetActive(isPlaced);
+        }
+        else if (takenBook == 3)
+        {
+            currentBookSection.PurpleBook.SetActive(isPlaced);
+        }
+        else if (takenBook == 4)
+        {
+            currentBookSection.OrangeBook.SetActive(isPlaced);
         }
     }
 
@@ -147,4 +97,10 @@ public class BookSelectionController : MonoBehaviour
     {
         get { return takenBookIndex; }
     }
+
+    public int TakenBookSection
+    {
+        get { return takenBookSection; }
+    }
+
 }
