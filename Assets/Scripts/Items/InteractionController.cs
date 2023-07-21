@@ -6,13 +6,13 @@ using UnityEngine;
 public class InteractionController : MonoBehaviour
 {
     [SerializeField]
-    private LayerMask detectionLayer; // Only items attaching the respective Layer can be interact with the player
+    private LayerMask interactionLayer; // Only items attaching the respective Layer can be interact with the player
     [SerializeField]
-    private GameObject detectedItem;
+    private GameObject interactionObject;
     [SerializeField]
-    private Transform detectionPoint;
+    private Transform interactionPoint;
     [SerializeField]
-    private float detectionRadius = 0.2f;
+    private float interactionRange = 0.2f;
 
     [SerializeField]
     private Transform grabPoint;
@@ -25,11 +25,11 @@ public class InteractionController : MonoBehaviour
 
     private void Update()
     {
-        Collider2D item = Physics2D.OverlapCircle(detectionPoint.position, detectionRadius, detectionLayer);
+        Collider2D item = Physics2D.OverlapCircle(interactionPoint.position, interactionRange, interactionLayer);
 
         if (isDetecting(item))
         {
-            detectedItem.GetComponent<InteractionManager>().Interact();
+            interactionObject.GetComponent<InteractionManager>().Interact();
         }
     }
 
@@ -45,7 +45,7 @@ public class InteractionController : MonoBehaviour
         else
         {
             isGrabbing = true;
-            grabbedItem = detectedItem;
+            grabbedItem = interactionObject;
             grabbedItem.transform.parent = transform;
             grabbedItemYValue = grabbedItem.transform.position.y;
             grabbedItem.transform.localPosition = grabPoint.localPosition;
@@ -56,18 +56,18 @@ public class InteractionController : MonoBehaviour
     {
         if (collider != null)
         {
-            detectedItem = collider.gameObject;
+            interactionObject = collider.gameObject;
             return true;
         }
 
-        detectedItem = null;
+        interactionObject = null;
 
         return false;
     }
 
     private void OnDestroy()
     {
-        detectedItem = null;
+        interactionObject = null;
     }
 
 }
