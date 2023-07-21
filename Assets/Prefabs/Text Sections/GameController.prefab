@@ -58,3 +58,5 @@ MonoBehaviour:
   endGamePlane: {fileID: 0}
   endGameStatus: {fileID: 0}
   scoreText: {fileID: 100000, guid: 8a23910fc8e8d734eb67a974de2fd763, type: 3}
+  studentLetterTextPrefab: {fileID: 4333435157872214970, guid: e9d8f8bd2f3cec647937364af5d5db96, type: 3}
+  healthBarPrefab: {fileID: 5032394401773523443, guid: ed6cf074a93aa6c43ba420929dfa7c0b, type: 3}

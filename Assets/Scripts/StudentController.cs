@@ -2,10 +2,12 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using TMPro; 
 
 public class StudentController : MonoBehaviour{
 
-    public float studentPatience = 30.0f; 
+    public float studentHealth = 100; 
+    public healthbarScript healthBar;
     public int studentNeeds; 
     
     public float studentMoveSpeed = 3f; 
@@ -18,16 +20,8 @@ public class StudentController : MonoBehaviour{
     private GameObject[] availableProducts; //List of books to choose from 
     
 
-    private float currentStudentPatience; 
     private bool isOnSeat; 
-    private bool mainOrderisfulfilled; 
 
-
-    /*public GameObject healthBarFG; 
-    public GameObject healthBarBG; 
-    private bool healthBarSliderFlag; 
-    public GameObject requestBubble; 
-    */
     internal float leaveTime;
     private float creationTime; 
     private bool isLeaving; 
@@ -51,59 +45,42 @@ public class StudentController : MonoBehaviour{
     private int selectedSection; 
 
     private int selectedBook; 
+    public string[] sections = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T" };
 
-    private string[] sections = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T" };
-
-    [SerializeField]
+     [SerializeField]
     private GameObject[] books;
+    
 
        [SerializeField]
-    private Text sectionText;
+    private string[] bookLetters;
+
+    [SerializeField]
+    private TMP_Text[] sectionTextPrefabs; 
+
+
+  public TMP_Text[] GetSectionTextPrefabs() 
+    {
+        return sectionTextPrefabs;
+    }
      
 
     void Awake(){
-       
-       /*
-        healthBarFG.SetActive(false); 
-        requestBubble.SetActive(false); 
-        healthBarBG.SetActive(false); 
-        */
-
-        mainOrderisfulfilled = false; 
 
         isOnSeat = false; 
-        currentStudentPatience = studentPatience; 
         leaveTime = 0; 
         isLeaving = false; 
         creationTime = Time.time; 
-        //moodIndex = 0;
        startingPosition = transform.position; 
 
         gameController = GameObject.FindGameObjectWithTag("GameController"); 
-
-        //Init(); 
+ 
         StartCoroutine(goToSeat()); 
     }
-/*
 
-void Init()
-    {
-       
-        if (bookList != null && bookList.Count > 0)
-        {
-            
-            GameObject selectedBook = bookList[Random.Range(0, bookList.Count)];
-
-            GameObject askBook = Instantiate(selectedBook, positionDummy.transform.position, Quaternion.Euler(90, 180, 0));
-            askBook.transform.localScale = new Vector3(0.18f, 0.1f, 0.13f);
-            askBook.transform.parent = requestBubble.transform;
-        }
-        else
-        {
-            Debug.LogWarning("No books available in the bookList.");
-        }
+    public GameObject[] GetBooks(){
+        return books; 
     }
-*/
+
    
 
     private float timeVariance; 
@@ -119,10 +96,7 @@ void Init()
         if (Vector3.Distance(transform.position, destination) < 0.001f)
         {
             isOnSeat = true;
-            /*healthBarBG.SetActive(true);
-            requestBubble.SetActive(true);
-            healthBarFG.SetActive(true);
-            */
+          
 
             transform.rotation = Quaternion.Euler(0, 180, 0); 
 
@@ -142,103 +116,67 @@ void Init()
         books[i].SetActive(i == selectedBook);
     }
 
-    if (sectionText != null)
-    {
-        sectionText.text = sections[selectedSection];
-    }
+
 }
 
-
-
-/*
-    void Update(){
-
-        if(healthBarSliderFlag)
-            StartCoroutine(healthBar()); 
-            
-        updateStudentMood(); 
-    }
-
-    void updateStudentMood(){
-            /*
-        if(!isLeaving){
-
-            if(currentStudentPatience <= studentPatience / 2)
-                    //moodIndex = 1; 
-            else 
-                    //moodIndex = 0; 
-        }
-      
-    
-    }
-    IEnumerator healthBar()
+    public int GetSelectedSection()
     {
-        healthBarSliderFlag = false;
-        while (currentStudentPatience > 0)
-        {
-            currentStudentPatience -= Time.deltaTime * Application.targetFrameRate * 0.02f;
-            healthBarFG.transform.localScale = new Vector3(healthBarFG.transform.localScale.x - ((0.02f / studentPatience) * Time.deltaTime * Application.targetFrameRate),
-                                                             healthBarFG.transform.localScale.y,
-                                                             healthBarFG.transform.localScale.z);
-            healthBarFG.transform.position = new Vector3(healthBarFG.transform.position.x,
-                                                           healthBarFG.transform.position.y - ((0.021f / studentPatience) * Time.deltaTime * Application.targetFrameRate),
-                                                           healthBarFG.transform.position.z);
-            yield return 0;
-        }
-        if (currentStudentPatience <= 0)
-        {
-            healthBarFG.GetComponent<Renderer>().enabled = false;
-           
-            StartCoroutine(leave());
-        }
+        return selectedSection;
+    }
 
+    public string[] GetSections()
+    {
+        return sections;
+    }
+    public string[] GetBookLetters()
+    {
+        return bookLetters;
     }
 
 
-    void LateUpdate(){
+public void TakeDamage(float damageAmount)
+    {
+        studentHealth -= damageAmount;
+        healthBar.SetHealth((int)studentHealth);
 
-        if(mainOrderisfulfilled && !isLeaving){
-            settle(); 
+        if (studentHealth <= 0)
+        {
+            LeaveSeatAndGoAway();
         }
     }
+
+
+private void LeaveSeatAndGoAway()
+{
+    healthBar.gameObject.SetActive(false);
+    StartCoroutine(MoveAwayAfterDelay());
+}
+
+IEnumerator MoveAwayAfterDelay()
+{
+    // Wait for 10 seconds before starting to move away
+    yield return new WaitForSeconds(10f);
+
    
-    void settle(){
-        float leaveTime = Time.time; 
-        int remainedPatienceBonus = (int)Mathf.Round(studentPatience- (leaveTime - creationTime)); 
-        StartCoroutine(leave()); 
-
-    }
-
-
-    void fillStudentPatience(){
-        currentStudentPatience = studentPatience; 
-
-    }
-
-    public IEnumerator leave(){
-        if(isLeaving)
+    if (isLeaving)
+    {
         yield break; 
-
-    isLeaving = true; 
-    
-        //animate (close) patienceBar
-        yield return new WaitForSeconds(0.3f);
-
-        //animate (close) request bubble
-
-        yield return new WaitForSeconds(0.4f);
-
-    
-            if (transform.position.x >= 10)
-            {
-                gameController.GetComponent<MainGameController>().availableSeatForStudents[mySeat] = true;
-                Destroy(gameObject);
-                yield break;
-            }
-            yield return 0;
-        }
     }
 
-    */
+    isLeaving = true;
+
+    Vector3 targetPosition = new Vector3(4.80f, -2.50f, 0f);
+    float moveSpeed = 2;
+
+    while (Vector3.Distance(transform.position, targetPosition) > 0.1f)
+    {
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+        yield return null;
+    }
+
+    // Destroy the character GameObject after moving away
+    Destroy(gameObject);
+}
+
 }
 

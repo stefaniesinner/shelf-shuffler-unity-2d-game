@@ -122,28 +122,84 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e839def3c62a42a458a46f41f853a84f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  studentPatience: 30
+  studentHealth: 100
+  healthBar: {fileID: 5032394401773523443, guid: ed6cf074a93aa6c43ba420929dfa7c0b, type: 3}
   studentNeeds: 0
   studentMoveSpeed: 2
-  positionDummy: {fileID: 7325732642427632569}
   mySeat: 0
   destination: {x: 0, y: 0, z: 0}
-  healthBarFG: {fileID: 2220026394399350587, guid: 4ccf911586121484db6b8773488507a2, type: 3}
-  healthBarBG: {fileID: 2220026394399350587, guid: 4ccf911586121484db6b8773488507a2, type: 3}
-  requestBubble: {fileID: 70737575174729820, guid: e1080744dcd5c3c4380f3c35d1e1597d, type: 3}
   score3DText: {fileID: 100000, guid: 8a23910fc8e8d734eb67a974de2fd763, type: 3}
   redBook: {fileID: 5116622150767886346, guid: 0a5b545d3e9af7743bf72273ca6a86fb, type: 3}
   blueBook: {fileID: 7828068861358877817, guid: f12e106b388dd0944a79c1531f476eab, type: 3}
   greenBook: {fileID: 8304428666722550434, guid: 35abc5f30ee7e374c82c6bbbb081c29d, type: 3}
   purpleBook: {fileID: 1813637706255607544, guid: 9886ccd7742cfb3498808aaba9a7198f, type: 3}
   orangeBook: {fileID: 4287292310786414922, guid: 7438ef97733be804c9391d25145427f1, type: 3}
+  sections:
+  - A
+  - B
+  - C
+  - D
+  - E
+  - F
+  - G
+  - H
+  - I
+  - J
+  - K
+  - L
+  - M
+  - N
+  - O
+  - P
+  - Q
+  - R
+  - S
   books:
   - {fileID: 7828068861358877817, guid: f12e106b388dd0944a79c1531f476eab, type: 3}
   - {fileID: 5116622150767886346, guid: 0a5b545d3e9af7743bf72273ca6a86fb, type: 3}
   - {fileID: 4287292310786414922, guid: 7438ef97733be804c9391d25145427f1, type: 3}
   - {fileID: 1813637706255607544, guid: 9886ccd7742cfb3498808aaba9a7198f, type: 3}
   - {fileID: 8304428666722550434, guid: 35abc5f30ee7e374c82c6bbbb081c29d, type: 3}
-  sectionText: {fileID: 0}
+  bookLetters:
+  - A
+  - B
+  - C
+  - D
+  - E
+  - F
+  - G
+  - H
+  - I
+  - J
+  - K
+  - L
+  - M
+  - N
+  - O
+  - P
+  - Q
+  - R
+  - S
+  sectionTextPrefabs:
+  - {fileID: 3275331100471205591, guid: b6aa86182aa0e7f48bdf3b31a641d861, type: 3}
+  - {fileID: 3500917888785484849, guid: ec3ed6f389b1a2840bd9694497725446, type: 3}
+  - {fileID: 4333435157872214970, guid: e9d8f8bd2f3cec647937364af5d5db96, type: 3}
+  - {fileID: 870488989809857680, guid: f93d2dfdbdd21114c8e06b30f02db78e, type: 3}
+  - {fileID: 6337971921171578539, guid: 2ad9f01b9e6b9b145b75897b7848d83d, type: 3}
+  - {fileID: 2649430399843577872, guid: d19b721929879414e83ef052db83acb3, type: 3}
+  - {fileID: 2281126045616810076, guid: 603a4f5d84e71184fa1936a1db38af57, type: 3}
+  - {fileID: 767364839855553272, guid: 1e80e3c306a88724eb076814fa3c4962, type: 3}
+  - {fileID: 6994965491956098607, guid: 68c8c700796d1c8449a725c3828c165a, type: 3}
+  - {fileID: 3033296862449709946, guid: 2d7d45939d5cd8947ae3860dd152a605, type: 3}
+  - {fileID: 1150547623735455989, guid: 9dfdcfc2adba52e4c9ff79cc84eba0b8, type: 3}
+  - {fileID: 7559187004450559311, guid: cc691e85a69547147a417f1462105e12, type: 3}
+  - {fileID: 1969186947186958663, guid: db5e4af7964d7ca44a515977cf151745, type: 3}
+  - {fileID: 1455701652963411385, guid: 9416345102721d0429d3c9bf94f2a11f, type: 3}
+  - {fileID: 5794790601609146896, guid: 915473470aa0d16409ed4feb87267282, type: 3}
+  - {fileID: 4704043453773495515, guid: 45b46e6358497384a9a5b0540204aa13, type: 3}
+  - {fileID: 9131884059406521757, guid: ba2f396ee94d7ad4e8ab2aa72c7d60a5, type: 3}
+  - {fileID: 4165222349936194816, guid: 0fb13d98dbe2f8d4ca26851d8ed530c7, type: 3}
+  - {fileID: 3557467053316148182, guid: 31b23a451d5eac5448fd9f90718da754, type: 3}
 --- !u!61 &6954011153325840779
 BoxCollider2D:
   m_ObjectHideFlags: 0

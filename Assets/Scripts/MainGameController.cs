@@ -2,6 +2,8 @@ using UnityEngine;
 using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
+using UnityEngine.UI; 
+using TMPro; 
 
 public class MainGameController : MonoBehaviour{
 
@@ -21,6 +23,13 @@ public class MainGameController : MonoBehaviour{
     static public bool gameIsFinished; 
 
     public GameObject scoreText;
+
+
+    [SerializeField]
+private TMP_Text studentLetterTextPrefab;
+
+[SerializeField]
+    private healthbarScript healthBarPrefab;
 
 
     public void Awake(){
@@ -55,24 +64,69 @@ public class MainGameController : MonoBehaviour{
         }
     }
     
-    void createStudent( int _seatIndex) {
+ void createStudent(int _seatIndex)
+{
+    canCreateNewStudent = false;
+    StartCoroutine(reactiveStudentCreation());
 
-        canCreateNewStudent = false; 
-        StartCoroutine(reactiveStudentCreation()); 
-        
-        GameObject prefstudent = students[Random.Range(0, students.Length)]; 
+    GameObject prefstudent = students[Random.Range(0, students.Length)];
+    Vector3 seat = seatPositions[_seatIndex];
+    availableSeatForStudents[_seatIndex] = false;
 
-        Vector3 seat = seatPositions[_seatIndex]; 
+    int offset = -5;
+    GameObject newStudent = Instantiate(prefstudent, new Vector3(offset, -0.5f, 0.2f), Quaternion.identity) as GameObject;
 
-        availableSeatForStudents[_seatIndex] = false; 
+    newStudent.GetComponent<StudentController>().mySeat = _seatIndex;
+    newStudent.GetComponent<StudentController>().destination = seat;
 
-        int offset = -5; 
-        GameObject newStudent = Instantiate(prefstudent, new Vector3(offset, -0.5f, 0.2f), Quaternion.identity) as GameObject;
+    StudentController studentController = newStudent.GetComponent<StudentController>();
 
-        newStudent.GetComponent<StudentController>().mySeat = _seatIndex; 
+    // Randomly select a book GameObject 
+    GameObject[] booksArray = studentController.GetBooks();
+    int selectedBook = Random.Range(0, booksArray.Length);
+    GameObject book = Instantiate(booksArray[selectedBook], newStudent.transform.position + Vector3.up, Quaternion.identity);
+    book.transform.parent = newStudent.transform;
 
-        newStudent.GetComponent<StudentController>().destination = seat; 
+    // Get the section letter and book letter from the StudentController
+    string[] sectionsArray = studentController.GetSections();
+    string[] bookLettersArray = studentController.GetBookLetters();
+
+    TMP_Text bookLetterText = book.GetComponentInChildren<TMP_Text>();
+    if (bookLetterText != null)
+    {
+        string bookLetter = bookLettersArray[selectedBook];
+        bookLetterText.text = bookLetter;
     }
+    TMP_Text[] sectionTextPrefabs = studentController.GetSectionTextPrefabs();
+TMP_Text sectionTextPrefab = sectionTextPrefabs[bookLettersArray[selectedBook][0] - 'A'];
+TMP_Text sectionTextInstance = Instantiate(sectionTextPrefab, book.transform.position + Vector3.up * 1.5f, Quaternion.identity);
+
+    if (sectionTextInstance != null)
+    {
+       
+        string sectionLetter = sectionsArray[studentController.GetSelectedSection()];
+        sectionTextInstance.text = sectionLetter;
+    }
+
+    TMP_Text studentLetterText = Instantiate(studentLetterTextPrefab, newStudent.transform.position + Vector3.up * 2.5f, Quaternion.identity);
+    if (studentLetterText != null)
+    {
+        string studentLetter = bookLettersArray[selectedBook];
+        studentLetterText.text = studentLetter;
+    }
+
+    healthbarScript healthBarInstance = Instantiate(healthBarPrefab, newStudent.transform.position + Vector3.up * 1.5f, Quaternion.identity);
+healthBarInstance.transform.SetParent(newStudent.transform, worldPositionStays: false);
+
+    newStudent.GetComponent<StudentController>().healthBar = healthBarInstance;
+   
+    if (book != null && healthBarInstance != null)
+{
+    healthBarInstance.transform.SetParent(book.transform, false);
+}
+
+}
+
     
     IEnumerator reactiveStudentCreation(){
         yield return new WaitForSeconds(delay); 
