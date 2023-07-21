@@ -37,6 +37,9 @@ public class BookSelectionController : MonoBehaviour
     private List<GameObject> highlights = new List<GameObject>();
     private int takenBookIndex = -1;
 
+    [SerializeField] private AudioSource selectBookSound;
+    [SerializeField] private AudioSource takeBookSound;
+
     private void Start()
     {
 
@@ -87,6 +90,7 @@ public class BookSelectionController : MonoBehaviour
     {
         UnselectAllHighlights();
         highlights[currentBook].SetActive(true);
+        selectBookSound.Play();
     }
 
     private void TakeSelectedBook()
@@ -97,6 +101,7 @@ public class BookSelectionController : MonoBehaviour
         takenBookIndex = currentBook;
         currentBook = 0;
         //controller.GetComponent<BookshelfUI>().OpenAndCloseBookshelfWindow();
+        takeBookSound.Play();
     }
 
     private void UnselectAllHighlights()
