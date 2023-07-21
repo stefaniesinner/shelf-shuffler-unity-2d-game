@@ -1,0 +1,7 @@
+using UnityEngine;
+using System.Collections;
+
+public class ProductManager : MonoBehaviour{
+
+    public int score = 100; 
+}s
