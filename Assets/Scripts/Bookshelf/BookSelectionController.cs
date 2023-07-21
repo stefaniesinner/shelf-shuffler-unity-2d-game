@@ -126,6 +126,7 @@ public class BookSelectionController : MonoBehaviour
         for (int i = 0; i < bookList.Count; i++)
         {
             bookList[i].SetActive(true);
+            highlights[i].SetActive(false);
         }
         takenBookIndex = -1;
         currentBook = 0;
