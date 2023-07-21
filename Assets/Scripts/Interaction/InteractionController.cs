@@ -159,7 +159,7 @@ public class InteractionController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Student"))
+        if (collision.CompareTag("student"))
         {
             isTouchingStudent = true;
         }
@@ -167,7 +167,7 @@ public class InteractionController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Student"))
+        if (collision.CompareTag("student"))
         {
             isTouchingStudent = false;
         }
