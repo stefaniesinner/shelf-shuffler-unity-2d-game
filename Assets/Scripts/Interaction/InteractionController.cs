@@ -13,7 +13,7 @@ public class InteractionController : MonoBehaviour
     private Transform interactionPoint;
     [SerializeField]
     private float interactionRange = 0.2f;
-
+    
     [SerializeField]
     private Transform grabPoint;
     [SerializeField]
@@ -133,9 +133,8 @@ public class InteractionController : MonoBehaviour
     // Checks if the book which the player is holding has the same color like the book the student wants
     private bool HasEqualColor(int bookFromShelf, int bookStudentWished)
     {
-        if (bookFromShelf == bookStudentWished)
-        {
-            return true;
+        if (bookFromShelf == bookStudentWished) { 
+            return true; 
         }
         return false;
     }

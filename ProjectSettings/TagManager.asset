@@ -9,6 +9,7 @@ TagManager:
   - singleBook
   - student
   - healthbar
+  - Student
   layers:
   - Default
   - TransparentFX
