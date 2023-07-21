@@ -75,19 +75,19 @@ public class InteractionController : MonoBehaviour
         interactionObject = null;
     }
 
-    private void GiveBookToStudent()
+    private void GiveBookToStudent(GameObject book)
     {
         if (isTouchingStudent)
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
-                CheckBook();
+                CheckBook(book);
             }
         }
     }
 
     // Check if it is the book the student wants
-    private bool CheckBook()
+    private bool CheckBook(GameObject book)
     {
         /*
         if ()
