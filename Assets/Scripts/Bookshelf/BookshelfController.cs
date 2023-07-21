@@ -73,23 +73,23 @@ public class BookshelfController : MonoBehaviour
 
         if (takenBook == 0)
         {
-            currentBookSection.RedBook.SetActive(false);
+            currentBookSection.RedBook.SetActive(isPlaced);
         } 
         else if (takenBook == 1)
         {
-            currentBookSection.BlueBook.SetActive(false);
+            currentBookSection.BlueBook.SetActive(isPlaced);
         } 
         else if (takenBook == 2)
         {
-            currentBookSection.GreenBook.SetActive(false);
+            currentBookSection.GreenBook.SetActive(isPlaced);
         }
         else if (takenBook == 3)
         {
-            currentBookSection.PurpleBook.SetActive(false);
+            currentBookSection.PurpleBook.SetActive(isPlaced);
         }
         else if (takenBook == 4)
         {
-            currentBookSection.OrangeBook.SetActive(false);
+            currentBookSection.OrangeBook.SetActive(isPlaced);
         }
     }
 

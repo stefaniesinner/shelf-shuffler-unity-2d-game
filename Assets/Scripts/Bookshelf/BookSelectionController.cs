@@ -91,7 +91,7 @@ public class BookSelectionController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.I)) //controller.GetComponent<BookshelfUI>().isOpen
         {
-            PlaceBook();
+            PlaceBook(currentBook);
         }
 
         if (Input.GetKeyDown(KeyCode.Q))
@@ -119,10 +119,10 @@ public class BookSelectionController : MonoBehaviour
         controller.PlaceTakenBook(takenBook, false);
     }
 
-    public void PlaceBook()
+    public void PlaceBook(int takenBook)
     {
-        bookList[currentBook].SetActive(true);
-        controller.PlaceTakenBook(currentBook, true);
+        bookList[takenBook].SetActive(true);
+        controller.PlaceTakenBook(takenBook, true);
        /** if (currentBook == controller.TakenBookIndex 
             && controller.CurrentBookshelfSectionIndex == controller.TakenBookSection)
         {
