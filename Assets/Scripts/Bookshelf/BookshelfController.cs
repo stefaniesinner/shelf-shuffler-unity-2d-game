@@ -2,33 +2,48 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/* Script to show how man books are left in all bookshelf sections. Therefore, it updates 
+/* Script to show how many books are left in all bookshelf sections. Therefore, it updates 
    all book sections by removing the books from the respective section
  */
 public class BookshelfController : MonoBehaviour
 {
+    [SerializeField]
+    private BookShelfController controller;
+    [SerializeField]
+    private BookshelfHighlighter selection;
+    [SerializeField]
+    private SelectionController singleBooks;
+
     private List<BookshelfSectionManager> bookSectionScripts = new List<BookshelfSectionManager>();
     private int currentBookshelfSectionIndex;
     private bool[] visibleBooks;
 
-    public int takenBookIndex;
+    private int takenBookIndex;
 
     private void Start()
     {
-
+        bookSectionScripts = selection.BookSectionScripts;
     }
 
     private void Update()
     {
-        
+        currentBookshelfSectionIndex = selection.CurrentBookshelfSectionIndex;
+        if (currentBookshelfSectionIndex != -1)
+        {
+            visibleBooks = bookSectionScripts[currentBookshelfSectionIndex].VisibleBooks;
+        }
+        if (!controller.GetComponent<BookshelfUI>().IsOpen)
+        {
+            takenBookIndex = singleBooks.TakenBookIndex;
+        }
     }
 
-    private bool[] VisibleBooks
+    public bool[] VisibleBooks
     {
         get { return visibleBooks; }
     }
 
-    private int CurrentBookshelfSectionIndex
+    public int CurrentBookshelfSectionIndex
     {
         get { return currentBookshelfSectionIndex; }
     }

@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 // Script to check from which bookshelf section the respective book was selected
 public class BookshelfSectionManager : MonoBehaviour
 {
+    // The bookshelf section, where this Script is attached to
     [SerializeField]
-    private GameObject section; // The bookshelf section where this Script is attached to
+    private GameObject section;
 
     // The Book GameObjects that are inside this book section
     [SerializeField]
@@ -30,7 +30,7 @@ public class BookshelfSectionManager : MonoBehaviour
 
     private void Start()
     {
-        
+        visibleBooks = new bool[5] { true, true, true, true, true };
     }
 
     private void Update()
@@ -40,12 +40,30 @@ public class BookshelfSectionManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        // Sets selected true if the player touches this bookshelf section
+        if (collision.tag == "Player")
+        {
+            selected = true;
+            visibleBooks = new bool[5]
+            {
+                 this.redBook.activeSelf, this.blueBook.activeSelf, this.greenBook.activeSelf,
+                 this.purpleBook.activeSelf, this.orangeBook.activeSelf
+            };
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        
+        //Sets selected false if the player doesnt touch this bookshelf section
+        if (collision.tag == "Player")
+        {
+            selected = false;
+            visibleBooks = new bool[5]
+            {
+                this.redBook.activeSelf, this.blueBook.activeSelf, this.greenBook.activeSelf,
+                this.purpleBook.activeSelf, this.orangeBook.activeSelf
+            };
+        }
     }
 
 

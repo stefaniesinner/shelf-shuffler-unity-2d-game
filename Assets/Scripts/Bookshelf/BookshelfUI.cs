@@ -29,7 +29,7 @@ public class BookshelfUI : MonoBehaviour
         }
     }
 
-    private void OpenAndCloseBookshelfWindow()
+    public void OpenAndCloseBookshelfWindow()
     {
         if (!isOpen && isDetectingPlayer)
         {
@@ -69,6 +69,11 @@ public class BookshelfUI : MonoBehaviour
             isDetectingPlayer = false;
             ActivateButtonIndicator(false);
         }
+    }
+
+    public bool IsOpen
+    {
+        get { return isOpen; }
     }
 
     private void OnDestroy()
