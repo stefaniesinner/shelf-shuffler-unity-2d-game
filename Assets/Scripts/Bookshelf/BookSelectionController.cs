@@ -88,7 +88,13 @@ public class BookSelectionController : MonoBehaviour
         {
             TakeSelectedBook(currentBook);
         }
-        if (Input.GetKeyDown(KeyCode.Q)) //controller.GetComponent<BookshelfUI>().isOpen
+
+        if (Input.GetKeyDown(KeyCode.I)) //controller.GetComponent<BookshelfUI>().isOpen
+        {
+            PlaceBook(currentBook);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             ResetAll();
             SetAll();
@@ -108,9 +114,19 @@ public class BookSelectionController : MonoBehaviour
        // bookList.RemoveAt(currentBook);
        // highlights.RemoveAt(currentBook);
         takenBookIndex = currentBook;
-        currentBook = 0;
         //controller.GetComponent<BookshelfUI>().OpenAndCloseBookshelfWindow();
-        controller.removeTakenBook(takenBook);
+        controller.PlaceTakenBook(takenBook, false);
+    }
+
+    public void PlaceBook(int takenBook)
+    {
+        bookList[takenBook].SetActive(true);
+        controller.PlaceTakenBook(takenBook, true);
+       /** if (currentBook == controller.TakenBookIndex 
+            && controller.CurrentBookshelfSectionIndex == controller.TakenBookSection)
+        {
+            bookList[currentBook].SetActive(true);
+        } */
     }
 
     private void UnselectAllHighlights()

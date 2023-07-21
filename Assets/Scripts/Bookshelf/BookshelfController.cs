@@ -60,7 +60,12 @@ public class BookshelfController : MonoBehaviour
         takenBookIndex = takenBook;
     }
 
-    public void removeTakenBook(int takenBook)
+    /// <summary>
+    /// Place or remove the currently selected book.
+    /// </summary>
+    /// <param name="takenBook"></param> is the book color that is placed
+    /// <param name="isPlaced"></param> false for removing book from the current booksection, true to place book
+    public void PlaceTakenBook(int takenBook, bool isPlaced)
     {
         BookshelfSectionManager currentBookSection = bookSectionScripts[currentBookshelfSectionIndex];
         takenBookIndex = takenBook;
@@ -68,23 +73,23 @@ public class BookshelfController : MonoBehaviour
 
         if (takenBook == 0)
         {
-            currentBookSection.RedBook.SetActive(false);
+            currentBookSection.RedBook.SetActive(isPlaced);
         } 
         else if (takenBook == 1)
         {
-            currentBookSection.BlueBook.SetActive(false);
+            currentBookSection.BlueBook.SetActive(isPlaced);
         } 
         else if (takenBook == 2)
         {
-            currentBookSection.GreenBook.SetActive(false);
+            currentBookSection.GreenBook.SetActive(isPlaced);
         }
         else if (takenBook == 3)
         {
-            currentBookSection.PurpleBook.SetActive(false);
+            currentBookSection.PurpleBook.SetActive(isPlaced);
         }
         else if (takenBook == 4)
         {
-            currentBookSection.OrangeBook.SetActive(false);
+            currentBookSection.OrangeBook.SetActive(isPlaced);
         }
     }
 

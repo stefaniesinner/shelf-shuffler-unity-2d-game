@@ -394,6 +394,11 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &213600523 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3828038776486713535, guid: 8096d98c0155824498d5af3c91e54100, type: 3}
+  m_PrefabInstance: {fileID: 501009760212539525}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &382060752
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,6 +751,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1018637515903892995, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
   m_PrefabInstance: {fileID: 416750516}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &439811312 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7230325496624848889, guid: 8096d98c0155824498d5af3c91e54100, type: 3}
+  m_PrefabInstance: {fileID: 501009760212539525}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &451343985
 GameObject:
   m_ObjectHideFlags: 0
@@ -797,11 +807,6 @@ Transform:
   m_Father: {fileID: 849303741}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &481828248 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6746998436875475647, guid: 8096d98c0155824498d5af3c91e54100, type: 3}
-  m_PrefabInstance: {fileID: 501009760212539525}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &491012616 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3570724629420089992, guid: 8096d98c0155824498d5af3c91e54100, type: 3}
@@ -1441,6 +1446,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1018637515903892995, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
   m_PrefabInstance: {fileID: 577270602}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &712914307 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4655984604940384578, guid: 8096d98c0155824498d5af3c91e54100, type: 3}
+  m_PrefabInstance: {fileID: 501009760212539525}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &754866809 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5219735459591642116, guid: 8096d98c0155824498d5af3c91e54100, type: 3}
+  m_PrefabInstance: {fileID: 501009760212539525}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &787903594 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1389843782741105565, guid: 8f502133c61c8c4408f18feae3296182, type: 3}
@@ -1824,6 +1839,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bookshelfWindow: {fileID: 1738020129}
   buttonIndicator: {fileID: 787903594}
+  bookSelectionController: {fileID: 0}
   windowKey: 101
 --- !u!1001 &874292103
 PrefabInstance:
@@ -2956,6 +2972,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   section: {fileID: 0}
+  controller: {fileID: 0}
   redBook: {fileID: 0}
   blueBook: {fileID: 0}
   greenBook: {fileID: 0}
@@ -2977,11 +2994,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1217676272 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 579895703373858951, guid: 8096d98c0155824498d5af3c91e54100, type: 3}
-  m_PrefabInstance: {fileID: 501009760212539525}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1230768698
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3175,11 +3187,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1018637515903892995, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
   m_PrefabInstance: {fileID: 1230768698}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1236248433 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 536316907808183518, guid: 8096d98c0155824498d5af3c91e54100, type: 3}
-  m_PrefabInstance: {fileID: 501009760212539525}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1237434410 stripped
 GameObject:
@@ -4036,6 +4043,7 @@ MonoBehaviour:
   grabPoint: {fileID: 1021572740}
   grabbedItem: {fileID: 0}
   grabbedItemYValue: 0
+  bookshelfController: {fileID: 1507320624}
 --- !u!1001 &1344240738
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4610,11 +4618,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1018637515903892995, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
   m_PrefabInstance: {fileID: 2509567200432913239}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1460038415 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8453808997729680418, guid: 8096d98c0155824498d5af3c91e54100, type: 3}
-  m_PrefabInstance: {fileID: 501009760212539525}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1473648604
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5057,6 +5060,8 @@ MonoBehaviour:
   singleBooks: {fileID: 1019399548}
   currentBookshelfSectionIndex: 0
   visibleBooks: 
+  takenBookIndex: 0
+  takenBookSection: -1
 --- !u!1001 &1525004712
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5996,9 +6001,9 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.21, y: 0.28}
   m_EdgeRadius: 0
---- !u!1 &2083840444 stripped
+--- !u!1 &2094778370 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 2177812596700599751, guid: 8096d98c0155824498d5af3c91e54100, type: 3}
+  m_CorrespondingSourceObject: {fileID: 9153587126854987110, guid: 8096d98c0155824498d5af3c91e54100, type: 3}
   m_PrefabInstance: {fileID: 501009760212539525}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2129842146
@@ -6263,6 +6268,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3828038776486713535, guid: 8096d98c0155824498d5af3c91e54100, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4334196226363178062, guid: 8096d98c0155824498d5af3c91e54100, type: 3}
       propertyPath: m_SortingLayer
       value: 2
@@ -6270,6 +6279,18 @@ PrefabInstance:
     - target: {fileID: 4334196226363178062, guid: 8096d98c0155824498d5af3c91e54100, type: 3}
       propertyPath: m_SortingLayerID
       value: 21365621
+      objectReference: {fileID: 0}
+    - target: {fileID: 4655984604940384578, guid: 8096d98c0155824498d5af3c91e54100, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219735459591642116, guid: 8096d98c0155824498d5af3c91e54100, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7230325496624848889, guid: 8096d98c0155824498d5af3c91e54100, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7466107993468507263, guid: 8096d98c0155824498d5af3c91e54100, type: 3}
       propertyPath: dialog
@@ -6286,23 +6307,27 @@ PrefabInstance:
     - target: {fileID: 7466107993468507263, guid: 8096d98c0155824498d5af3c91e54100, type: 3}
       propertyPath: redBookHighlight
       value: 
-      objectReference: {fileID: 2083840444}
+      objectReference: {fileID: 712914307}
     - target: {fileID: 7466107993468507263, guid: 8096d98c0155824498d5af3c91e54100, type: 3}
       propertyPath: blueBookHighlight
       value: 
-      objectReference: {fileID: 1217676272}
+      objectReference: {fileID: 2094778370}
     - target: {fileID: 7466107993468507263, guid: 8096d98c0155824498d5af3c91e54100, type: 3}
       propertyPath: greenBookHighlight
       value: 
-      objectReference: {fileID: 481828248}
+      objectReference: {fileID: 439811312}
     - target: {fileID: 7466107993468507263, guid: 8096d98c0155824498d5af3c91e54100, type: 3}
       propertyPath: orangeBookHighlight
       value: 
-      objectReference: {fileID: 1236248433}
+      objectReference: {fileID: 213600523}
     - target: {fileID: 7466107993468507263, guid: 8096d98c0155824498d5af3c91e54100, type: 3}
       propertyPath: purpleBookHighlight
       value: 
-      objectReference: {fileID: 1460038415}
+      objectReference: {fileID: 754866809}
+    - target: {fileID: 9153587126854987110, guid: 8096d98c0155824498d5af3c91e54100, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
