@@ -4373,7 +4373,7 @@ MonoBehaviour:
   grabPoint: {fileID: 1021572740}
   grabbedItem: {fileID: 0}
   grabbedItemYValue: 0
-  bookshelfController: {fileID: 0}
+  bookshelfController: {fileID: 1507320624}
 --- !u!82 &1326562067
 AudioSource:
   m_ObjectHideFlags: 0
