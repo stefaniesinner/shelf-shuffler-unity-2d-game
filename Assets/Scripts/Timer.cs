@@ -9,7 +9,6 @@ public class Timer : MonoBehaviour
 {
     public float timeValue = 90;
     public TextMeshProUGUI timerText;
-    public string gameOverSceneName; 
 
     void Update()
     {
@@ -42,6 +41,6 @@ public class Timer : MonoBehaviour
     void LoadGameOverScene()
     {
         
-        SceneManager.LoadScene(gameOverSceneName);
+        SceneManager.LoadScene("EndScreen");
     }
 }
