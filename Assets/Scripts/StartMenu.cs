@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class StartMenu : MonoBehaviour
 {
-   
+    [SerializeField] private AudioSource flippingBook;
+
     public void StartGame(){
 
         SceneManager.LoadScene("SampleScene");
+        flippingBook.Play();
 
     }
 

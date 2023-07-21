@@ -33,6 +33,10 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb2D;
     private Animator anim;
 
+    [SerializeField] private AudioSource jumpingSound;
+    [SerializeField] private AudioSource walkingLibrarianSound;
+    [SerializeField] private AudioSource ladderSound;
+
     private void Start()
     {
         player = GetComponent<PlayerController>();
@@ -64,14 +68,16 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         rb2D.velocity = new Vector2(moveHorizontal * speed, rb2D.velocity.y);
+        walkingLibrarianSound.Play();
     }
 
     private void Jump()
     {
         if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
-        {
+        {    
             rb2D.velocity = new Vector2(0, jumpingPower);
             isJumping = true;
+            jumpingSound.Play();
         }
 
         // Stop multiple jumping at a time
@@ -120,6 +126,7 @@ public class PlayerController : MonoBehaviour
         {
             isClimbing = true;
             isOnLadder = true;
+            ladderSound.Play();
         }
         else if (Mathf.Abs(moveVertical) == 0)
         {
