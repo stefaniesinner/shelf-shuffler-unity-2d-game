@@ -35,7 +35,7 @@ public class InteractionController : MonoBehaviour
             interactionObject.GetComponent<InteractionManager>().Interact();
         }
 
-        GiveBookToStudent();
+        //GiveBookToStudent();
     }
 
     public void GrabAndDropItem()
