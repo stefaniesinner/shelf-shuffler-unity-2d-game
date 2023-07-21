@@ -3,22 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Script to manage the items and invoke their interaction with the player
-public class ItemManager : MonoBehaviour
+public class InteractionManager : MonoBehaviour
 {
     public enum Interaction { NONE, GrabAndDrop }
 
     [SerializeField]
     private Interaction interactionType;
 
-    [SerializeField]
     private KeyCode grabKey = KeyCode.G;
 
     public void Interact()
     {
-        if (interactionType == Interaction.GrabAndDrop && Input.GetKeyDown(grabKey))
+        if (interactionType == Interaction.GrabAndDrop)
         {
-            FindObjectOfType<InteractionManager>().GrabAndDropItem();
-            Debug.Log("GRABBED ITEM");
+            if (Input.GetKeyDown(grabKey))
+            {
+                FindObjectOfType<InteractionController>().GrabAndDropItem();
+                Debug.Log("GRABBED ITEM");
+            }
         }
     }
 
