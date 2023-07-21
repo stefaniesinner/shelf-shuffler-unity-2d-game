@@ -16,7 +16,7 @@ public class BookshelfHighlighter : MonoBehaviour
     private BookshelfSectionManager currentSelectedSection;
     // The index of the current Bookshelf section. Can be null
     private int currentBookshelfSectionIndex;
-    
+
     private void Start()
     {
         // Puts all Bookshelf Objects inside bookSectionObjects

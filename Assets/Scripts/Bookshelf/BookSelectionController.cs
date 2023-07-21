@@ -2,31 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BookSelection : MonoBehaviour
+// Script to choose a book from the respective bookshelf section in the bookshelf window
+public class BookSelectionController : MonoBehaviour
 {
-    public GameObject dialog; //Kann weg wenn im Controller das Dialog Object eingefügt wurde
-    public BookShelfController controller;
+    [SerializeField]
+    private BookshelfController controller;
 
-    public GameObject redBook;
-    public GameObject blueBook;
-    public GameObject greenBook;
-    public GameObject purpleBook;
-    public GameObject orangeBook;
+    [SerializeField]
+    private GameObject redBook;
+    [SerializeField]
+    private GameObject blueBook;
+    [SerializeField]
+    private GameObject greenBook;
+    [SerializeField]
+    private GameObject purpleBook;
+    [SerializeField]
+    private GameObject orangeBook;
 
-    public GameObject redBookHighlight;
-    public GameObject blueBookHighlight;
-    public GameObject greenBookHighlight;
-    public GameObject purpleBookHighlight;
-    public GameObject orangeBookHighlight;
+    private GameObject redBookHighlight;
+    private GameObject blueBookHighlight;
+    private GameObject greenBookHighlight;
+    private GameObject purpleBookHighlight;
+    private GameObject orangeBookHighlight;
 
     private List<GameObject> bookList = new List<GameObject>();
     private List<GameObject> highlights = new List<GameObject>();
 
     private int currentBook = 0;
     private int takenBookIndex = -1;
-    
-    // Start is called before the first frame update
-    void Start()
+
+    private void Start()
     {
         bookList.Add(redBook);
         bookList.Add(blueBook);
@@ -40,69 +45,66 @@ public class BookSelection : MonoBehaviour
         highlights.Add(purpleBookHighlight);
         highlights.Add(orangeBookHighlight);
 
-
-
-        selectBook();
+        SelectBook();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L)) //Platzhalter, lieber pfeiltasten?
+        if (Input.GetKeyDown(KeyCode.L)) // Platzhalter, lieber pfeiltasten?
         {
             if (currentBook == bookList.Count - 1)
             {
                 currentBook = 0;
-                selectBook();
-            } 
+                SelectBook();
+            }
             else
             {
                 currentBook++;
-                selectBook();
+                SelectBook();
             }
-        } 
-        if (Input.GetKeyDown(KeyCode.J)) //Platzhalter, lieber pfeiltasten?
+        }
+        if (Input.GetKeyDown(KeyCode.J)) // Platzhalter, lieber pfeiltasten?
         {
             if (currentBook == 0)
             {
-                currentBook = bookList.Count - 1 ;
-                selectBook();
-            } 
+                currentBook = bookList.Count - 1;
+                SelectBook();
+            }
             else
             {
                 currentBook--;
-                selectBook();
+                SelectBook();
             }
         }
-        if (Input.GetKeyDown(KeyCode.K)) //Platzhalter
+        if (Input.GetKeyDown(KeyCode.K)) // Platzhalter
         {
-            takeSelectedBook();
+            TakeSelectedBook();
         }
-
-        if (false) //Jedes Mal wenn ein Fenster geöffnet wird -> Problem: Fenster geht nur 1 mal auf
-        //Controller braucht zugriff auf Info, dass das Fenster offen oder zu ist
+        /*
+        if (controller.GetComponent<BookshelfUI>().IsOpen)
         {
-            resetAll();
-            setAll();
-        }
+            ResetAll();
+            SetAll();
+        }*/
     }
 
-    public void selectBook() 
+    private void SelectBook()
     {
-        unselectAllHighlights();
+        UnselectAllHighlights();
         highlights[currentBook].SetActive(true);
     }
 
-    private void takeSelectedBook() {
+    private void TakeSelectedBook()
+    {
         bookList[currentBook].SetActive(false);
         bookList.RemoveAt(currentBook);
         highlights.RemoveAt(currentBook);
         takenBookIndex = currentBook;
         currentBook = 0;
-        dialog.GetComponent<Dialogue>().EndDialogue(); //Mit Controller Methode ersetzen
+        controller.GetComponent<BookshelfUI>().OpenAndCloseBookshelfWindow();
     }
 
-    public void unselectAllHighlights() 
+    private void UnselectAllHighlights()
     {
         for (int i = 0; i < bookList.Count; i++)
         {
@@ -110,7 +112,7 @@ public class BookSelection : MonoBehaviour
         }
     }
 
-    public void resetAll() 
+    private void ResetAll()
     {
         for (int i = 0; i < bookList.Count; i++)
         {
@@ -119,9 +121,9 @@ public class BookSelection : MonoBehaviour
         }
     }
 
-    public void setAll() 
+    private void SetAll()
     {
-        bool[] visibleBooks = controller.getVisibleBooks();
+        bool[] visibleBooks = controller.VisibleBooks;
         for (int i = 0; i < visibleBooks.Length; i++)
         {
             bookList[i].SetActive(visibleBooks[i]);
@@ -132,8 +134,8 @@ public class BookSelection : MonoBehaviour
         }
     }
 
-    public int getTakenBookIndex() 
+    public int TakenBookIndex
     {
-        return takenBookIndex;
+        get { return takenBookIndex; }
     }
 }

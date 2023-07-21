@@ -8,11 +8,11 @@ using UnityEngine;
 public class BookshelfController : MonoBehaviour
 {
     [SerializeField]
-    private BookShelfController controller;
+    private BookshelfUI bookshelfUI;
     [SerializeField]
     private BookshelfHighlighter selection;
     [SerializeField]
-    private SelectionController singleBooks;
+    private BookSelectionController singleBooks;
 
     private List<BookshelfSectionManager> bookSectionScripts = new List<BookshelfSectionManager>();
     private int currentBookshelfSectionIndex;
@@ -32,10 +32,11 @@ public class BookshelfController : MonoBehaviour
         {
             visibleBooks = bookSectionScripts[currentBookshelfSectionIndex].VisibleBooks;
         }
-        if (!controller.GetComponent<BookshelfUI>().IsOpen)
+        /*
+        if (!bookshelfUI.GetComponent<BookshelfUI>().IsOpen)
         {
             takenBookIndex = singleBooks.TakenBookIndex;
-        }
+        }*/
     }
 
     public bool[] VisibleBooks
