@@ -10,15 +10,17 @@ public class InteractionManager : MonoBehaviour
     [SerializeField]
     private Interaction interactionType;
 
-    [SerializeField]
     private KeyCode grabKey = KeyCode.G;
 
     public void Interact()
     {
-        if (interactionType == Interaction.GrabAndDrop && Input.GetKeyDown(grabKey))
+        if (interactionType == Interaction.GrabAndDrop)
         {
-            FindObjectOfType<InteractionController>().GrabAndDropItem();
-            Debug.Log("GRABBED ITEM");
+            if (Input.GetKeyDown(grabKey))
+            {
+                FindObjectOfType<InteractionController>().GrabAndDropItem();
+                Debug.Log("GRABBED ITEM");
+            }
         }
     }
 
