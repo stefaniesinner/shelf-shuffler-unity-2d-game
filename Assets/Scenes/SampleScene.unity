@@ -1626,6 +1626,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.50999993
       objectReference: {fileID: 0}
+    - target: {fileID: 8175524457482832872, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8722112487471873127, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
       propertyPath: m_Name
       value: Books_Q
@@ -3590,6 +3594,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: e6fb69194124e0848ac33d5831796cf0, type: 3}
+    - target: {fileID: 1196233549853859281, guid: 8f502133c61c8c4408f18feae3296182, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1196233549853859281, guid: 8f502133c61c8c4408f18feae3296182, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -957973641
+      objectReference: {fileID: 0}
     - target: {fileID: 1389843782741105565, guid: 8f502133c61c8c4408f18feae3296182, type: 3}
       propertyPath: m_Name
       value: ButtonIndicator
@@ -5040,9 +5052,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f3c4fa66898153419cec74273f10d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bookshelfUI: {fileID: 0}
+  bookshelfUI: {fileID: 849303744}
   selection: {fileID: 1025235724}
   singleBooks: {fileID: 1019399548}
+  currentBookshelfSectionIndex: 0
+  visibleBooks: 
 --- !u!1001 &1525004712
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6249,6 +6263,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4334196226363178062, guid: 8096d98c0155824498d5af3c91e54100, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4334196226363178062, guid: 8096d98c0155824498d5af3c91e54100, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 21365621
+      objectReference: {fileID: 0}
     - target: {fileID: 7466107993468507263, guid: 8096d98c0155824498d5af3c91e54100, type: 3}
       propertyPath: dialog
       value: 
@@ -6257,6 +6279,10 @@ PrefabInstance:
       propertyPath: redBook
       value: 
       objectReference: {fileID: 1237434410}
+    - target: {fileID: 7466107993468507263, guid: 8096d98c0155824498d5af3c91e54100, type: 3}
+      propertyPath: controller
+      value: 
+      objectReference: {fileID: 1507320624}
     - target: {fileID: 7466107993468507263, guid: 8096d98c0155824498d5af3c91e54100, type: 3}
       propertyPath: redBookHighlight
       value: 

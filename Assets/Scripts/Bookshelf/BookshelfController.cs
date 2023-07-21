@@ -8,17 +8,22 @@ using UnityEngine;
 public class BookshelfController : MonoBehaviour
 {
     [SerializeField]
-    private BookshelfUI bookshelfUI;
+    public BookshelfUI bookshelfUI;
     [SerializeField]
     private BookshelfHighlighter selection;
     [SerializeField]
     private BookSelectionController singleBooks;
+    [SerializeField]
+    private int currentBookshelfSectionIndex;
+    [SerializeField]
+    private bool[] visibleBooks;
+    [SerializeField]
+    private int takenBookIndex;
+    [SerializeField]
+    private int takenBookSection = - 1;
 
     private List<BookshelfSectionManager> bookSectionScripts = new List<BookshelfSectionManager>();
-    private int currentBookshelfSectionIndex;
-    private bool[] visibleBooks;
 
-    private int takenBookIndex;
 
     private void Start()
     {
@@ -28,16 +33,13 @@ public class BookshelfController : MonoBehaviour
     private void Update()
     {
         currentBookshelfSectionIndex = selection.CurrentBookshelfSectionIndex;
+        takenBookIndex = singleBooks.TakenBookIndex;
         if (currentBookshelfSectionIndex != -1)
         {
             visibleBooks = bookSectionScripts[currentBookshelfSectionIndex].VisibleBooks;
         }
-        /*
-        if (!bookshelfUI.GetComponent<BookshelfUI>().IsOpen)
-        {
-            takenBookIndex = singleBooks.TakenBookIndex;
-        }*/
     }
+
 
     public bool[] VisibleBooks
     {
@@ -48,4 +50,42 @@ public class BookshelfController : MonoBehaviour
     {
         get { return currentBookshelfSectionIndex; }
     }
+
+    public BookshelfUI BookshelfUI
+    {
+        get { return bookshelfUI; }
+    }
+    public void setTakenBook(int takenBook)
+    {
+        takenBookIndex = takenBook;
+    }
+
+    public void removeTakenBook(int takenBook)
+    {
+        BookshelfSectionManager currentBookSection = bookSectionScripts[currentBookshelfSectionIndex];
+        takenBookIndex = takenBook;
+        takenBookSection = currentBookshelfSectionIndex;
+
+        if (takenBook == 0)
+        {
+            currentBookSection.RedBook.SetActive(false);
+        } 
+        else if (takenBook == 1)
+        {
+            currentBookSection.BlueBook.SetActive(false);
+        } 
+        else if (takenBook == 2)
+        {
+            currentBookSection.GreenBook.SetActive(false);
+        }
+        else if (takenBook == 3)
+        {
+            currentBookSection.PurpleBook.SetActive(false);
+        }
+        else if (takenBook == 4)
+        {
+            currentBookSection.OrangeBook.SetActive(false);
+        }
+    }
+
 }
