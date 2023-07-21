@@ -10,7 +10,7 @@ public class BookshelfUI : MonoBehaviour
     [SerializeField]
     private GameObject buttonIndicator; // To inform the player which button to press to open/close the bookshelf window
     [SerializeField]
-    private GameObject bookSelectionController;
+    private BookSelectionController bookSelectionController;
     [SerializeField]
     private KeyCode windowKey = KeyCode.E;
 
@@ -37,8 +37,8 @@ public class BookshelfUI : MonoBehaviour
         {
             isOpen = true;
             bookshelfWindow.SetActive(true);
-            bookSelectionController.GetComponent<BookSelectionController>().ResetAll();
-            bookSelectionController.GetComponent<BookSelectionController>().SetAll();
+            bookSelectionController.ResetAll();
+            bookSelectionController.SetAll();
         }
         else
         {
