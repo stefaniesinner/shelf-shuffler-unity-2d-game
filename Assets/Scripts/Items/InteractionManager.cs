@@ -2,72 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Script to manage the interactions between player and item
+// Script to manage the items and invoke their interaction with the player
 public class InteractionManager : MonoBehaviour
 {
-    [SerializeField]
-    private LayerMask detectionLayer; // Only items attaching the respective Layer can be interact with the player
-    [SerializeField]
-    private GameObject detectedItem;
-    [SerializeField]
-    private Transform detectionPoint;
-    [SerializeField]
-    private float detectionRadius = 0.2f;
+    public enum Interaction { NONE, GrabAndDrop }
 
     [SerializeField]
-    private Transform grabPoint;
-    [SerializeField]
-    private GameObject grabbedItem;
-    [SerializeField]
-    private float grabbedItemYValue;
+    private Interaction interactionType;
 
-    private bool isGrabbing;
+    [SerializeField]
+    private KeyCode grabKey = KeyCode.G;
 
-    private void Update()
+    public void Interact()
     {
-        Collider2D item = Physics2D.OverlapCircle(detectionPoint.position, detectionRadius, detectionLayer);
-
-        if (isDetecting(item))
+        if (interactionType == Interaction.GrabAndDrop && Input.GetKeyDown(grabKey))
         {
-            detectedItem.GetComponent<ItemManager>().Interact();
+            FindObjectOfType<InteractionController>().GrabAndDropItem();
+            Debug.Log("GRABBED ITEM");
         }
-    }
-
-    public void GrabAndDropItem()
-    {
-        if (isGrabbing)
-        {
-            isGrabbing = false;
-            grabbedItem.transform.parent = null;
-            grabbedItem.transform.position = new Vector2(grabbedItem.transform.position.x, grabbedItemYValue);
-            grabbedItem = null;
-        }
-        else
-        {
-            isGrabbing = true;
-            grabbedItem = detectedItem;
-            grabbedItem.transform.parent = transform;
-            grabbedItemYValue = grabbedItem.transform.position.y;
-            grabbedItem.transform.localPosition = grabPoint.localPosition;
-        }
-    }
-
-    private bool isDetecting(Collider2D collider)
-    {
-        if (collider != null)
-        {
-            detectedItem = collider.gameObject;
-            return true;
-        }
-
-        detectedItem = null;
-
-        return false;
-    }
-
-    private void OnDestroy()
-    {
-        detectedItem = null;
     }
 
 }
