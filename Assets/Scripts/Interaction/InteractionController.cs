@@ -48,7 +48,7 @@ public class InteractionController : MonoBehaviour
 
         if (isDetecting(objectToInteract))
         {
-            interactionObject.GetComponent<InteractionController>().Interact();
+            interactionObject.GetComponent<InteractionManager>().Interact();
         }
 
         InteractWithStudent();
