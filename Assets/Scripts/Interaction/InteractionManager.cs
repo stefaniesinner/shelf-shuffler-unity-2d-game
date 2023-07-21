@@ -6,13 +6,13 @@ using UnityEngine;
 public class InteractionManager : MonoBehaviour
 {
     [SerializeField]
-    private LayerMask detectionLayer; // Only items attaching the respective Layer can be interact with the player
+    private LayerMask interactionLayer; // Only items attaching the respective Layer can be interact with the player
     [SerializeField]
-    private GameObject detectedItem;
+    private GameObject interactionObject;
     [SerializeField]
-    private Transform detectionPoint;
+    private Transform interactionPoint;
     [SerializeField]
-    private float detectionRadius = 0.2f;
+    private float interactionRange = 0.2f;
 
     [SerializeField]
     private Transform grabPoint;
@@ -23,14 +23,48 @@ public class InteractionManager : MonoBehaviour
 
     private bool isGrabbing;
 
+    // Student variables
+    private bool isTouchingStudent;
+
+    private int takenBook; // Book the player chose from Bookshelf and is currently holding
+    private int sectionOfTakenBook;
+    private bool isCorrectBook; // Taken book from the shelf is equals to the book which the student wished
+
+    // TEST WERTE
+    private int wishedBook = 0; // TEST WERTE => should be replaced with Students book wishes
+    private int sectionOfWishedBook = 7; // TEST WERTE => should be replaced with Students book wishes
+
+    private KeyCode giveBookKey = KeyCode.F;
+
+    [SerializeField]
+    private BookshelfController bookshelfController;
+
     private void Update()
     {
-        Collider2D item = Physics2D.OverlapCircle(detectionPoint.position, detectionRadius, detectionLayer);
+        Collider2D objectToInteract = Physics2D.OverlapCircle(interactionPoint.position, interactionRange, interactionLayer);
 
-        if (isDetecting(item))
+        takenBook = bookshelfController.TakenBookIndex;
+        sectionOfTakenBook = bookshelfController.TakenBookSection;
+
+        if (isDetecting(objectToInteract))
         {
-            detectedItem.GetComponent<ItemManager>().Interact();
+            interactionObject.GetComponent<InteractionManager>().Interact();
         }
+
+        InteractWithStudent();
+    }
+
+    private bool isDetecting(Collider2D collider)
+    {
+        if (collider != null)
+        {
+            interactionObject = collider.gameObject;
+            return true;
+        }
+
+        interactionObject = null;
+
+        return false;
     }
 
     public void GrabAndDropItem()
@@ -45,29 +79,103 @@ public class InteractionManager : MonoBehaviour
         else
         {
             isGrabbing = true;
-            grabbedItem = detectedItem;
+            grabbedItem = interactionObject;
             grabbedItem.transform.parent = transform;
             grabbedItemYValue = grabbedItem.transform.position.y;
             grabbedItem.transform.localPosition = grabPoint.localPosition;
         }
     }
 
-    private bool isDetecting(Collider2D collider)
+    // Method to interact with Student
+    private void InteractWithStudent()
     {
-        if (collider != null)
+        // Method to Interact with the Student
+        if (isTouchingStudent)
         {
-            detectedItem = collider.gameObject;
-            return true;
+            if (Input.GetKeyDown(giveBookKey))
+            {
+                Debug.Log("IS INTERACTING WITH STUDENT");
+                CompareBooks(takenBook, sectionOfTakenBook, wishedBook, sectionOfWishedBook);
+
+                if (!isCorrectBook)
+                {
+                    Debug.Log("WRONG BOOK");
+                    // TODO: Invoke an event => students get angry
+                }
+
+                if (isCorrectBook)
+                {
+                    Debug.Log("CORRECT BOOK");
+                    GiveBookToStudent(takenBook, sectionOfTakenBook);
+                    isCorrectBook = false;
+                }
+            }
+        }
+    }
+
+    // Method to compare the book selected from the shelf to the book which the students want
+    private void CompareBooks(int bookFromShelf, int sectionFromShelf, int bookStudentWished, int sectionStudentWished)
+    {
+        if (HasEqualColor(bookFromShelf, bookStudentWished))
+        {
+            if (HasEqualSection(sectionFromShelf, sectionStudentWished))
+            {
+                isCorrectBook = true;
+                return;
+            }
+
+            Debug.Log("BUT HAS EQUAL COLOR...");
         }
 
-        detectedItem = null;
+        isCorrectBook = false;
+    }
 
+    // Checks if the book which the player is holding has the same color like the book the student wants
+    private bool HasEqualColor(int bookFromShelf, int bookStudentWished)
+    {
+        if (bookFromShelf == bookStudentWished)
+        {
+            return true;
+        }
         return false;
+    }
+
+    // Checks if the book which the player is holding is from the same bookshelf section like the book the student wants
+    private bool HasEqualSection(int sectionFromShelf, int sectionStudentWished)
+    {
+        if (sectionFromShelf == sectionStudentWished)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    private void GiveBookToStudent(int book, int section)
+    {
+        // TODO: Delete Object
+        // TODO: Invoke an event...
+        Debug.Log("STUDENT GOES HOME");
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Student"))
+        {
+            isTouchingStudent = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Student"))
+        {
+            isTouchingStudent = false;
+        }
     }
 
     private void OnDestroy()
     {
-        detectedItem = null;
+        interactionObject = null;
     }
 
 }
