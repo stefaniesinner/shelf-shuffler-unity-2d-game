@@ -60,7 +60,12 @@ public class BookshelfController : MonoBehaviour
         takenBookIndex = takenBook;
     }
 
-    public void removeTakenBook(int takenBook)
+    /// <summary>
+    /// Place or remove the currently selected book.
+    /// </summary>
+    /// <param name="takenBook"></param> is the book color that is placed
+    /// <param name="isPlaced"></param> false for removing book from the current booksection, true to place book
+    public void PlaceTakenBook(int takenBook, bool isPlaced)
     {
         BookshelfSectionManager currentBookSection = bookSectionScripts[currentBookshelfSectionIndex];
         takenBookIndex = takenBook;
