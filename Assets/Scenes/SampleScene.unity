@@ -1762,7 +1762,7 @@ GameObject:
   m_Component:
   - component: {fileID: 832950958}
   m_Layer: 0
-  m_Name: DetectionPoint
+  m_Name: InteractionPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3202,6 +3202,9 @@ MonoBehaviour:
   purpleBook: {fileID: 0}
   orangeBook: {fileID: 0}
   highlight: {fileID: 0}
+  selectedSection: 0
+  selectedBook: 0
+  books: []
 --- !u!4 &1196129517
 Transform:
   m_ObjectHideFlags: 0
@@ -4361,15 +4364,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 022b32c138ad05d4fa6c0e7425bff25c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionLayer:
+  interactionLayer:
     serializedVersion: 2
     m_Bits: 256
-  detectedItem: {fileID: 0}
-  detectionPoint: {fileID: 832950958}
-  detectionRadius: 0.2
+  interactionObject: {fileID: 0}
+  interactionPoint: {fileID: 832950958}
+  interactionRange: 0.2
   grabPoint: {fileID: 1021572740}
   grabbedItem: {fileID: 0}
   grabbedItemYValue: 0
+  bookshelfController: {fileID: 0}
 --- !u!82 &1326562067
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6133,7 +6137,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionType: 1
-  grabKey: 103
 --- !u!1 &1809060896 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 366900454414953277, guid: 9c542a34f9122c540aed468f505b558c, type: 3}
