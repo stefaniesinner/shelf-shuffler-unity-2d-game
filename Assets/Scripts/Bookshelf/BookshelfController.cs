@@ -20,7 +20,7 @@ public class BookshelfController : MonoBehaviour
     [SerializeField]
     private int takenBookIndex;
     [SerializeField]
-    private int takenBookSection;
+    private int takenBookSection = -1;
 
     private List<BookshelfSectionManager> bookSectionScripts = new List<BookshelfSectionManager>();
 
@@ -38,12 +38,8 @@ public class BookshelfController : MonoBehaviour
         {
             visibleBooks = bookSectionScripts[currentBookshelfSectionIndex].VisibleBooks;
         }
-        
-        if (!bookshelfUI.GetComponent<BookshelfUI>().IsOpen)
-        {
-            takenBookSection = currentBookshelfSectionIndex;
-        }
     }
+
 
     public bool[] VisibleBooks
     {
@@ -54,9 +50,47 @@ public class BookshelfController : MonoBehaviour
     {
         get { return currentBookshelfSectionIndex; }
     }
+
+    public BookshelfUI BookshelfUI
+    {
+        get { return bookshelfUI; }
+    }
     public void setTakenBook(int takenBook)
     {
         takenBookIndex = takenBook;
+    }
+
+    /// <summary>
+    /// Place or remove the currently selected book.
+    /// </summary>
+    /// <param name="takenBook"></param> is the book color that is placed
+    /// <param name="isPlaced"></param> false for removing book from the current booksection, true to place book
+    public void PlaceTakenBook(int takenBook, bool isPlaced)
+    {
+        BookshelfSectionManager currentBookSection = bookSectionScripts[currentBookshelfSectionIndex];
+        takenBookIndex = takenBook;
+        takenBookSection = currentBookshelfSectionIndex;
+
+        if (takenBook == 0)
+        {
+            currentBookSection.RedBook.SetActive(isPlaced);
+        }
+        else if (takenBook == 1)
+        {
+            currentBookSection.BlueBook.SetActive(isPlaced);
+        }
+        else if (takenBook == 2)
+        {
+            currentBookSection.GreenBook.SetActive(isPlaced);
+        }
+        else if (takenBook == 3)
+        {
+            currentBookSection.PurpleBook.SetActive(isPlaced);
+        }
+        else if (takenBook == 4)
+        {
+            currentBookSection.OrangeBook.SetActive(isPlaced);
+        }
     }
 
     public int TakenBookIndex
@@ -68,4 +102,5 @@ public class BookshelfController : MonoBehaviour
     {
         get { return takenBookSection; }
     }
+
 }
