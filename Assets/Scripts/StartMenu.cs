@@ -6,11 +6,14 @@ using UnityEngine.SceneManagement;
 public class StartMenu : MonoBehaviour
 {
     [SerializeField] private AudioSource flippingBook;
+    [SerializeField] private AudioSource backgroundSoundStart;
 
     public void StartGame(){
 
         SceneManager.LoadScene("SampleScene");
         flippingBook.Play();
+
+        backgroundSoundStart.Play();
 
     }
 

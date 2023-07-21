@@ -36,12 +36,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioSource jumpingSound;
     [SerializeField] private AudioSource walkingLibrarianSound;
     [SerializeField] private AudioSource ladderSound;
+    [SerializeField] private AudioSource backgroundMusic;
 
     private void Start()
     {
         player = GetComponent<PlayerController>();
         rb2D = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        backgroundMusic.Play();
     }
 
     private void Update()
