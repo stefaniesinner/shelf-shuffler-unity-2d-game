@@ -17,7 +17,7 @@ public class ItemManager : MonoBehaviour
     {
         if (interactionType == Interaction.GrabAndDrop && Input.GetKeyDown(grabKey))
         {
-            FindObjectOfType<InteractionManager>().GrabAndDropItem();
+            FindObjectOfType<InteractionController>().GrabAndDropItem();
             Debug.Log("GRABBED ITEM");
         }
     }

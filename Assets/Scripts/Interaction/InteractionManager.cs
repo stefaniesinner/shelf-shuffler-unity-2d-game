@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Script to manage the interactions between player and item
-public class InteractionManager : MonoBehaviour
+public class InteractionController : MonoBehaviour
 {
     [SerializeField]
     private LayerMask interactionLayer; // Only items attaching the respective Layer can be interact with the player
@@ -48,7 +48,7 @@ public class InteractionManager : MonoBehaviour
 
         if (isDetecting(objectToInteract))
         {
-            interactionObject.GetComponent<InteractionManager>().Interact();
+            interactionObject.GetComponent<InteractionController>().Interact();
         }
 
         InteractWithStudent();
