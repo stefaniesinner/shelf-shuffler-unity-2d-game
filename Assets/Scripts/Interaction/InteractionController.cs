@@ -32,7 +32,7 @@ public class InteractionController : MonoBehaviour
 
     // TEST WERTE
     private int wishedBook = 0; // TEST WERTE => should be replaced with Students book wishes
-    private int sectionOfWishedBook = 15; // TEST WERTE => should be replaced with Students book wishes
+    private int sectionOfWishedBook = 7; // TEST WERTE => should be replaced with Students book wishes
 
     private KeyCode giveBookKey = KeyCode.F;
 
