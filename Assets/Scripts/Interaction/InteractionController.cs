@@ -26,6 +26,12 @@ public class InteractionController : MonoBehaviour
     // Student variables
     private bool isTouchingStudent;
 
+    private GameObject takenBook; // Book the player chose from Bookshelf and is currently holding
+    private GameObject sectionOfTakenBook;
+    private bool isCorrectBook; // Taken book from the shelf is equals to the book which the student wished
+
+    private KeyCode giveBookKey = KeyCode.F;
+
     private void Update()
     {
         Collider2D item = Physics2D.OverlapCircle(interactionPoint.position, interactionRange, interactionLayer);
@@ -35,7 +41,20 @@ public class InteractionController : MonoBehaviour
             interactionObject.GetComponent<InteractionManager>().Interact();
         }
 
-        //GiveBookToStudent();
+        GiveBookToStudent(takenBook);
+    }
+
+    private bool isDetecting(Collider2D collider)
+    {
+        if (collider != null)
+        {
+            interactionObject = collider.gameObject;
+            return true;
+        }
+
+        interactionObject = null;
+
+        return false;
     }
 
     public void GrabAndDropItem()
@@ -57,49 +76,33 @@ public class InteractionController : MonoBehaviour
         }
     }
 
-    private bool isDetecting(Collider2D collider)
-    {
-        if (collider != null)
-        {
-            interactionObject = collider.gameObject;
-            return true;
-        }
-
-        interactionObject = null;
-
-        return false;
-    }
-
-    private void OnDestroy()
-    {
-        interactionObject = null;
-    }
-
     private void GiveBookToStudent(GameObject book)
     {
         if (isTouchingStudent)
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(giveBookKey))
             {
-                CheckBook(book);
+                Debug.Log("IS INTERACTING WITH STUDENT");
+                
             }
         }
     }
-
-    // Check if it is the book the student wants
-    private bool CheckBook(GameObject book)
+    /*
+    private void CompareBooks(GameObject bookFromShelf, GameObject bookStudentWished)
     {
-        /*
-        if ()
+        // Check the Color of the books
+        if (takenBook.Equals(bookStudentWished)) // Rechange with Color Comparison
         {
-            Debug.Log("BOOK IS CORRECT");
-            return true;
+            // Check the Section of the books
+            if ()
+            {
+                isCorrectBook = true;
+            }
+            isCorrectBook = false;
         }
-
-        Debug.Log("BOOK IS WRONG");
-        */
-        return false;
+        isCorrectBook = false;
     }
+    */
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -116,4 +119,10 @@ public class InteractionController : MonoBehaviour
             isTouchingStudent = false;
         }
     }
+
+    private void OnDestroy()
+    {
+        interactionObject = null;
+    }
+
 }
