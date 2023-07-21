@@ -22,6 +22,8 @@ public class InteractionController : MonoBehaviour
     private float grabbedItemYValue;
 
     private bool isGrabbing;
+
+    // Student variables
     private bool isTouchingStudent;
 
     private void Update()
@@ -33,7 +35,7 @@ public class InteractionController : MonoBehaviour
             interactionObject.GetComponent<InteractionManager>().Interact();
         }
 
-        giveBookToStudent();
+        GiveBookToStudent();
     }
 
     public void GrabAndDropItem()
@@ -73,15 +75,30 @@ public class InteractionController : MonoBehaviour
         interactionObject = null;
     }
 
-    private void giveBookToStudent()
+    private void GiveBookToStudent()
     {
         if (isTouchingStudent)
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
-                Debug.Log("IS GIVING STUDENT A BOOK");
+                CheckBook();
             }
         }
+    }
+
+    // Check if it is the book the student wants
+    private bool CheckBook()
+    {
+        /*
+        if ()
+        {
+            Debug.Log("BOOK IS CORRECT");
+            return true;
+        }
+
+        Debug.Log("BOOK IS WRONG");
+        */
+        return false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

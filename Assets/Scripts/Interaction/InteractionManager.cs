@@ -5,7 +5,7 @@ using UnityEngine;
 // Script to manage the game object and invoke their interaction with the player
 public class InteractionManager : MonoBehaviour
 {
-    public enum Interaction { NONE, GrabAndDrop, GiveBook }
+    public enum Interaction { NONE, GrabAndDrop }
 
     [SerializeField]
     private Interaction interactionType;
