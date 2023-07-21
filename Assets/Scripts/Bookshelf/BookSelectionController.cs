@@ -114,7 +114,6 @@ public class BookSelectionController : MonoBehaviour
        // bookList.RemoveAt(currentBook);
        // highlights.RemoveAt(currentBook);
         takenBookIndex = currentBook;
-        currentBook = 0;
         //controller.GetComponent<BookshelfUI>().OpenAndCloseBookshelfWindow();
         controller.PlaceTakenBook(takenBook, false);
     }
