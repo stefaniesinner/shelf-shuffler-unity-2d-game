@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Script to manage the items and invoke their interaction with the player
+// Script to manage the game object and invoke their interaction with the player
 public class InteractionManager : MonoBehaviour
 {
-    public enum Interaction { NONE, GrabAndDrop }
+    public enum Interaction { NONE, GrabAndDrop, GiveBook }
 
     [SerializeField]
     private Interaction interactionType;

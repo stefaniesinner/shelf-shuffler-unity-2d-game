@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Script to manage the interactions between player and item
+// Script to control the interactions between player and game object
 public class InteractionController : MonoBehaviour
 {
     [SerializeField]
@@ -22,6 +22,7 @@ public class InteractionController : MonoBehaviour
     private float grabbedItemYValue;
 
     private bool isGrabbing;
+    private bool isTouchingStudent;
 
     private void Update()
     {
@@ -31,6 +32,8 @@ public class InteractionController : MonoBehaviour
         {
             interactionObject.GetComponent<InteractionManager>().Interact();
         }
+
+        giveBookToStudent();
     }
 
     public void GrabAndDropItem()
@@ -70,4 +73,30 @@ public class InteractionController : MonoBehaviour
         interactionObject = null;
     }
 
+    private void giveBookToStudent()
+    {
+        if (isTouchingStudent)
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                Debug.Log("IS GIVING STUDENT A BOOK");
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Student"))
+        {
+            isTouchingStudent = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Student"))
+        {
+            isTouchingStudent = false;
+        }
+    }
 }
