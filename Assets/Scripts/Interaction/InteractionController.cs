@@ -13,7 +13,7 @@ public class InteractionController : MonoBehaviour
     private Transform interactionPoint;
     [SerializeField]
     private float interactionRange = 0.2f;
-
+    
     [SerializeField]
     private Transform grabPoint;
     [SerializeField]
@@ -26,15 +26,20 @@ public class InteractionController : MonoBehaviour
     // Student variables
     private bool isTouchingStudent;
 
-    private GameObject takenBook; // Book the player chose from Bookshelf and is currently holding
-    private GameObject sectionOfTakenBook;
+    private int takenBook; // Book the player chose from Bookshelf and is currently holding
+    private int sectionOfTakenBook;
     private bool isCorrectBook; // Taken book from the shelf is equals to the book which the student wished
 
     private KeyCode giveBookKey = KeyCode.F;
 
+    [SerializeField]
+    private BookshelfController bookshelfController;
+
     private void Update()
     {
         Collider2D item = Physics2D.OverlapCircle(interactionPoint.position, interactionRange, interactionLayer);
+        takenBook = bookshelfController.TakenBookIndex;
+        sectionOfTakenBook = bookshelfController.TakenBookSection;
 
         if (isDetecting(item))
         {
@@ -76,7 +81,7 @@ public class InteractionController : MonoBehaviour
         }
     }
 
-    private void GiveBookToStudent(GameObject book)
+    private void GiveBookToStudent(int book)
     {
         if (isTouchingStudent)
         {
@@ -101,8 +106,8 @@ public class InteractionController : MonoBehaviour
             isCorrectBook = false;
         }
         isCorrectBook = false;
-    }
-    */
+    } */
+    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

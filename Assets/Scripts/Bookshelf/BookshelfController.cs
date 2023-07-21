@@ -88,4 +88,14 @@ public class BookshelfController : MonoBehaviour
         }
     }
 
+    public int TakenBookIndex
+    {
+        get { return takenBookIndex; }
+    }
+
+    public int TakenBookSection
+    {
+        get { return takenBookSection; }
+    }
+
 }
