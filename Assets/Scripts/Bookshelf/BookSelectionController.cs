@@ -53,13 +53,10 @@ public class BookSelectionController : MonoBehaviour
                 currentBook = 0;
                 SelectBook();
             }
-            else if (bookList[currentBook + 1].activeSelf)
+            else
             {
                 currentBook++;
                 SelectBook();
-            } else if (!bookList[currentBook + 1].activeSelf)
-            {
-                currentBook++;
             }
         }
         if (Input.GetKeyDown(KeyCode.J)) // Platzhalter, lieber pfeiltasten?
@@ -69,13 +66,10 @@ public class BookSelectionController : MonoBehaviour
                 currentBook = bookList.Count - 1;
                 SelectBook();
             }
-            else if (bookList[currentBook - 1].activeSelf)
+            else
             {
                 currentBook--;
                 SelectBook();
-            } else if (!bookList[currentBook - 1].activeSelf)
-            {
-                currentBook--;
             }
         }
         if (Input.GetKeyDown(KeyCode.K)) // Platzhalter
