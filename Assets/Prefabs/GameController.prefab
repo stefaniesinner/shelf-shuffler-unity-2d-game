@@ -57,4 +57,4 @@ MonoBehaviour:
   - {x: -4.3, y: -2.8, z: 0.2}
   endGamePlane: {fileID: 0}
   endGameStatus: {fileID: 0}
-  scoreText: {fileID: 0}
+  scoreText: {fileID: 100000, guid: 8a23910fc8e8d734eb67a974de2fd763, type: 3}

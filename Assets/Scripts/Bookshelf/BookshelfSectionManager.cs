@@ -25,6 +25,16 @@ public class BookshelfSectionManager : MonoBehaviour
 
     private bool[] visibleBooks;
 
+    [SerializeField]
+    private int selectedSection;
+
+     [SerializeField]
+    private int selectedBook;
+
+    [SerializeField]
+    private GameObject[] books;
+
+
     // True if this bookshelf section is currently selected
     private bool selected = false;
 
@@ -115,4 +125,6 @@ public class BookshelfSectionManager : MonoBehaviour
     {
         get { return visibleBooks; }
     }
+
+
 }
