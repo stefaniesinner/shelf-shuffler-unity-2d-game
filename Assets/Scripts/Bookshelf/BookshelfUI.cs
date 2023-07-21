@@ -37,8 +37,8 @@ public class BookshelfUI : MonoBehaviour
         {
             isOpen = true;
             bookshelfWindow.SetActive(true);
-            bookSelectionController.ResetAll();
-            bookSelectionController.SetAll();
+           // bookSelectionController.ResetAll();
+            //bookSelectionController.SetAll();
         }
         else
         {

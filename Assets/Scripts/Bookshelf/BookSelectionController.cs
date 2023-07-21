@@ -88,7 +88,7 @@ public class BookSelectionController : MonoBehaviour
         {
             TakeSelectedBook(currentBook);
         }
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q)) //controller.GetComponent<BookshelfUI>().isOpen
         {
             ResetAll();
             SetAll();
