@@ -352,11 +352,11 @@ MonoBehaviour:
   - {fileID: 3977643899371293988, guid: a916c2f82b07c458184b5d4659ee8dd8, type: 3}
   availableSeatForStudents: 0000000000
   seatPositions:
-  - {x: -1.5, y: -2.8, z: 0.2}
-  - {x: -2.2, y: -2.8, z: 0.2}
-  - {x: -2.9, y: -2.8, z: 0.2}
-  - {x: -3.6, y: -2.8, z: 0.2}
-  - {x: -4.3, y: -2.8, z: 0.2}
+  - {x: -1.5, y: -2.4, z: 0.2}
+  - {x: -2.2, y: -2.4, z: 0.2}
+  - {x: -2.9, y: -2.4, z: 0.2}
+  - {x: -3.6, y: -2.4, z: 0.2}
+  - {x: -4.3, y: -2.4, z: 0.2}
   endGamePlane: {fileID: 0}
   endGameStatus: {fileID: 0}
   scoreText: {fileID: 0}
@@ -3928,7 +3928,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2709110964784374403, guid: 8f502133c61c8c4408f18feae3296182, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -3.239
+      value: -3.05
       objectReference: {fileID: 0}
     - target: {fileID: 3667126109113803327, guid: 8f502133c61c8c4408f18feae3296182, type: 3}
       propertyPath: m_text
@@ -3988,7 +3988,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6721780957820673834, guid: 8f502133c61c8c4408f18feae3296182, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6721780957820673834, guid: 8f502133c61c8c4408f18feae3296182, type: 3}
       propertyPath: m_margin.w
@@ -5289,9 +5289,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f3c4fa66898153419cec74273f10d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bookshelfUI: {fileID: 0}
+  bookshelfUI: {fileID: 849303744}
   selection: {fileID: 1025235724}
   singleBooks: {fileID: 1019399548}
+  currentBookshelfSectionIndex: 0
+  visibleBooks: 
+  takenBookIndex: 0
+  takenBookSection: 0
 --- !u!1001 &1525004712
 PrefabInstance:
   m_ObjectHideFlags: 0

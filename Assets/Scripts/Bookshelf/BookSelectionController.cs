@@ -7,6 +7,8 @@ public class BookSelectionController : MonoBehaviour
 {
     [SerializeField]
     private BookshelfController controller;
+    [SerializeField]
+    private BookshelfHighlighter highlighter;
 
     [SerializeField]
     private GameObject redBook;
@@ -18,38 +20,33 @@ public class BookSelectionController : MonoBehaviour
     private GameObject purpleBook;
     [SerializeField]
     private GameObject orangeBook;
-
+    [SerializeField]
     private GameObject redBookHighlight;
+    [SerializeField]
     private GameObject blueBookHighlight;
+    [SerializeField]
     private GameObject greenBookHighlight;
+    [SerializeField]
     private GameObject purpleBookHighlight;
+    [SerializeField]
     private GameObject orangeBookHighlight;
-
-   private List<GameObject> bookList = new List<GameObject>();
-    private List<GameObject> highlights = new List<GameObject>();
-
+    [SerializeField]
     private int currentBook = 0;
+
+    private List<GameObject> bookList;
+    private List<GameObject> highlights = new List<GameObject>();
     private int takenBookIndex = -1;
-    public int totalbooks; 
-    
 
     private void Start()
     {
-        bookList.Add(redBook);
-        bookList.Add(blueBook);
-        bookList.Add(greenBook);
-        bookList.Add(purpleBook);
-        bookList.Add(orangeBook);
 
-        highlights.Add(redBookHighlight);
-        highlights.Add(blueBookHighlight);
-        highlights.Add(greenBookHighlight);
-        highlights.Add(purpleBookHighlight);
-        highlights.Add(orangeBookHighlight);
-
+    
+        ResetAll();
+        SetAll();
         SelectBook();
-    }
 
+
+    }
 
     private void Update()
     {
@@ -83,12 +80,7 @@ public class BookSelectionController : MonoBehaviour
         {
             TakeSelectedBook();
         }
-        /*
-        if (controller.GetComponent<BookshelfUI>().IsOpen)
-        {
-            ResetAll();
-            SetAll();
-        }*/
+        
     }
 
     private void SelectBook()
@@ -100,11 +92,11 @@ public class BookSelectionController : MonoBehaviour
     private void TakeSelectedBook()
     {
         bookList[currentBook].SetActive(false);
-        bookList.RemoveAt(currentBook);
-        highlights.RemoveAt(currentBook);
+       // bookList.RemoveAt(currentBook);
+       // highlights.RemoveAt(currentBook);
         takenBookIndex = currentBook;
         currentBook = 0;
-        controller.GetComponent<BookshelfUI>().OpenAndCloseBookshelfWindow();
+        //controller.GetComponent<BookshelfUI>().OpenAndCloseBookshelfWindow();
     }
 
     private void UnselectAllHighlights()
@@ -117,11 +109,25 @@ public class BookSelectionController : MonoBehaviour
 
     private void ResetAll()
     {
-        for (int i = 0; i < bookList.Count; i++)
+        bookList = new List<GameObject>();
+        bookList.Add(redBook);
+        bookList.Add(blueBook);
+        bookList.Add(greenBook);
+        bookList.Add(purpleBook);
+        bookList.Add(orangeBook);
+
+        highlights = new List<GameObject>();
+        highlights.Add(redBookHighlight);
+        highlights.Add(blueBookHighlight);
+        highlights.Add(greenBookHighlight);
+        highlights.Add(purpleBookHighlight);
+        highlights.Add(orangeBookHighlight);
+
+        for (int i = 0; i < 5; i++)
         {
             bookList[i].SetActive(true);
-            takenBookIndex = -1;
         }
+        takenBookIndex = -1;
     }
 
     private void SetAll()

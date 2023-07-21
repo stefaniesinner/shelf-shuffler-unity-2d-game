@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class StudentController : MonoBehaviour{
 
@@ -8,7 +9,7 @@ public class StudentController : MonoBehaviour{
     public int studentNeeds; 
     
     public float studentMoveSpeed = 3f; 
-    public GameObject positionDummy; 
+    //public GameObject positionDummy; 
 
     public int mySeat; 
     public Vector3 destination; 
@@ -16,15 +17,17 @@ public class StudentController : MonoBehaviour{
 
     private GameObject[] availableProducts; //List of books to choose from 
     
+
     private float currentStudentPatience; 
     private bool isOnSeat; 
     private bool mainOrderisfulfilled; 
 
 
-    public GameObject healthBarFG; 
+    /*public GameObject healthBarFG; 
     public GameObject healthBarBG; 
     private bool healthBarSliderFlag; 
     public GameObject requestBubble; 
+    */
     internal float leaveTime;
     private float creationTime; 
     private bool isLeaving; 
@@ -32,13 +35,39 @@ public class StudentController : MonoBehaviour{
 
     private Vector3 startingPosition;
     private Vector3 specificStartingPosition;  
+
+
+    [SerializeField]
+    private GameObject redBook;
+    [SerializeField]
+    private GameObject blueBook;
+    [SerializeField]
+    private GameObject greenBook;
+    [SerializeField]
+    private GameObject purpleBook;
+    [SerializeField]
+    private GameObject orangeBook;
+
+    private int selectedSection; 
+
+    private int selectedBook; 
+
+    private string[] sections = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T" };
+
+    [SerializeField]
+    private GameObject[] books;
+
+       [SerializeField]
+    private Text sectionText;
      
 
     void Awake(){
        
+       /*
         healthBarFG.SetActive(false); 
         requestBubble.SetActive(false); 
         healthBarBG.SetActive(false); 
+        */
 
         mainOrderisfulfilled = false; 
 
@@ -55,27 +84,33 @@ public class StudentController : MonoBehaviour{
         //Init(); 
         StartCoroutine(goToSeat()); 
     }
+/*
 
+void Init()
+    {
+       
+        if (bookList != null && bookList.Count > 0)
+        {
+            
+            GameObject selectedBook = bookList[Random.Range(0, bookList.Count)];
 
-    private GameObject bookImage; 
-
-    void Init(){
-        
-        bookImage = Instantiate(availableProducts[studentNeeds], positionDummy.transform.position, Quaternion.Euler(90, 180, 0)) as GameObject;
-        bookImage.name = "studentNeeds";
-        bookImage.transform.localScale = new Vector3(0.18f, 0.1f, 0.13f);
-        bookImage.transform.parent = requestBubble.transform;
-
-
+            GameObject askBook = Instantiate(selectedBook, positionDummy.transform.position, Quaternion.Euler(90, 180, 0));
+            askBook.transform.localScale = new Vector3(0.18f, 0.1f, 0.13f);
+            askBook.transform.parent = requestBubble.transform;
+        }
+        else
+        {
+            Debug.LogWarning("No books available in the bookList.");
+        }
     }
-
+*/
    
 
     private float timeVariance; 
 
     
     IEnumerator goToSeat()
-{
+    {
     while (!isOnSeat)
     {
         float step = studentMoveSpeed * Time.deltaTime;
@@ -84,34 +119,38 @@ public class StudentController : MonoBehaviour{
         if (Vector3.Distance(transform.position, destination) < 0.001f)
         {
             isOnSeat = true;
-            healthBarBG.SetActive(true);
+            /*healthBarBG.SetActive(true);
             requestBubble.SetActive(true);
             healthBarFG.SetActive(true);
+            */
 
             transform.rotation = Quaternion.Euler(0, 180, 0); 
+
+             selectedSection = Random.Range(0, 19);
+             selectedBook = Random.Range(0, 4);
+            ShowRandomBookOnStudent();
 
             yield break;
         }
         yield return 0;
     }
+    }
+    public void ShowRandomBookOnStudent()
+{
+    for (int i = 0; i < books.Length; i++)
+    {
+        books[i].SetActive(i == selectedBook);
+    }
+
+    if (sectionText != null)
+    {
+        sectionText.text = sections[selectedSection];
+    }
 }
 
 
-     Vector2 findMinInArray(float[] _array)
-    {
-        int lowestIndex = -1;
-        float minval = 1000000.0f;
-        for (int i = 0; i < _array.Length; i++)
-        {
-            if (_array[i] < minval)
-            {
-                minval = _array[i];
-                lowestIndex = i;
-            }
-        }
-        return (new Vector2(minval, lowestIndex));
-    }
 
+/*
     void Update(){
 
         if(healthBarSliderFlag)
@@ -129,7 +168,7 @@ public class StudentController : MonoBehaviour{
             else 
                     //moodIndex = 0; 
         }
-        */
+      
     
     }
     IEnumerator healthBar()
@@ -167,7 +206,7 @@ public class StudentController : MonoBehaviour{
         float leaveTime = Time.time; 
         int remainedPatienceBonus = (int)Mathf.Round(studentPatience- (leaveTime - creationTime)); 
         StartCoroutine(leave()); 
-    
+
     }
 
 
@@ -186,16 +225,10 @@ public class StudentController : MonoBehaviour{
         yield return new WaitForSeconds(0.3f);
 
         //animate (close) request bubble
-        StartCoroutine(animate(Time.time, requestBubble, 0.75f, 0.95f));
+
         yield return new WaitForSeconds(0.4f);
 
-        //animate mainObject (hide it, then destroy it)
-        while (transform.position.x < 10)
-        {
-            transform.position = new Vector3(transform.position.x + (Time.deltaTime * studentMoveSpeed),
-                                             startingPosition.y - 0.25f + (Mathf.Sin(Time.time * 10) / 8),
-                                             transform.position.z);
-
+    
             if (transform.position.x >= 10)
             {
                 gameController.GetComponent<MainGameController>().availableSeatForStudents[mySeat] = true;
@@ -206,31 +239,6 @@ public class StudentController : MonoBehaviour{
         }
     }
 
-    IEnumerator animate(float _time, GameObject _go, float _in, float _out)
-    {
-        float t = 0.0f;
-        while (t <= 1.0f)
-        {
-            t += Time.deltaTime * 10;
-            _go.transform.localScale = new Vector3(Mathf.SmoothStep(_in, _out, t),
-                                                   _go.transform.localScale.y,
-                                                   _go.transform.localScale.z);
-            yield return 0;
-        }
-        float r = 0.0f;
-        if (_go.transform.localScale.x >= _out)
-        {
-            while (r <= 1.0f)
-            {
-                r += Time.deltaTime * 2;
-                _go.transform.localScale = new Vector3(Mathf.SmoothStep(_out, 0.01f, r),
-                                                       _go.transform.localScale.y,
-                                                       _go.transform.localScale.z);
-                if (_go.transform.localScale.x <= 0.01f)
-                    _go.SetActive(false);
-                yield return 0;
-            }
-        }
-    }
+    */
+}
 
-    }

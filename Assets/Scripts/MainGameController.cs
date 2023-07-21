@@ -96,7 +96,7 @@ public class MainGameController : MonoBehaviour{
     void manageGuiTexts (){
         scoreText.GetComponent<TextMesh>().text= "+" + totalScore.ToString(); 
     }
-
+/*
     IEnumerator processGameFinish(){
 
         yield return new WaitForSeconds(1.5f); 
@@ -108,5 +108,6 @@ public class MainGameController : MonoBehaviour{
 			}
 		}
     }
+    */
     
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8319507822267233075}
   - component: {fileID: 32726683815345891}
   - component: {fileID: 6954011153325840779}
-  - component: {fileID: -6414355198883493696}
+  - component: {fileID: 4333352958967600779}
   m_Layer: 0
   m_Name: student 2
   m_TagString: student
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 21365621
   m_SortingLayer: 2
-  m_SortingOrder: 4
+  m_SortingOrder: 2
   m_Sprite: {fileID: 247811597, guid: 45ce5bb242f0d454c99d2e15d16db22b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   studentPatience: 30
   studentNeeds: 0
-  studentMoveSpeed: 3
+  studentMoveSpeed: 2
   positionDummy: {fileID: 7325732642427632569}
   mySeat: 0
   destination: {x: 0, y: 0, z: 0}
@@ -132,6 +132,18 @@ MonoBehaviour:
   healthBarBG: {fileID: 2220026394399350587, guid: 4ccf911586121484db6b8773488507a2, type: 3}
   requestBubble: {fileID: 70737575174729820, guid: e1080744dcd5c3c4380f3c35d1e1597d, type: 3}
   score3DText: {fileID: 100000, guid: 8a23910fc8e8d734eb67a974de2fd763, type: 3}
+  redBook: {fileID: 5116622150767886346, guid: 0a5b545d3e9af7743bf72273ca6a86fb, type: 3}
+  blueBook: {fileID: 7828068861358877817, guid: f12e106b388dd0944a79c1531f476eab, type: 3}
+  greenBook: {fileID: 8304428666722550434, guid: 35abc5f30ee7e374c82c6bbbb081c29d, type: 3}
+  purpleBook: {fileID: 1813637706255607544, guid: 9886ccd7742cfb3498808aaba9a7198f, type: 3}
+  orangeBook: {fileID: 4287292310786414922, guid: 7438ef97733be804c9391d25145427f1, type: 3}
+  books:
+  - {fileID: 7828068861358877817, guid: f12e106b388dd0944a79c1531f476eab, type: 3}
+  - {fileID: 5116622150767886346, guid: 0a5b545d3e9af7743bf72273ca6a86fb, type: 3}
+  - {fileID: 4287292310786414922, guid: 7438ef97733be804c9391d25145427f1, type: 3}
+  - {fileID: 1813637706255607544, guid: 9886ccd7742cfb3498808aaba9a7198f, type: 3}
+  - {fileID: 8304428666722550434, guid: 35abc5f30ee7e374c82c6bbbb081c29d, type: 3}
+  sectionText: {fileID: 0}
 --- !u!61 &6954011153325840779
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -141,7 +153,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 3472224057945490841}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 96e17ef7432a6674781d2c15c3ea1099, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -177,7 +189,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.21, y: 0.28}
   m_EdgeRadius: 0
---- !u!50 &-6414355198883493696
+--- !u!50 &4333352958967600779
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -203,7 +215,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &6223000354495694135
 GameObject:
   m_ObjectHideFlags: 0
