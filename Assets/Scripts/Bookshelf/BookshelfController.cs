@@ -58,4 +58,14 @@ public class BookshelfController : MonoBehaviour
     {
         takenBookIndex = takenBook;
     }
+
+    public int TakenBookIndex
+    {
+        get { return takenBookIndex; }
+    }
+
+    public int TakenBookSection
+    {
+        get { return takenBookSection; }
+    }
 }
