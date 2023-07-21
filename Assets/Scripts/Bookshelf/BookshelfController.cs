@@ -8,17 +8,22 @@ using UnityEngine;
 public class BookshelfController : MonoBehaviour
 {
     [SerializeField]
-    private BookshelfUI bookshelfUI;
+    public BookshelfUI bookshelfUI;
     [SerializeField]
     private BookshelfHighlighter selection;
     [SerializeField]
     private BookSelectionController singleBooks;
+    [SerializeField]
+    private int currentBookshelfSectionIndex;
+    [SerializeField]
+    private bool[] visibleBooks;
+    [SerializeField]
+    private int takenBookIndex;
+    [SerializeField]
+    private int takenBookSection;
 
     private List<BookshelfSectionManager> bookSectionScripts = new List<BookshelfSectionManager>();
-    private int currentBookshelfSectionIndex;
-    private bool[] visibleBooks;
 
-    private int takenBookIndex;
 
     private void Start()
     {
@@ -28,15 +33,16 @@ public class BookshelfController : MonoBehaviour
     private void Update()
     {
         currentBookshelfSectionIndex = selection.CurrentBookshelfSectionIndex;
+        takenBookIndex = singleBooks.TakenBookIndex;
         if (currentBookshelfSectionIndex != -1)
         {
             visibleBooks = bookSectionScripts[currentBookshelfSectionIndex].VisibleBooks;
         }
-        /*
+        
         if (!bookshelfUI.GetComponent<BookshelfUI>().IsOpen)
         {
-            takenBookIndex = singleBooks.TakenBookIndex;
-        }*/
+            takenBookSection = currentBookshelfSectionIndex;
+        }
     }
 
     public bool[] VisibleBooks
@@ -47,5 +53,9 @@ public class BookshelfController : MonoBehaviour
     public int CurrentBookshelfSectionIndex
     {
         get { return currentBookshelfSectionIndex; }
+    }
+    public void setTakenBook(int takenBook)
+    {
+        takenBookIndex = takenBook;
     }
 }
