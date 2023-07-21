@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3129028540452397450}
   - component: {fileID: 2635198163606960519}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: empty_bubble_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: -5010136911397112806}
   - component: {fileID: 1546343349313391932}
   - component: {fileID: 4909270759615848675}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: student 1
   m_TagString: student
   m_Icon: {fileID: 0}
@@ -371,7 +371,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7327069798588149863}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: healthBarSliderFG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -401,13 +401,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7609910299521500214}
     m_Modifications:
+    - target: {fileID: 1527071054355609438, guid: 4ccf911586121484db6b8773488507a2, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2220026394399350587, guid: 4ccf911586121484db6b8773488507a2, type: 3}
       propertyPath: m_Name
       value: healthBarBG
       objectReference: {fileID: 0}
     - target: {fileID: 2220026394399350587, guid: 4ccf911586121484db6b8773488507a2, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2220026394399350587, guid: 4ccf911586121484db6b8773488507a2, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2496339992772661471, guid: 4ccf911586121484db6b8773488507a2, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4057385194092392316, guid: 4ccf911586121484db6b8773488507a2, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260345206357135798, guid: 4ccf911586121484db6b8773488507a2, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7751012122829692634, guid: 4ccf911586121484db6b8773488507a2, type: 3}
       propertyPath: m_Pivot.x
@@ -524,6 +544,10 @@ PrefabInstance:
       value: 'StudentNeedFrame '
       objectReference: {fileID: 0}
     - target: {fileID: 70737575174729820, guid: e1080744dcd5c3c4380f3c35d1e1597d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 70737575174729820, guid: e1080744dcd5c3c4380f3c35d1e1597d, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -582,6 +606,10 @@ PrefabInstance:
     - target: {fileID: 3359302905334397390, guid: e1080744dcd5c3c4380f3c35d1e1597d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171572033094450012, guid: e1080744dcd5c3c4380f3c35d1e1597d, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

@@ -1571,16 +1571,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1018637515903892995, guid: ebd24d2c1772095419d2146d296f883d, type: 3}
   m_PrefabInstance: {fileID: 577270602}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &712914307 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4655984604940384578, guid: 8096d98c0155824498d5af3c91e54100, type: 3}
-  m_PrefabInstance: {fileID: 501009760212539525}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &754866809 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5219735459591642116, guid: 8096d98c0155824498d5af3c91e54100, type: 3}
-  m_PrefabInstance: {fileID: 501009760212539525}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &787903594 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1389843782741105565, guid: 8f502133c61c8c4408f18feae3296182, type: 3}
@@ -2621,150 +2611,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2587296496557444147, guid: 8f502133c61c8c4408f18feae3296182, type: 3}
   m_PrefabInstance: {fileID: 1311765818}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &994401478
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 994401482}
-  - component: {fileID: 994401481}
-  - component: {fileID: 994401480}
-  - component: {fileID: 994401479}
-  m_Layer: 8
-  m_Name: TestStudent2
-  m_TagString: Student
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!61 &994401479
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 994401478}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.18, y: 0.28}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.18, y: 0.28}
-  m_EdgeRadius: 0
---- !u!114 &994401480
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 994401478}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6912b25f231b5b645ba06783e5429e7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionType: 2
---- !u!212 &994401481
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 994401478}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 2
-  m_Sprite: {fileID: -436820143, guid: 34fa3c2fbba2e4126b1f62245a355bd3, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &994401482
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 994401478}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.42, y: -1.875, z: 0}
-  m_LocalScale: {x: 3.7778, y: 3.6786, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1006007197
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3597,9 +3443,6 @@ MonoBehaviour:
   purpleBook: {fileID: 0}
   orangeBook: {fileID: 0}
   highlight: {fileID: 0}
-  selectedSection: 0
-  selectedBook: 0
-  books: []
 --- !u!4 &1196129517
 Transform:
   m_ObjectHideFlags: 0
@@ -3631,11 +3474,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7ff2faf8d7509142bc314389c2d4b06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1217676272 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 579895703373858951, guid: 8096d98c0155824498d5af3c91e54100, type: 3}
-  m_PrefabInstance: {fileID: 501009760212539525}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1218042519
 GameObject:
   m_ObjectHideFlags: 0
@@ -4863,7 +4701,6 @@ MonoBehaviour:
   groundRadius: 0.3
   groundRayDist: 0.55
   jumpingSound: {fileID: 1326562067}
-  walkingLibrarianSound: {fileID: 0}
   ladderSound: {fileID: 1326562069}
   backgroundMusic: {fileID: 1326562070}
 --- !u!114 &1326562066
@@ -6670,6 +6507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionType: 1
+  grabKey: 103
 --- !u!1 &1809060896 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 366900454414953277, guid: 9c542a34f9122c540aed468f505b558c, type: 3}

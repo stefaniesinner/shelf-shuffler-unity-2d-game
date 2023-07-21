@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 32726683815345891}
   - component: {fileID: 6954011153325840779}
   - component: {fileID: 4333352958967600779}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: student 2
   m_TagString: student
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6007014681964343935}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StudentNeedFrame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -313,7 +313,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7324552117018629654}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StudentNeedsPositionDummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}

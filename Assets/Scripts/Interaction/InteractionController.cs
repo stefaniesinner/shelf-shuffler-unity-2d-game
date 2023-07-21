@@ -21,6 +21,7 @@ public class InteractionController : MonoBehaviour
     [SerializeField]
     private float grabbedItemYValue;
 
+
     private bool isGrabbing;
 
     // Student variables
@@ -151,9 +152,10 @@ public class InteractionController : MonoBehaviour
 
     private void GiveBookToStudent(int book, int section)
     {
-        // TODO: Delete Object
-        // TODO: Invoke an event...
+        //Destroy(objectToInteract); 
+        
         Debug.Log("STUDENT GOES HOME");
+        HighScore.instance.AddPoint();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
