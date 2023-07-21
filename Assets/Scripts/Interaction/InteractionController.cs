@@ -26,8 +26,8 @@ public class InteractionController : MonoBehaviour
     // Student variables
     private bool isTouchingStudent;
 
-    private int takenBook; // Book the player chose from Bookshelf and is currently holding
-    private int sectionOfTakenBook;
+    private int takenBook = 2; // Book the player chose from Bookshelf and is currently holding
+    private int sectionOfTakenBook = 2;;
     private bool isCorrectBook; // Taken book from the shelf is equals to the book which the student wished
 
     private KeyCode giveBookKey = KeyCode.F;
@@ -38,8 +38,8 @@ public class InteractionController : MonoBehaviour
     private void Update()
     {
         Collider2D item = Physics2D.OverlapCircle(interactionPoint.position, interactionRange, interactionLayer);
-        takenBook = bookshelfController.TakenBookIndex;
-        sectionOfTakenBook = bookshelfController.TakenBookSection;
+        //takenBook = bookshelfController.TakenBookIndex;
+        //sectionOfTakenBook = bookshelfController.TakenBookSection;
 
         if (isDetecting(item))
         {
