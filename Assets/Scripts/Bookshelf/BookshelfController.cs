@@ -7,5 +7,29 @@ using UnityEngine;
  */
 public class BookshelfController : MonoBehaviour
 {
+    private List<BookshelfSectionManager> bookSectionScripts = new List<BookshelfSectionManager>();
+    private int currentBookshelfSectionIndex;
+    private bool[] visibleBooks;
 
+    public int takenBookIndex;
+
+    private void Start()
+    {
+
+    }
+
+    private void Update()
+    {
+        
+    }
+
+    private bool[] VisibleBooks
+    {
+        get { return visibleBooks; }
+    }
+
+    private int CurrentBookshelfSectionIndex
+    {
+        get { return currentBookshelfSectionIndex; }
+    }
 }
