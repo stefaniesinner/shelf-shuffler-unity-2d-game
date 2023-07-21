@@ -39,8 +39,20 @@ public class BookSelectionController : MonoBehaviour
 
     private void Start()
     {
-        ResetAll();
-        SetAll();
+        bookList = new List<GameObject>();
+        bookList.Add(redBook);
+        bookList.Add(blueBook);
+        bookList.Add(greenBook);
+        bookList.Add(purpleBook);
+        bookList.Add(orangeBook);
+
+        highlights = new List<GameObject>();
+        highlights.Add(redBookHighlight);
+        highlights.Add(blueBookHighlight);
+        highlights.Add(greenBookHighlight);
+        highlights.Add(purpleBookHighlight);
+        highlights.Add(orangeBookHighlight);
+
         SelectBook();
     }
 
@@ -74,7 +86,12 @@ public class BookSelectionController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.K)) // Platzhalter
         {
-            TakeSelectedBook();
+            TakeSelectedBook(currentBook);
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            ResetAll();
+            SetAll();
         }
         
     }
@@ -85,14 +102,15 @@ public class BookSelectionController : MonoBehaviour
         highlights[currentBook].SetActive(true);
     }
 
-    private void TakeSelectedBook()
+    private void TakeSelectedBook(int takenBook)
     {
-        bookList[currentBook].SetActive(false);
+        bookList[takenBook].SetActive(false);
        // bookList.RemoveAt(currentBook);
        // highlights.RemoveAt(currentBook);
         takenBookIndex = currentBook;
         currentBook = 0;
         //controller.GetComponent<BookshelfUI>().OpenAndCloseBookshelfWindow();
+        controller.removeTakenBook(takenBook);
     }
 
     private void UnselectAllHighlights()
@@ -103,39 +121,22 @@ public class BookSelectionController : MonoBehaviour
         }
     }
 
-    private void ResetAll()
+    public void ResetAll()
     {
-        bookList = new List<GameObject>();
-        bookList.Add(redBook);
-        bookList.Add(blueBook);
-        bookList.Add(greenBook);
-        bookList.Add(purpleBook);
-        bookList.Add(orangeBook);
-
-        highlights = new List<GameObject>();
-        highlights.Add(redBookHighlight);
-        highlights.Add(blueBookHighlight);
-        highlights.Add(greenBookHighlight);
-        highlights.Add(purpleBookHighlight);
-        highlights.Add(orangeBookHighlight);
-
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < bookList.Count; i++)
         {
             bookList[i].SetActive(true);
         }
         takenBookIndex = -1;
+        currentBook = 0;
     }
 
-    private void SetAll()
+    public void SetAll()
     {
         bool[] visibleBooks = controller.VisibleBooks;
-        for (int i = 0; i < visibleBooks.Length; i++)
+        for (int i = 0; i < bookList.Count; i++)
         {
             bookList[i].SetActive(visibleBooks[i]);
-            if (visibleBooks[i] == false)
-            {
-                bookList.RemoveAt(i);
-            }
         }
     }
 

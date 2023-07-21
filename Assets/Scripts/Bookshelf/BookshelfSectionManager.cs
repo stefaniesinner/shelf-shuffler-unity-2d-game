@@ -8,6 +8,8 @@ public class BookshelfSectionManager : MonoBehaviour
     // The bookshelf section, where this Script is attached to
     [SerializeField]
     private GameObject section;
+    [SerializeField]
+    private BookshelfController controller;
 
     // The Book GameObjects that are inside this book section
     [SerializeField]

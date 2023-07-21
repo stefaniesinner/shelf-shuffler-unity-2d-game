@@ -20,7 +20,7 @@ public class BookshelfController : MonoBehaviour
     [SerializeField]
     private int takenBookIndex;
     [SerializeField]
-    private int takenBookSection;
+    private int takenBookSection = - 1;
 
     private List<BookshelfSectionManager> bookSectionScripts = new List<BookshelfSectionManager>();
 
@@ -38,12 +38,8 @@ public class BookshelfController : MonoBehaviour
         {
             visibleBooks = bookSectionScripts[currentBookshelfSectionIndex].VisibleBooks;
         }
-        
-        if (!bookshelfUI.GetComponent<BookshelfUI>().IsOpen)
-        {
-            takenBookSection = currentBookshelfSectionIndex;
-        }
     }
+
 
     public bool[] VisibleBooks
     {
@@ -54,8 +50,42 @@ public class BookshelfController : MonoBehaviour
     {
         get { return currentBookshelfSectionIndex; }
     }
+
+    public BookshelfUI BookshelfUI
+    {
+        get { return bookshelfUI; }
+    }
     public void setTakenBook(int takenBook)
     {
         takenBookIndex = takenBook;
     }
+
+    public void removeTakenBook(int takenBook)
+    {
+        BookshelfSectionManager currentBookSection = bookSectionScripts[currentBookshelfSectionIndex];
+        takenBookIndex = takenBook;
+        takenBookSection = currentBookshelfSectionIndex;
+
+        if (takenBook == 0)
+        {
+            currentBookSection.RedBook.SetActive(false);
+        } 
+        else if (takenBook == 1)
+        {
+            currentBookSection.BlueBook.SetActive(false);
+        } 
+        else if (takenBook == 2)
+        {
+            currentBookSection.GreenBook.SetActive(false);
+        }
+        else if (takenBook == 3)
+        {
+            currentBookSection.PurpleBook.SetActive(false);
+        }
+        else if (takenBook == 4)
+        {
+            currentBookSection.OrangeBook.SetActive(false);
+        }
+    }
+
 }
