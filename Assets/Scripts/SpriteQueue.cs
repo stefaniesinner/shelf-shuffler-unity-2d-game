@@ -10,7 +10,7 @@ public class SpriteQueue : MonoBehaviour
     public float maxSpawnInterval = 5f; // Maximum time interval between each sprite spawn
     public int maxQueueSize = 5; // Maximum size of the queue
 
-    public Player player; // Reference to the player object
+    public PlayerController player; // Reference to the player object
 
     private Queue<GameObject> spriteQueue;
     private List<GameObject> spriteList;
