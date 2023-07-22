@@ -3,17 +3,23 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ladder
+  - Books
+  - singleBook
+  - student
+  - healthbar
+  - Student
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Shelf
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Ground
+  - Foreground
+  - Item
   - 
   - 
   - 
@@ -40,4 +46,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: shelf
+    uniqueID: 3336993655
+    locked: 0
+  - name: foreground
+    uniqueID: 21365621
     locked: 0

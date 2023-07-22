@@ -1,10 +1,8 @@
 # mmp-shelf-shuffler
 
-- Move around by using ←, →
-- Climb the ladder using ↑, ↓
-- Press 'E' to Open/Close the Book Section Window
-- Press 'J' or 'L' to navigate between the books 
-- Press 'K' to select the book 
-- Press 'I' to put the book back 
-- Press 'F' to interact with students
-- Press 'G' to pick up the ladder 
+Bisherige Funktionen:
+- Spieler kann laufen/springen (WASD/Pfeiltasten)
+- Spieler kann die Leiter benutzen (WASD/Pfeiltasten)
+
+Hinweis:
+Wir hatten Merge-Konflikte auf Git, deshalb fehlen Features. Wir haben noch Studenten in die Szene eingefügt, die nacheinander reinkommen (siehe SpriteQueue.cs), bisherige Audios/Animationen fehlen in der Abgabe.
