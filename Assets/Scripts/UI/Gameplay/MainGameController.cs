@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * Script that handles the gameplay.
+ */
 public class MainGameController : MonoBehaviour
 {
     // Start is called before the first frame update

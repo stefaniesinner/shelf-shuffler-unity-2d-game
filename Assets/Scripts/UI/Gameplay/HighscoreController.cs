@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * Script to handle the players highscore.
+ */
 public class HighscoreController : MonoBehaviour
 {
     // Start is called before the first frame update
