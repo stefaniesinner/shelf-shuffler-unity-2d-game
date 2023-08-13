@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,7 +121,175 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: librian_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 33
+        width: 23.2
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 887a325150a1ee945a53fddec76e0c2a
+      internalID: 311099712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: librian_1
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 33
+        width: 23.2
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4188fd87c7bca344f9ec940299b26d91
+      internalID: 1794761410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: librian_2
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 33
+        width: 23.2
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb2446aa7cc41274ea73720d18571b3c
+      internalID: 1210294124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: librian_3
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 33
+        width: 23.2
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d187cc060529db4bb3033c9364513a9
+      internalID: -978193559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: librian_4
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 33
+        width: 23.2
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 005355f93b8de0c47b2583036ee192df
+      internalID: -1840310458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: librian_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 23.2
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6529e2e2f2cd51f43834e5dbffd28f8f
+      internalID: 1269123673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: librian_6
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 0
+        width: 23.2
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d37569a3c71e26845b5e8a2d07aba5fb
+      internalID: 1235493364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: librian_7
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 0
+        width: 23.2
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03fdc9d3830e2f4429597d3adf73cc75
+      internalID: -1853643505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +300,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      librian_0: 311099712
+      librian_1: 1794761410
+      librian_2: 1210294124
+      librian_3: -978193559
+      librian_4: -1840310458
+      librian_5: 1269123673
+      librian_6: 1235493364
+      librian_7: -1853643505
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
