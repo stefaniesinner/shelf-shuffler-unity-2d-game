@@ -9,18 +9,26 @@ public class StudentController : MonoBehaviour
 {
     [SerializeField]
     private float moveHorizontal = 0f;
+    [SerializeField]
     private float speed = 3f;
 
+    [SerializeField]
     private bool isGroundFloor = true;
+    [SerializeField]
     private bool isGroundFront = false;
 
     [SerializeField]
     private LayerMask groundLayer;
+    [SerializeField]
     private float frontGroundRayDist = 0.25f;
+    [SerializeField]
     private float floorCheckY = 0.52f;
+    [SerializeField]
     private float frontCheck = 0.51f;
+    [SerializeField]
     private float frontDist = 0.001f;
 
+    [SerializeField]
     private int scoreGive = 50;
 
     private Rigidbody2D rb;
@@ -64,6 +72,22 @@ public class StudentController : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(moveHorizontal * speed, rb.velocity.y);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Player is detected");
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            GetKilled();
+        }
     }
 
     private void GetKilled()
