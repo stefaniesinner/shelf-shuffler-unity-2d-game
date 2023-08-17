@@ -339,7 +339,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_Material: {fileID: 6200000, guid: 102d38d10413c4e448ef458de5419a21, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -408,6 +408,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcf1b4d806e08604a91c9e817f34a99e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGrounded: 0
+  isMoving: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  radius: 0.3
+  groundRayDist: 0.5
 --- !u!1 &1261131921
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,7 +426,7 @@ GameObject:
   - component: {fileID: 1261131923}
   - component: {fileID: 1261131922}
   - component: {fileID: 1261131924}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -3,23 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Ladder
-  - Books
-  - singleBook
-  - student
-  - healthbar
-  - Student
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Shelf
+  - 
   - Water
   - UI
   - Ground
-  - Foreground
-  - Item
+  - 
+  - 
   - 
   - 
   - 
