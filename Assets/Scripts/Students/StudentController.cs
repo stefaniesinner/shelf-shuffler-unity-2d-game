@@ -44,7 +44,7 @@ public class StudentController : MonoBehaviour
         isGroundFloor = (Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y - floorCheckY, transform.position.z),
             new Vector3(moveHorizontal, 0, 0), frontGroundRayDist, groundLayer));
 
-        if (!isGroundFloor)
+        if (isGroundFloor)
         {
             moveHorizontal = moveHorizontal * -1;
         }
