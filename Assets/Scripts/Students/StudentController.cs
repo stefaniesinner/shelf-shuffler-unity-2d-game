@@ -87,6 +87,7 @@ public class StudentController : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             GetKilled();
+            FXManager.obj.ShowPop(transform.position);
         }
     }
 

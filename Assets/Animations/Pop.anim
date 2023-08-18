@@ -81,4 +81,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.28333333
+    functionName: Disappear
+    data: 
+    objectReferenceParameter: {fileID: 11500000, guid: 247e6d7a7e25552429aad78f4872f335, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
