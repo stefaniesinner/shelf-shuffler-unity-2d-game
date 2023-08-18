@@ -292,11 +292,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9099835668698529337, guid: 0d35900368c35644e8e0eb3ce0b0ecf3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.9541037
+      value: -2.15
       objectReference: {fileID: 0}
     - target: {fileID: 9099835668698529337, guid: 0d35900368c35644e8e0eb3ce0b0ecf3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.42823583
+      value: -0.4
       objectReference: {fileID: 0}
     - target: {fileID: 9099835668698529337, guid: 0d35900368c35644e8e0eb3ce0b0ecf3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -530,6 +530,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGrounded: 0
   isMoving: 0
+  storage: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -737,12 +738,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0afec2fd9690f42b281342cae1a50fc6, type: 3}
+  m_Sprite: {fileID: -1931066457, guid: 0afec2fd9690f42b281342cae1a50fc6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 32.5, y: 3.5}
+  m_Size: {x: 2.5, y: 1.65625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -799,8 +800,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.75, y: 1.65625}
-    newSize: {x: 32.5, y: 3.5}
+    oldSize: {x: 2.5, y: 1.65625}
+    newSize: {x: 2.5, y: 1.65625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -826,7 +827,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9099835668698529337, guid: 0d35900368c35644e8e0eb3ce0b0ecf3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.03
+      value: -0.94
       objectReference: {fileID: 0}
     - target: {fileID: 9099835668698529337, guid: 0d35900368c35644e8e0eb3ce0b0ecf3, type: 3}
       propertyPath: m_LocalPosition.y
