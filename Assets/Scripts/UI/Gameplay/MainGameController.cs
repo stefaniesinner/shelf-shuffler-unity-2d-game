@@ -8,10 +8,12 @@ using UnityEngine.SceneManagement;
  */
 public class MainGameController : MonoBehaviour
 {
-    private static MainGameController obj;
+    public static MainGameController obj;
 
     private bool gamePaused = false;
-    private int score = 0;
+    public int score = 0;
+
+    public int maxStorage = 3;
 
     // Start is called before the first frame update
     private void Start()
@@ -27,7 +29,7 @@ public class MainGameController : MonoBehaviour
 
     }
 
-    private void AddScore(int scoreGive)
+    public void AddScore(int scoreGive)
     {
         score += scoreGive;
     }

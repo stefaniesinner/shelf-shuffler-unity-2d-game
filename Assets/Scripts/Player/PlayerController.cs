@@ -8,12 +8,14 @@ using UnityEngine;
  */
 public class PlayerController : MonoBehaviour
 {
-    private static PlayerController obj;
+    public static PlayerController obj;
 
     [SerializeField]
     private bool isGrounded;
     [SerializeField]
     private bool isMoving;
+
+    public int storage = 0;
 
     private float speed = 5f;
     private float jumpForce = 7f;
@@ -83,6 +85,16 @@ public class PlayerController : MonoBehaviour
         }
 
         transform.localScale = theScale;
+    }
+
+    public void AddToInventory()
+    {
+        storage++;
+
+        if (storage > MainGameController.obj.maxStorage)
+        {
+            storage = MainGameController.obj.maxStorage;
+        }
     }
 
     private void OnDestroy()
