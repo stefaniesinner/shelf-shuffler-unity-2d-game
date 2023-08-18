@@ -1450,8 +1450,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ab44fcf417dce48b85749b1a1ef6c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jump: {fileID: 0}
-  hit: {fileID: 0}
+  jump: {fileID: 8300000, guid: f2617c92740dfdd4abb1b2a7bcb15f30, type: 3}
+  hit: {fileID: 8300000, guid: 0958223a1fb865e4db17e5f0cbdda8f8, type: 3}
 --- !u!1001 &1957292678988323140
 PrefabInstance:
   m_ObjectHideFlags: 0
