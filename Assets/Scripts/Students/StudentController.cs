@@ -86,13 +86,14 @@ public class StudentController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            AudioManager.obj.PlayHit();
             GetKilled();
-            FXManager.obj.ShowPop(transform.position);
         }
     }
 
     private void GetKilled()
     {
+        FXManager.obj.ShowPop(transform.position);
         gameObject.SetActive(false);
     }
 }

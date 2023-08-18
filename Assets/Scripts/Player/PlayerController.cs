@@ -69,6 +69,7 @@ public class PlayerController : MonoBehaviour
         if (!isGrounded) return;
 
         rb.velocity = Vector2.up * jumpForce;
+        AudioManager.obj.PlayJump();
     }
 
     private void Flip(float xValue)
