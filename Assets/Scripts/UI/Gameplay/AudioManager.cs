@@ -9,15 +9,11 @@ public class AudioManager : MonoBehaviour
     public AudioClip jump;
     public AudioClip hit;
 
-    public AudioSource audioSrc;
-
-    private void Awake()
-    {
-        obj = this;
-    }
+    private AudioSource audioSrc;
 
     private void Update()
     {
+        obj = this;
         audioSrc = gameObject.AddComponent<AudioSource>();
     }
 

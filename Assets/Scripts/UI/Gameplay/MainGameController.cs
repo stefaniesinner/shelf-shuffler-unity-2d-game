@@ -15,16 +15,12 @@ public class MainGameController : MonoBehaviour
 
     public int maxStorage = 3;
 
-    private void Awake()
+    // Start is called before the first frame update
+    private void Start()
     {
         obj = this;
-    }
 
-    // Start is called before the first frame update
-    public void Start()
-    {
         gamePaused = false;
-        UIManager.obj.StartGame();
     }
 
     public void AddScore(int scoreGive)
