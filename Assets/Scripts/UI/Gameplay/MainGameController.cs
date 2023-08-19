@@ -10,7 +10,7 @@ public class MainGameController : MonoBehaviour
 {
     public static MainGameController obj;
 
-    public bool gamePaused = false;
+    private bool gamePaused = false;
     public int score = 0;
 
     public int maxStorage = 3;
@@ -21,6 +21,12 @@ public class MainGameController : MonoBehaviour
         obj = this;
 
         gamePaused = false;
+    }
+
+    // Update is called once per frame
+    private void Update()
+    {
+
     }
 
     public void AddScore(int scoreGive)
