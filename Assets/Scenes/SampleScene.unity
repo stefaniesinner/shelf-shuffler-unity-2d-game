@@ -1883,8 +1883,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryLbl: {fileID: 760399702}
-  scoreLbl: {fileID: 1808552159}
-  UIPanel: {fileID: 502390147}
+  scoreLbl: {fileID: 0}
+  UIPanel: {fileID: 0}
 --- !u!1 &1905848606
 GameObject:
   m_ObjectHideFlags: 0
