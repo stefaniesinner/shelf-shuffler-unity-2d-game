@@ -42,6 +42,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: UI
-    uniqueID: 3229549125
+  - name: shelf
+    uniqueID: 3336993655
+    locked: 0
+  - name: foreground
+    uniqueID: 21365621
     locked: 0
