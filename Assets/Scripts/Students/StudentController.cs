@@ -41,6 +41,7 @@ public class StudentController : MonoBehaviour
 
     private void Update()
     {
+        // Avoid falling off the cliff
         isGroundFloor = (Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y - floorCheckY, transform.position.z),
             new Vector3(moveHorizontal, 0, 0), frontGroundRayDist, groundLayer));
 
@@ -49,11 +50,13 @@ public class StudentController : MonoBehaviour
             moveHorizontal = moveHorizontal * -1;
         }
 
+        // Collision with wall
         if (Physics2D.Raycast(transform.position, new Vector3(moveHorizontal, 0, 0), frontCheck, groundLayer))
         {
             moveHorizontal = moveHorizontal * -1;
         }
 
+        // Collision with another student
         hit = Physics2D.Raycast(new Vector3(transform.position.x + moveHorizontal * frontCheck, transform.position.y, transform.position.z),
             new Vector3(moveHorizontal, 0, 0), frontDist);
 
