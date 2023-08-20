@@ -21,7 +21,6 @@ public class MainGameController : MonoBehaviour
         obj = this;
 
         gamePaused = false;
-        UIManager.obj.StartGame();
     }
 
     public void AddScore(int scoreGive)

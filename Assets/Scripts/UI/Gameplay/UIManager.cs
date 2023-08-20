@@ -29,7 +29,7 @@ public class UIManager : MonoBehaviour
 
     public void StartGame()
     {
-        //AudioManager.obj.PlayJump();
+        AudioManager.obj.PlayJump();
 
         MainGameController.obj.gamePaused = true;
         UIPanel.gameObject.SetActive(true);
