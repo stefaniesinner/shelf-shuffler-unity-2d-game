@@ -16,6 +16,7 @@ public class InventoryController : MonoBehaviour
             AudioManager.obj.PlayHit();
 
             UIManager.obj.UpdateScore();
+            UIManager.obj.UpdateStorage();
 
             FXManager.obj.ShowPop(transform.position);
             gameObject.SetActive(false);
