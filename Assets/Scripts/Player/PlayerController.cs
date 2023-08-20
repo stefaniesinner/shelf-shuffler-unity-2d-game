@@ -42,6 +42,12 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (MainGameController.obj.gamePaused)
+        {
+            moveHorizontal = 0f;
+            return;
+        }
+
         moveHorizontal = Input.GetAxisRaw("Horizontal");
 
         isMoving = (moveHorizontal != 0f);

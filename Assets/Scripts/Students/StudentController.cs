@@ -41,6 +41,12 @@ public class StudentController : MonoBehaviour
 
     private void Update()
     {
+        if (MainGameController.obj.gamePaused)
+        {
+            moveHorizontal = 0f;
+            return;
+        }
+
         isGroundFloor = (Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y - floorCheckY, transform.position.z),
             new Vector3(moveHorizontal, 0, 0), frontGroundRayDist, groundLayer));
 

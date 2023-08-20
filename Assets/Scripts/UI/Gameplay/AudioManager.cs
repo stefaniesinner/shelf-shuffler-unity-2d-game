@@ -11,7 +11,7 @@ public class AudioManager : MonoBehaviour
 
     private AudioSource audioSrc;
 
-    private void Update()
+    private void Awake()
     {
         obj = this;
         audioSrc = gameObject.AddComponent<AudioSource>();
