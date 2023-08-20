@@ -13,7 +13,7 @@ public class InventoryController : MonoBehaviour
             MainGameController.obj.AddScore(scoreGive);
             PlayerController.obj.AddToInventory();
 
-            AudioManager.instance.PlayHit();
+            AudioManager.obj.PlayHit();
 
             FXManager.obj.ShowPop(transform.position);
             gameObject.SetActive(false);

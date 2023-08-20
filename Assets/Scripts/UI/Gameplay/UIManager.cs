@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public static UIManager manager;
+    public static UIManager obj;
 
     public Text storageLbl;
     public Text scoreLbl;
@@ -14,7 +14,7 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        manager = this;
+        obj = this;
     }
 
     public void UpdateStorage()
@@ -29,20 +29,21 @@ public class UIManager : MonoBehaviour
 
     public void StartGame()
     {
-        //AudioManager.instance.PlayHit();
-        MainGameController.obj.gamePaused = false;
-        UIPanel.gameObject.SetActive(false);
+        //AudioManager.obj.PlayJump();
+
+        MainGameController.obj.gamePaused = true;
+        UIPanel.gameObject.SetActive(true);
     }
 
     public void HideInitPanel()
     {
-        AudioManager.instance.PlayHit();
+        AudioManager.obj.PlayHit();
         MainGameController.obj.gamePaused = false;
         UIPanel.gameObject.SetActive(false);
     }
 
     private void OnDestroy()
     {
-        manager = null;
+        obj = null;
     }
 }
