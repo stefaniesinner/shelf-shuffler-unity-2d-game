@@ -10,7 +10,7 @@ public class StudentController : MonoBehaviour
     [SerializeField]
     private float moveHorizontal = 0f;
     [SerializeField]
-    private float speed = 3f;
+    private float speed = 1f;
 
     [SerializeField]
     private bool isGroundFloor = true;
@@ -41,12 +41,6 @@ public class StudentController : MonoBehaviour
 
     private void Update()
     {
-        if (MainGameController.obj.gamePaused)
-        {
-            moveHorizontal = 0f;
-            return;
-        }
-
         isGroundFloor = (Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y - floorCheckY, transform.position.z),
             new Vector3(moveHorizontal, 0, 0), frontGroundRayDist, groundLayer));
 
@@ -63,14 +57,11 @@ public class StudentController : MonoBehaviour
         hit = Physics2D.Raycast(new Vector3(transform.position.x + moveHorizontal * frontCheck, transform.position.y, transform.position.z),
             new Vector3(moveHorizontal, 0, 0), frontDist);
 
-        if (hit != null)
+        if (hit.transform != null)
         {
-            if (hit.transform != null)
+            if (hit.transform.CompareTag("Student"))
             {
-                if (hit.transform.CompareTag("Student"))
-                {
-                    moveHorizontal = moveHorizontal * -1;
-                }
+                moveHorizontal = moveHorizontal * -1;
             }
         }
     }
