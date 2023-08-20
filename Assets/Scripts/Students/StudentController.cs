@@ -86,7 +86,7 @@ public class StudentController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            AudioManager.obj.PlayHit();
+            AudioManager.instance.PlayHit();
             GetKilled();
         }
     }

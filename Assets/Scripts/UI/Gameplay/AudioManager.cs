@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager obj;
+    public static AudioManager instance;
 
     public AudioClip jump;
     public AudioClip hit;
 
     private AudioSource audioSrc;
 
+    private void Awake()
+    {
+        instance = this;
+    }
+
     private void Update()
     {
-        obj = this;
         audioSrc = gameObject.AddComponent<AudioSource>();
     }
 
@@ -34,6 +38,6 @@ public class AudioManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        obj = null;
+        instance = null;
     }
 }
