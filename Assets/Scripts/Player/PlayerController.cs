@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer spr;
 
     private float moveHorizontal;
-    private float moveVertical;
     private float speed = 5f;
     private float jumpingPower;
 
@@ -19,6 +18,8 @@ public class PlayerController : MonoBehaviour
     private float groundRayDist = 0.5f;
     [SerializeField]
     private LayerMask groundLayer;
+
+    private bool isJumping;
 
     private void Awake()
     {
@@ -38,7 +39,8 @@ public class PlayerController : MonoBehaviour
 
         IsMoving();
         IsGrounded();
-        IsJumping();
+
+        Jump();
 
         FlipSprite(moveHorizontal);
         AnimatePlayer();
@@ -47,7 +49,6 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
-        Jump();
     }
 
     private void Move()
@@ -57,9 +58,16 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        if (IsJumping())
+        if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
         {
             rb.velocity = new Vector2(0, jumpingPower);
+            isJumping = true;
+        }
+
+        // Stop multiple jumping at a time
+        if (rb.velocity.y == 0)
+        {
+            isJumping = false;
         }
     }
 
@@ -103,16 +111,6 @@ public class PlayerController : MonoBehaviour
     {
         if (Physics2D.CircleCast(transform.position, groundRadius, Vector2.down,
             groundRayDist, groundLayer))
-        {
-            return true;
-        }
-
-        return false;
-    }
-
-    private bool IsJumping()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
         {
             return true;
         }
