@@ -167,9 +167,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 628784f181c28f4419d4ae7cb84be496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gamePaused: 0
-  score: 0
-  maxStorage: 3
 --- !u!1 &378174428
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,19 +666,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcf1b4d806e08604a91c9e817f34a99e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isGrounded: 0
-  isMoving: 0
-  storage: 0
-  speed: 5
-  jumpForce: 7
-  moveHorizontal: 0
-  groundLayer:
-    m_Bits: 64
-  radius: 0.3
-  groundRayDist: 0.5
-  rb: {fileID: 0}
-  anim: {fileID: 0}
-  spr: {fileID: 0}
 --- !u!1 &1411085632
 GameObject:
   m_ObjectHideFlags: 0
@@ -742,7 +726,7 @@ GameObject:
   - component: {fileID: 1479215316}
   - component: {fileID: 1479215317}
   m_Layer: 6
-  m_Name: ground
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1196,6 +1180,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ab44fcf417dce48b85749b1a1ef6c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jump: {fileID: 8300000, guid: f2617c92740dfdd4abb1b2a7bcb15f30, type: 3}
-  hit: {fileID: 8300000, guid: 0958223a1fb865e4db17e5f0cbdda8f8, type: 3}
-  audioSrc: {fileID: 0}
