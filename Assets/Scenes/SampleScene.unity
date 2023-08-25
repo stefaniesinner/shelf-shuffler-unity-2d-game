@@ -667,7 +667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28f6d3bb479c6ee449fd93646d9c5736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 919633534}
 --- !u!1 &1411085632
 GameObject:
   m_ObjectHideFlags: 0
@@ -1138,6 +1138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b120a5f6f2056a4b9b13a659a69d005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fxMgr: {fileID: 1825380976}
 --- !u!1 &1985866740
 GameObject:
   m_ObjectHideFlags: 0
@@ -1182,3 +1183,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 032e4fc5dfb337945b37aa4e36e95cbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aud: {fileID: 1985866742}
+  jumpSound: {fileID: 0}
+  hitSound: {fileID: 0}
