@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class FXManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public FXManager fxMgr;
+
+    private void Awake()
     {
-        
+        fxMgr = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDestroy()
     {
-        
+        fxMgr = null;
     }
 }
