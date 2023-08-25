@@ -11,8 +11,9 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer spr;
 
     private float moveHorizontal;
+    private float moveVertical;
     private float speed = 5f;
-    private float jumpForce;
+    private float jumpingPower;
 
     private float groundRadius = 0.3f;
     private float groundRayDist = 0.5f;
@@ -37,6 +38,7 @@ public class PlayerController : MonoBehaviour
 
         IsMoving();
         IsGrounded();
+        IsJumping();
 
         FlipSprite(moveHorizontal);
         AnimatePlayer();
@@ -55,7 +57,10 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-
+        if (IsJumping())
+        {
+            rb.velocity = new Vector2(0, jumpingPower);
+        }
     }
 
     private void FlipSprite(float movementDirection)
@@ -98,6 +103,16 @@ public class PlayerController : MonoBehaviour
     {
         if (Physics2D.CircleCast(transform.position, groundRadius, Vector2.down,
             groundRayDist, groundLayer))
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    private bool IsJumping()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             return true;
         }
