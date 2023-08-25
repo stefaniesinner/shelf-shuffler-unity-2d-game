@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
 
     private void FlipSprite(float movementDirection)
     {
-        Vector2 scaleOfObject = transform.localScale;
+        Vector3 scaleOfObject = transform.localScale;
 
         // Move to the left
         if (movementDirection < 0)
