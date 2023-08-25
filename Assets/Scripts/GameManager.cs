@@ -7,5 +7,22 @@ using UnityEngine;
  */
 public class GameManager : MonoBehaviour
 {
+    public GameManager game;
 
+    private bool isPaused;
+
+    private void Awake()
+    {
+        game = this;
+    }
+
+    private void Start()
+    {
+        isPaused = false;
+    }
+
+    private void OnDestroy()
+    {
+        game = null;
+    }
 }
