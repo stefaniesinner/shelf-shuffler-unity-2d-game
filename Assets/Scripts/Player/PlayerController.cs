@@ -4,15 +4,108 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public PlayerController player;
+
+    private Rigidbody2D rb;
+    private Animator anim;
+    private SpriteRenderer spr;
+
+    private float moveHorizontal;
+    private float speed = 5f;
+    private float jumpForce;
+
+    private float groundRadius = 0.3f;
+    private float groundRayDist = 0.5f;
+    private LayerMask groundLayer;
+
+    private void Awake()
+    {
+        player = this;
+    }
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        spr = GetComponent<SpriteRenderer>();
+    }
+
+    private void Update()
+    {
+        moveHorizontal = Input.GetAxis("Horizontal");
+
+        IsMoving();
+        IsGrounded();
+
+        FlipSprite(moveHorizontal);
+        AnimatePlayer();
+    }
+
+    private void FixedUpdate()
+    {
+        Move();
+        Jump();
+    }
+
+    private void Move()
+    {
+        rb.velocity = new Vector2(moveHorizontal * speed, rb.velocity.y);
+    }
+
+    private void Jump()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FlipSprite(float movementDirection)
     {
-        
+        Vector2 scaleOfObject = transform.localScale;
+
+        // Move to the left
+        if (movementDirection < 0)
+        {
+            // Flip the object's scale
+            scaleOfObject.x = Mathf.Abs(scaleOfObject.x) * -1;
+        }
+        // Move to the right
+        else if (movementDirection > 0)
+        {
+            // Maintain the original scale without changes
+            scaleOfObject.x = Mathf.Abs(scaleOfObject.x);
+        }
+
+        transform.localScale = scaleOfObject;
+    }
+
+    private void AnimatePlayer()
+    {
+        anim.SetBool("isMoving", IsMoving());
+        anim.SetBool("isGrounded", IsGrounded());
+    }
+
+    private bool IsMoving()
+    {
+        if (moveHorizontal != 0f)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    private bool IsGrounded()
+    {
+        if (Physics2D.CircleCast(transform.position, groundRadius, Vector2.down,
+            groundRayDist, groundLayer))
+        {
+            return true;
+        }
+
+        return false;
+    }
+    
+    private void OnDestroy()
+    {
+        player = null;
     }
 }
