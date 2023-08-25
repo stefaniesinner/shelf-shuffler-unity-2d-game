@@ -23,7 +23,7 @@ public class AudioManager : MonoBehaviour
         audioSrc = GetComponent<AudioSource>();
     }
 
-    private void PlaySound(AudioClip clip)
+    public void PlaySound(AudioClip clip)
     {
         audioSrc.PlayOneShot(clip);
     }
