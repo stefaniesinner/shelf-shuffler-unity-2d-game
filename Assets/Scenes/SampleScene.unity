@@ -668,6 +668,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 919633534}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &1411085632
 GameObject:
   m_ObjectHideFlags: 0

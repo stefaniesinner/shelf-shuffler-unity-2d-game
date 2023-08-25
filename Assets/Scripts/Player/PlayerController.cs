@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
 
     private float groundRadius = 0.3f;
     private float groundRayDist = 0.5f;
+    [SerializeField]
     private LayerMask groundLayer;
 
     private void Awake()
@@ -54,7 +55,7 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        
+
     }
 
     private void FlipSprite(float movementDirection)
@@ -103,7 +104,7 @@ public class PlayerController : MonoBehaviour
 
         return false;
     }
-    
+
     private void OnDestroy()
     {
         player = null;
