@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private LayerMask groundLayer;
 
+    private bool isJumping;
+
     private void Awake()
     {
         player = this;
@@ -38,13 +40,12 @@ public class PlayerController : MonoBehaviour
         moveHorizontal = Input.GetAxis("Horizontal");
         
         IsMoving();
+        IsGrounded();
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Jump();
+            isJumping = true;
         }
-
-        IsGrounded();
 
         AnimatePlayer();
         FlipSprite(moveHorizontal);
@@ -53,6 +54,8 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
+
+        if (isJumping) { Jump(); }
     }
 
     private void Move()
@@ -62,9 +65,8 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        if (!IsGrounded()) { return; }
-
         rb.velocity = Vector2.up * jumpingPower;
+        isJumping = false;
     }
 
     private void FlipSprite(float movementDirection)
