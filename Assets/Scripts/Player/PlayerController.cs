@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
         IsMoving();
         IsGrounded();
 
-        Jump();
+
 
         FlipSprite(moveHorizontal);
         AnimatePlayer();
@@ -54,21 +54,6 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         rb.velocity = new Vector2(moveHorizontal * speed, rb.velocity.y);
-    }
-
-    private void Jump()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
-        {
-            rb.velocity = new Vector2(0, jumpingPower);
-            isJumping = true;
-        }
-
-        // Stop multiple jumping at a time
-        if (rb.velocity.y == 0)
-        {
-            isJumping = false;
-        }
     }
 
     private void FlipSprite(float movementDirection)
