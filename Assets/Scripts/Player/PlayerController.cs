@@ -21,9 +21,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private LayerMask groundLayer;
 
-    private bool isMoving = false;
-    private bool isGrounded = false;
-
     private void Awake()
     {
         player = this;
@@ -39,11 +36,15 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         moveHorizontal = Input.GetAxis("Horizontal");
+        
+        IsMoving();
 
-        isMoving = (moveHorizontal != 0f);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Jump();
+        }
 
-        isGrounded = Physics2D.CircleCast(transform.position, groundRadius, Vector3.down,
-            groundRayDist, groundLayer);
+        IsGrounded();
 
         AnimatePlayer();
         FlipSprite(moveHorizontal);
@@ -52,11 +53,6 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Jump();
-        }
     }
 
     private void Move()
@@ -66,7 +62,7 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        if (!isGrounded) { return; }
+        if (!IsGrounded()) { return; }
 
         rb.velocity = Vector2.up * jumpingPower;
     }
@@ -93,8 +89,28 @@ public class PlayerController : MonoBehaviour
 
     private void AnimatePlayer()
     {
-        anim.SetBool("isMoving", isMoving);
-        anim.SetBool("isGrounded", isGrounded);
+        anim.SetBool("isMoving", IsMoving());
+        anim.SetBool("isGrounded", IsGrounded());
+    }
+
+    private bool IsMoving()
+    {
+        if ((moveHorizontal != 0f)) { 
+            return true; 
+        }
+
+        return false;
+    }
+
+    private bool IsGrounded()
+    {
+        if (Physics2D.CircleCast(transform.position, groundRadius, Vector3.down,
+            groundRayDist, groundLayer))
+        {
+            return true;
+        }
+
+        return false;
     }
 
     private void OnDestroy()
