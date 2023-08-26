@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public AudioManager aud;
+    public static AudioManager aud;
 
     [SerializeField]
     private AudioClip jumpSound;
@@ -23,17 +23,17 @@ public class AudioManager : MonoBehaviour
         audioSrc = GetComponent<AudioSource>();
     }
 
-    public void PlaySound(AudioClip clip)
+    private void PlaySound(AudioClip clip)
     {
         audioSrc.PlayOneShot(clip);
     }
 
-    private void PlayJumpSound()
+    public void PlayJumpSound()
     {
         PlaySound(jumpSound);
     }
 
-    private void PlayHitSound()
+    public void PlayHitSound()
     {
         PlaySound(hitSound);
     }

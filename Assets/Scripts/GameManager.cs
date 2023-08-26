@@ -7,9 +7,9 @@ using UnityEngine;
  */
 public class GameManager : MonoBehaviour
 {
-    public GameManager game;
+    public static GameManager game;
 
-    private bool isPaused;
+    public bool isPaused;
 
     private void Awake()
     {
