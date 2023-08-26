@@ -45,10 +45,6 @@ public class PlayerController : MonoBehaviour
         isGrounded = Physics2D.CircleCast(transform.position, groundRadius, Vector3.down,
             groundRayDist, groundLayer);
 
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            Jump();
-        }
-
         AnimatePlayer();
         FlipSprite(moveHorizontal);
     }
@@ -56,6 +52,11 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Jump();
+        }
     }
 
     private void Move()
