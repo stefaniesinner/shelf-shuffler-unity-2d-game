@@ -41,11 +41,7 @@ public class PlayerController : MonoBehaviour
         
         IsMoving();
         IsGrounded();
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            isJumping = true;
-        }
+        IsJumping();
 
         AnimatePlayer();
         FlipSprite(moveHorizontal);
@@ -55,7 +51,10 @@ public class PlayerController : MonoBehaviour
     {
         Move();
 
-        if (isJumping) { Jump(); }
+        if (isJumping)
+        {
+            Jump();
+        }
     }
 
     private void Move()
@@ -113,6 +112,14 @@ public class PlayerController : MonoBehaviour
         }
 
         return false;
+    }
+
+    private void IsJumping()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            isJumping = true;
+        }
     }
 
     private void OnDestroy()
