@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e2519016ee444d499b1d62797ba7274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  game: {fileID: 364133387}
+  isPaused: 0
 --- !u!1 &378174428
 GameObject:
   m_ObjectHideFlags: 0
@@ -667,7 +667,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28f6d3bb479c6ee449fd93646d9c5736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 919633534}
+  speed: 5
+  jumpingPower: 7
+  jumpKey: 32
+  groundRadius: 0.3
+  groundRayDist: 0.5
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -1186,6 +1190,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 032e4fc5dfb337945b37aa4e36e95cbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aud: {fileID: 1985866742}
-  jumpSound: {fileID: 0}
-  hitSound: {fileID: 0}
+  jumpSound: {fileID: 8300000, guid: f2617c92740dfdd4abb1b2a7bcb15f30, type: 3}
+  hitSound: {fileID: 8300000, guid: 0958223a1fb865e4db17e5f0cbdda8f8, type: 3}

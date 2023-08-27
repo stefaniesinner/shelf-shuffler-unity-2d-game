@@ -8,8 +8,6 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField]
     private AudioClip jumpSound;
-    [SerializeField]
-    private AudioClip hitSound;
 
     private AudioSource audioSrc;
 
@@ -31,11 +29,6 @@ public class AudioManager : MonoBehaviour
     public void PlayJumpSound()
     {
         PlaySound(jumpSound);
-    }
-
-    public void PlayHitSound()
-    {
-        PlaySound(hitSound);
     }
 
     private void OnDestroy()
