@@ -94,8 +94,8 @@ public class PlayerController : MonoBehaviour
     private void Jump()
     {
         rb.velocity = Vector2.up * jumpingPower;
+        AudioManager.aud.PlayJumpSound();
         isJumping = false;
-
     }
 
     private void AnimatePlayer()
