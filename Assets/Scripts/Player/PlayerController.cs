@@ -83,6 +83,12 @@ public class PlayerController : MonoBehaviour
 
     private void IsJumping()
     {
+        // stop multiple jumping
+        if (!IsGrounded())
+        {
+            return;
+        }
+
         if (Input.GetKeyDown(jumpKey))
         {
             isJumping = true;
