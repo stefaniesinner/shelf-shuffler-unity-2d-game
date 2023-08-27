@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class <c>PlayerController</c> handles the player. It contains all information necessary
+/// for the user to control and interact with the game character (the librarian).
+/// </summary>
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController player;
@@ -60,6 +64,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Check if the player is moving to the left or right.
+    /// </summary>
+    /// <returns>true if the player moves to the left or right.</returns>
     private bool IsMoving()
     {
         if ((moveHorizontal != 0f))
@@ -70,6 +78,10 @@ public class PlayerController : MonoBehaviour
         return false;
     }
 
+    /// <summary>
+    /// ...
+    /// </summary>
+    /// <returns>...</returns>
     private bool IsGrounded()
     {
         if (Physics2D.CircleCast(transform.position, groundRadius, Vector3.down,
@@ -81,6 +93,9 @@ public class PlayerController : MonoBehaviour
         return false;
     }
 
+    /// <summary>
+    /// ...
+    /// </summary>
     private void IsJumping()
     {
         // stop multiple jumping
@@ -95,11 +110,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// ...
+    /// </summary>
     private void Move()
     {
         rb.velocity = new Vector2(moveHorizontal * speed, rb.velocity.y);
     }
 
+    /// <summary>
+    /// ...
+    /// </summary>
     private void Jump()
     {
         rb.velocity = Vector2.up * jumpingPower;
@@ -107,12 +128,19 @@ public class PlayerController : MonoBehaviour
         isJumping = false;
     }
 
+    /// <summary>
+    /// ...
+    /// </summary>
     private void AnimatePlayer()
     {
         anim.SetBool("isMoving", IsMoving());
         anim.SetBool("isGrounded", IsGrounded());
     }
 
+    /// <summary>
+    /// ...
+    /// </summary>
+    /// <param name="movementDirection">...</param>
     private void FlipSprite(float movementDirection)
     {
         Vector3 scaleOfObject = transform.localScale;
