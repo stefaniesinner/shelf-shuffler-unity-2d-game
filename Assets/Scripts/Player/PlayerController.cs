@@ -57,6 +57,35 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private bool IsMoving()
+    {
+        if ((moveHorizontal != 0f))
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    private bool IsGrounded()
+    {
+        if (Physics2D.CircleCast(transform.position, groundRadius, Vector3.down,
+            groundRayDist, groundLayer))
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    private void IsJumping()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            isJumping = true;
+        }
+    }
+
     private void Move()
     {
         rb.velocity = new Vector2(moveHorizontal * speed, rb.velocity.y);
@@ -92,34 +121,6 @@ public class PlayerController : MonoBehaviour
     {
         anim.SetBool("isMoving", IsMoving());
         anim.SetBool("isGrounded", IsGrounded());
-    }
-
-    private bool IsMoving()
-    {
-        if ((moveHorizontal != 0f)) { 
-            return true; 
-        }
-
-        return false;
-    }
-
-    private bool IsGrounded()
-    {
-        if (Physics2D.CircleCast(transform.position, groundRadius, Vector3.down,
-            groundRayDist, groundLayer))
-        {
-            return true;
-        }
-
-        return false;
-    }
-
-    private void IsJumping()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            isJumping = true;
-        }
     }
 
     private void OnDestroy()
