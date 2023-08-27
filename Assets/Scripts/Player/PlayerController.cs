@@ -95,6 +95,13 @@ public class PlayerController : MonoBehaviour
     {
         rb.velocity = Vector2.up * jumpingPower;
         isJumping = false;
+
+    }
+
+    private void AnimatePlayer()
+    {
+        anim.SetBool("isMoving", IsMoving());
+        anim.SetBool("isGrounded", IsGrounded());
     }
 
     private void FlipSprite(float movementDirection)
@@ -115,12 +122,6 @@ public class PlayerController : MonoBehaviour
         }
 
         transform.localScale = scaleOfObject;
-    }
-
-    private void AnimatePlayer()
-    {
-        anim.SetBool("isMoving", IsMoving());
-        anim.SetBool("isGrounded", IsGrounded());
     }
 
     private void OnDestroy()
