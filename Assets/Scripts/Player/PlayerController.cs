@@ -65,9 +65,9 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// Check if the player is moving to the left or right.
+    /// Check if the player moves to the left or right.
     /// </summary>
-    /// <returns>true if the player moves to the left or right.</returns>
+    /// <returns>true if the player is moving to the left or right.</returns>
     private bool IsMoving()
     {
         if ((moveHorizontal != 0f))
@@ -79,9 +79,9 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// ...
+    /// Check if the player is on the ground.
     /// </summary>
-    /// <returns>...</returns>
+    /// <returns>true if the player is touching the ground.</returns>
     private bool IsGrounded()
     {
         if (Physics2D.CircleCast(transform.position, groundRadius, Vector3.down,
@@ -94,11 +94,11 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// ...
+    /// Check if the player jumps.
     /// </summary>
     private void IsJumping()
     {
-        // stop multiple jumping
+        // prevents multiple jumping
         if (!IsGrounded())
         {
             return;
@@ -111,7 +111,7 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// ...
+    /// Move to the respective direction and speed.
     /// </summary>
     private void Move()
     {
@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// ...
+    /// Initiate a jump with the respective jumping power.
     /// </summary>
     private void Jump()
     {
@@ -129,7 +129,7 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// ...
+    /// Animate the game character.
     /// </summary>
     private void AnimatePlayer()
     {
