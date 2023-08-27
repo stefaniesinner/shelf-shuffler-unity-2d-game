@@ -116,7 +116,7 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         rb.velocity = new Vector2(moveHorizontal * speed, rb.velocity.y);
-        AudioManager.aud.PlaySound(AudioManager.aud.WalkingSound);
+        //AudioManager.aud.PlaySound(AudioManager.aud.WalkingSound);
     }
 
     /// <summary>
@@ -125,7 +125,7 @@ public class PlayerController : MonoBehaviour
     private void Jump()
     {
         rb.velocity = Vector2.up * jumpingPower;
-        AudioManager.aud.PlaySound(AudioManager.aud.JumpingSound);
+        //AudioManager.aud.PlaySound(AudioManager.aud.JumpingSound);
         isJumping = false;
     }
 
