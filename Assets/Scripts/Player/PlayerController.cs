@@ -138,9 +138,9 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// ...
+    /// Flip the sprite respective to the direction the player is moving to.
     /// </summary>
-    /// <param name="movementDirection">...</param>
+    /// <param name="movementDirection">Indicates in which direction the player goes.</param>
     private void FlipSprite(float movementDirection)
     {
         Vector3 scaleOfObject = transform.localScale;
