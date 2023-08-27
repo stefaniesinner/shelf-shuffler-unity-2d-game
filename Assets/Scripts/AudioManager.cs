@@ -9,7 +9,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     private AudioClip jumpSound;
 
-    private AudioSource audioSrc;
+    private AudioSource audSrc;
 
     private void Awake()
     {
@@ -18,22 +18,25 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        audioSrc = GetComponent<AudioSource>();
+        audSrc = GetComponent<AudioSource>();
     }
 
-    private void PlaySound(AudioClip clip)
+    /// <summary>
+    /// Play the respective audio clip.
+    /// </summary>
+    /// <param name="clip">The respective audio clip to be played.</param>
+    public void PlaySound(AudioClip clip)
     {
-        audioSrc.PlayOneShot(clip);
+        audSrc.PlayOneShot(clip);
     }
 
-    public void PlayJumpSound()
+    public AudioClip JumpSound
     {
-        PlaySound(jumpSound);
+        get { return jumpSound; }
     }
 
     private void OnDestroy()
     {
         aud = null;
-        audioSrc = null;
     }
 }

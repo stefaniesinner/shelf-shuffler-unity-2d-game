@@ -124,7 +124,7 @@ public class PlayerController : MonoBehaviour
     private void Jump()
     {
         rb.velocity = Vector2.up * jumpingPower;
-        AudioManager.aud.PlayJumpSound();
+        AudioManager.aud.PlaySound(AudioManager.aud.JumpSound);
         isJumping = false;
     }
 
@@ -138,9 +138,9 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// Flip the sprite respective to the direction the player is moving to.
+    /// ...
     /// </summary>
-    /// <param name="movementDirection">Indicates in which direction the player goes.</param>
+    /// <param name="movementDirection">...</param>
     private void FlipSprite(float movementDirection)
     {
         Vector3 scaleOfObject = transform.localScale;
