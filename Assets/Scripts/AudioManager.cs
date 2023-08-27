@@ -10,7 +10,9 @@ public class AudioManager : MonoBehaviour
     public static AudioManager aud;
 
     [SerializeField]
-    private AudioClip jumpSound;
+    private AudioClip walkingSound;
+    [SerializeField]
+    private AudioClip jumpingSound;
 
     private AudioSource audSrc;
 
@@ -33,9 +35,14 @@ public class AudioManager : MonoBehaviour
         audSrc.PlayOneShot(clip);
     }
 
-    public AudioClip JumpSound
+    public AudioClip WalkingSound
     {
-        get { return jumpSound; }
+        get { return walkingSound; }
+    }
+
+    public AudioClip JumpingSound
+    {
+        get { return jumpingSound; }
     }
 
     private void OnDestroy()
