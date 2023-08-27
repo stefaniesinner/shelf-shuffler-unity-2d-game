@@ -11,8 +11,13 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer spr;
 
     private float moveHorizontal;
+    [SerializeField]
     private float speed = 5f;
+    [SerializeField]
     private float jumpingPower = 7f;
+    private bool isJumping;
+    [SerializeField]
+    private KeyCode jumpKey = KeyCode.Space;
 
     [SerializeField]
     private float groundRadius = 0.3f;
@@ -20,8 +25,6 @@ public class PlayerController : MonoBehaviour
     private float groundRayDist = 0.5f;
     [SerializeField]
     private LayerMask groundLayer;
-
-    private bool isJumping;
 
     private void Awake()
     {
@@ -80,7 +83,7 @@ public class PlayerController : MonoBehaviour
 
     private void IsJumping()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(jumpKey))
         {
             isJumping = true;
         }
