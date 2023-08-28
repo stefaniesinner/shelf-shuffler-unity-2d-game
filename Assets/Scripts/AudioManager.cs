@@ -9,12 +9,12 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager aud;
 
-    [SerializeField]
-    private AudioClip walkingSound;
-    [SerializeField]
-    private AudioClip jumpingSound;
+    public AudioClip walkingSound;
+    public AudioClip jumpingSound;
 
-    private AudioSource audSrc;
+    public AudioSource audSrc;
+
+    public float volume;
 
     private void Awake()
     {
@@ -32,7 +32,7 @@ public class AudioManager : MonoBehaviour
     /// <param name="clip">The respective audio clip to be played.</param>
     public void PlaySound(AudioClip clip)
     {
-        audSrc.PlayOneShot(clip);
+        audSrc.PlayOneShot(clip, volume);
     }
 
     public AudioClip WalkingSound

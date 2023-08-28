@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private LayerMask groundLayer;
 
+    public AudioSource jumpAudio;
+
     private void Awake()
     {
         player = this;
@@ -125,6 +127,7 @@ public class PlayerController : MonoBehaviour
     private void Jump()
     {
         rb.velocity = Vector2.up * jumpingPower;
+        jumpAudio.Play();
         //AudioManager.aud.PlaySound(AudioManager.aud.JumpingSound);
         isJumping = false;
     }
