@@ -675,7 +675,6 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  jumpAudio: {fileID: 1386428061}
 --- !u!1 &1386428060
 GameObject:
   m_ObjectHideFlags: 0
@@ -1319,4 +1318,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 032e4fc5dfb337945b37aa4e36e95cbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpingSound: {fileID: 1386428061}
+  jumpingAudio: {fileID: 1386428061}
