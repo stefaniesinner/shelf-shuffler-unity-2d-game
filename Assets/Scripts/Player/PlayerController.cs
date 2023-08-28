@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
 
     private bool isJumping;
     private bool isTouchingLadder;
+    private bool isClimbing;
 
     [SerializeField]
     private float groundRadius = 0.3f;
@@ -148,9 +149,14 @@ public class PlayerController : MonoBehaviour
 
     private void Climb()
     {
-        if (IsClimbing())
+        if (isClimbing)
         {
+            rb.gravityScale = 0f;
             rb.velocity = new Vector2(rb.velocity.x, moveVertical * moveSpeed);
+        }
+        else
+        {
+            rb.gravityScale = 5f;
         }
     }
 
