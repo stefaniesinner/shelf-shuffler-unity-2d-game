@@ -19,7 +19,11 @@ public class AudioManager : MonoBehaviour
         aud = this;
     }
 
-    public void PlaySound(AudioSource src)
+    /// <summary>
+    /// Play the respective audio clip.
+    /// </summary>
+    /// <param name="src">Audio source which plays the respective audio clip.</param>
+    public void PlayAudio(AudioSource src)
     {
         src.Play();
     }
