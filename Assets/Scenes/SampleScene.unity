@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 427693565}
   - component: {fileID: 427693566}
   m_Layer: 0
-  m_Name: Music
+  m_Name: BackgroundMusic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1319,7 +1319,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 032e4fc5dfb337945b37aa4e36e95cbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkingSound: {fileID: 8300000, guid: dc56ad85b3965634888de8b61f3ef55d, type: 3}
-  jumpingSound: {fileID: 8300000, guid: f2617c92740dfdd4abb1b2a7bcb15f30, type: 3}
-  audSrc: {fileID: 1386428061}
-  volume: 0
