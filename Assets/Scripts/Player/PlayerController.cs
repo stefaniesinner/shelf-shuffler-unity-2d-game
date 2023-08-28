@@ -15,13 +15,18 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer spr;
 
     private float moveHorizontal;
+    private float moveVertical;
+
     [SerializeField]
     private float speed = 5f;
     [SerializeField]
     private float jumpingPower = 7f;
-    private bool isJumping;
     [SerializeField]
     private KeyCode jumpKey = KeyCode.Space;
+
+    private bool isJumping;
+    private bool isTouchingLadder;
+    private bool isClimbingLadder;
 
     [SerializeField]
     private float groundRadius = 0.3f;
@@ -110,6 +115,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private bool IsClimbing()
+    {
+        if (isTouchingLadder && Mathf.Abs(moveVertical) > 0f)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
     /// <summary>
     /// Move to the respective direction and speed.
     /// </summary>
@@ -126,6 +141,11 @@ public class PlayerController : MonoBehaviour
         rb.velocity = Vector2.up * jumpingPower;
         AudioManager.aud.PlayAudio(AudioManager.aud.JumpingSound);
         isJumping = false;
+    }
+
+    private void Climb()
+    {
+
     }
 
     /// <summary>
