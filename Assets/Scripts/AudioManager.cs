@@ -9,38 +9,20 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager aud;
 
-    public AudioClip walkingSound;
-    public AudioClip jumpingSound;
-
-    public AudioSource audSrc;
-
-    public float volume;
+    [SerializeField]
+    private AudioSource jumpingSound;
 
     private void Awake()
     {
         aud = this;
     }
 
-    private void Start()
+    public void PlaySound(AudioSource src)
     {
-        audSrc = GetComponent<AudioSource>();
+        src.Play();
     }
 
-    /// <summary>
-    /// Play the respective audio clip.
-    /// </summary>
-    /// <param name="clip">The respective audio clip to be played.</param>
-    public void PlaySound(AudioClip clip)
-    {
-        audSrc.PlayOneShot(clip, volume);
-    }
-
-    public AudioClip WalkingSound
-    {
-        get { return walkingSound; }
-    }
-
-    public AudioClip JumpingSound
+    public AudioSource JumpingSound
     {
         get { return jumpingSound; }
     }
