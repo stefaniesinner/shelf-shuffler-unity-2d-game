@@ -960,7 +960,6 @@ MonoBehaviour:
   speed: 5
   jumpingPower: 7
   jumpKey: 32
-  gravityScale: 3
   groundRadius: 0.3
   groundRayDist: 0.5
   groundLayer:
