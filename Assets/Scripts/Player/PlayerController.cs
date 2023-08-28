@@ -25,7 +25,6 @@ public class PlayerController : MonoBehaviour
     private KeyCode jumpKey = KeyCode.Space;
 
     private bool isJumping;
-    private bool isTouchingLadder;
 
     [SerializeField]
     private float groundRadius = 0.3f;
@@ -116,16 +115,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private bool IsClimbing()
-    {
-        if (isTouchingLadder && Mathf.Abs(moveVertical) > 0f)
-        {
-            return true;
-        }
-
-        return false;
-    }
-
     /// <summary>
     /// Move to the respective direction and speed.
     /// </summary>
@@ -146,10 +135,7 @@ public class PlayerController : MonoBehaviour
 
     private void Climb()
     {
-        if (IsClimbing())
-        {
-            rb.velocity = new Vector2(rb.velocity.x, moveVertical * speed);
-        }
+
     }
 
     /// <summary>
@@ -183,22 +169,6 @@ public class PlayerController : MonoBehaviour
         }
 
         transform.localScale = scaleOfObject;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Ladder"))
-        {
-            isTouchingLadder = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Ladder"))
-        {
-            isTouchingLadder = false;
-        }
     }
 
     private void OnDestroy()
