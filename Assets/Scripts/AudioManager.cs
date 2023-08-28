@@ -10,7 +10,9 @@ public class AudioManager : MonoBehaviour
     public static AudioManager aud;
 
     [SerializeField]
-    private AudioSource jumpingAudio;
+    private AudioSource walkingSound;
+    [SerializeField]
+    private AudioSource jumpingSound;
 
     private void Awake()
     {
@@ -22,9 +24,14 @@ public class AudioManager : MonoBehaviour
         src.Play();
     }
     
-    public AudioSource JumpingAudio
+    public AudioSource WalkingSound
     {
-        get { return jumpingAudio; }
+        get { return walkingSound; }
+    }
+
+    public AudioSource JumpingSound
+    {
+        get { return jumpingSound; }
     }
 
     private void OnDestroy()
