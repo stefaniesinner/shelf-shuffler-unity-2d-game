@@ -18,17 +18,14 @@ public class PlayerController : MonoBehaviour
     private float moveVertical;
 
     [SerializeField]
-    private float speed = 5f;
+    private float moveSpeed = 5f;
     [SerializeField]
     private float jumpingPower = 7f;
     [SerializeField]
     private KeyCode jumpKey = KeyCode.Space;
 
     private bool isJumping;
-    public bool isTouchingLadder;
-    public bool isClimbing;
-    public bool isOnLadder;
-    public float gravityScale = 3f;
+    private bool isTouchingLadder;
 
     [SerializeField]
     private float groundRadius = 0.3f;
@@ -57,8 +54,7 @@ public class PlayerController : MonoBehaviour
         IsMoving();
         IsGrounded();
         IsJumping();
-
-        isUsingLadder();
+        IsClimbing();
 
         AnimatePlayer();
         FlipSprite(moveHorizontal);
@@ -72,8 +68,6 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
-
-        ClimbLadder();
 
         Climb();
     }
@@ -124,12 +118,22 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private bool IsClimbing()
+    {
+        if (isTouchingLadder && Mathf.Abs(moveVertical) > 0f)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
     /// <summary>
     /// Move to the respective direction and speed.
     /// </summary>
     private void Move()
     {
-        rb.velocity = new Vector2(moveHorizontal * speed, rb.velocity.y);
+        rb.velocity = new Vector2(moveHorizontal * moveSpeed, rb.velocity.y);
     }
 
     /// <summary>
@@ -144,7 +148,10 @@ public class PlayerController : MonoBehaviour
 
     private void Climb()
     {
-
+        if (IsClimbing())
+        {
+            rb.velocity = new Vector2(rb.velocity.x, moveVertical * moveSpeed);
+        }
     }
 
     /// <summary>
@@ -180,35 +187,6 @@ public class PlayerController : MonoBehaviour
         transform.localScale = scaleOfObject;
     }
 
-    private void ClimbLadder()
-    {
-        if (isClimbing)
-        {
-            rb.gravityScale = 0f;
-            rb.velocity = new Vector2(rb.velocity.x, moveVertical * speed);
-        }
-        else
-        {
-            rb.gravityScale = gravityScale;
-        }
-    }
-
-    private bool isUsingLadder()
-    {
-        if (isTouchingLadder && Mathf.Abs(moveVertical) > 0f)
-        {
-            isClimbing = true;
-            isOnLadder = true;
-        }
-        else if (Mathf.Abs(moveVertical) == 0)
-        {
-            isOnLadder = false;
-        }
-
-        return false;
-    }
-
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Ladder"))
@@ -222,7 +200,6 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("Ladder"))
         {
             isTouchingLadder = false;
-            isClimbing = false;
         }
     }
 
