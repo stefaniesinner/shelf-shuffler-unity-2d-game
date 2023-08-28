@@ -116,7 +116,6 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         rb.velocity = new Vector2(moveHorizontal * speed, rb.velocity.y);
-        AudioManager.aud.PlaySound(AudioManager.aud.WalkingSound);
     }
 
     /// <summary>
