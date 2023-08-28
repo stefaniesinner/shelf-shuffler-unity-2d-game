@@ -25,6 +25,10 @@ public class PlayerController : MonoBehaviour
     private KeyCode jumpKey = KeyCode.Space;
 
     private bool isJumping;
+    public bool isTouchingLadder;
+    public bool isClimbing;
+    public bool isOnLadder;
+    public float gravityScale = 3f;
 
     [SerializeField]
     private float groundRadius = 0.3f;
@@ -48,10 +52,13 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         moveHorizontal = Input.GetAxis("Horizontal");
+        moveVertical = Input.GetAxisRaw("Vertical");
         
         IsMoving();
         IsGrounded();
         IsJumping();
+
+        isUsingLadder();
 
         AnimatePlayer();
         FlipSprite(moveHorizontal);
@@ -65,6 +72,8 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
+
+        ClimbLadder();
 
         Climb();
     }
@@ -169,6 +178,52 @@ public class PlayerController : MonoBehaviour
         }
 
         transform.localScale = scaleOfObject;
+    }
+
+    private void ClimbLadder()
+    {
+        if (isClimbing)
+        {
+            rb.gravityScale = 0f;
+            rb.velocity = new Vector2(rb.velocity.x, moveVertical * speed);
+        }
+        else
+        {
+            rb.gravityScale = gravityScale;
+        }
+    }
+
+    private bool isUsingLadder()
+    {
+        if (isTouchingLadder && Mathf.Abs(moveVertical) > 0f)
+        {
+            isClimbing = true;
+            isOnLadder = true;
+        }
+        else if (Mathf.Abs(moveVertical) == 0)
+        {
+            isOnLadder = false;
+        }
+
+        return false;
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ladder"))
+        {
+            isTouchingLadder = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ladder"))
+        {
+            isTouchingLadder = false;
+            isClimbing = false;
+        }
     }
 
     private void OnDestroy()
