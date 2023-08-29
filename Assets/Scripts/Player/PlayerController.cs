@@ -59,6 +59,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
+        Climb();
 
         if (isJumping)
         {
@@ -128,6 +129,11 @@ public class PlayerController : MonoBehaviour
         rb.velocity = Vector2.up * jumpingPower;
         AudioManager.aud.PlayAudio(AudioManager.aud.JumpingSound);
         isJumping = false;
+    }
+
+    private void Climb()
+    {
+
     }
 
     /// <summary>
