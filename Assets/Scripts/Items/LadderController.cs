@@ -8,16 +8,16 @@ using UnityEngine;
 /// </summary>
 public class LadderController : MonoBehaviour
 {
-    private static LadderController ladder;
+    public static LadderController ladder;
 
-    private Rigidbody2D rb;
+    private Rigidbody rb;
 
     private float moveVertical;
     [SerializeField]
     private float climbSpeed = 3f;
 
-    private bool isTouchingLadder;
-    private bool isClimbing;
+    private bool isTouched;
+    private bool isUsed;
 
     private void Awake()
     {
@@ -26,14 +26,12 @@ public class LadderController : MonoBehaviour
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
-        moveVertical = Input.GetAxisRaw("Vertical");
-
-        IsClimbing();
+        
     }
 
     private void FixedUpdate()
@@ -41,40 +39,23 @@ public class LadderController : MonoBehaviour
         Climb();
     }
 
-    private void IsClimbing()
-    {
-        if (isTouchingLadder && Mathf.Abs(moveVertical) > 0f)
-        {
-            isClimbing = true;
-        }
-    }
-
     private void Climb()
     {
-        if (isClimbing) {
-            rb.gravityScale = 0f;
-            rb.velocity = new Vector2(rb.velocity.x, moveVertical * climbSpeed);
-        } 
-        else
-        {
-            rb.gravityScale = 4f;
-        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ladder"))
-        {
-            isTouchingLadder = true;
-        }
+        
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ladder"))
-        {
-            isTouchingLadder = false;
-            isClimbing = false;
-        }
+        
+    }
+
+    private void OnDestroy()
+    {
+        ladder = null;
     }
 }
