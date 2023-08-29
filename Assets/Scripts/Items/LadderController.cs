@@ -13,6 +13,7 @@ public class LadderController : MonoBehaviour
     private Rigidbody2D rb;
 
     private float moveVertical;
+    [SerializeField]
     private float climbSpeed = 3f;
 
     private bool isTouchingLadder;
