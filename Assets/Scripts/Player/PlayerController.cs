@@ -55,6 +55,7 @@ public class PlayerController : MonoBehaviour
         IsMoving();
         IsGrounded();
         IsJumping();
+
         IsClimbing();
 
         AnimatePlayer();
@@ -119,16 +120,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private bool IsClimbing()
-    {
-        if (isTouchingLadder && Mathf.Abs(moveVertical) > 0f)
-        {
-            return true;
-        }
-
-        return false;
-    }
-
     /// <summary>
     /// Move to the respective direction and speed.
     /// </summary>
@@ -147,6 +138,14 @@ public class PlayerController : MonoBehaviour
         isJumping = false;
     }
 
+    private void IsClimbing()
+    {
+        if (isTouchingLadder && Mathf.Abs(moveVertical) > 0f)
+        {
+            isClimbing = true;
+        }
+    }
+
     private void Climb()
     {
         if (isClimbing)
@@ -156,7 +155,24 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            rb.gravityScale = 5f;
+            rb.gravityScale = 4f;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ladder"))
+        {
+            isTouchingLadder = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ladder"))
+        {
+            isTouchingLadder = false;
+            isClimbing = false;
         }
     }
 
@@ -191,22 +207,6 @@ public class PlayerController : MonoBehaviour
         }
 
         transform.localScale = scaleOfObject;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Ladder"))
-        {
-            isTouchingLadder = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Ladder"))
-        {
-            isTouchingLadder = false;
-        }
     }
 
     private void OnDestroy()
