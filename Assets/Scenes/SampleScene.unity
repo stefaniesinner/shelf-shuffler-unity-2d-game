@@ -777,6 +777,7 @@ GameObject:
   - component: {fileID: 919633532}
   - component: {fileID: 919633533}
   - component: {fileID: 919633534}
+  - component: {fileID: 919633535}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -957,18 +958,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28f6d3bb479c6ee449fd93646d9c5736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  moveSpeed: 5
   jumpingPower: 7
-  jumpKey: 32
-  isTouchingLadder: 0
-  isClimbing: 0
-  isOnLadder: 0
-  gravityScale: 3
   groundRadius: 0.3
   groundRayDist: 0.5
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  jumpKey: 32
+--- !u!114 &919633535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919633528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4b74f8e204f2244a87a9650357ce0c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &959989447
 GameObject:
   m_ObjectHideFlags: 0

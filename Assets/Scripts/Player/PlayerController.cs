@@ -15,25 +15,22 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer spr;
 
     private float moveHorizontal;
-    private float moveVertical;
-
     [SerializeField]
     private float moveSpeed = 5f;
     [SerializeField]
     private float jumpingPower = 7f;
     [SerializeField]
-    private KeyCode jumpKey = KeyCode.Space;
-
-    private bool isJumping;
-    private bool isTouchingLadder;
-    private bool isClimbing;
-
-    [SerializeField]
     private float groundRadius = 0.3f;
     [SerializeField]
     private float groundRayDist = 0.5f;
+
+    private bool isJumping;
+
     [SerializeField]
     private LayerMask groundLayer;
+
+    [SerializeField]
+    private KeyCode jumpKey = KeyCode.Space;
 
     private void Awake()
     {
@@ -50,13 +47,10 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         moveHorizontal = Input.GetAxis("Horizontal");
-        moveVertical = Input.GetAxisRaw("Vertical");
         
         IsMoving();
         IsGrounded();
         IsJumping();
-
-        IsClimbing();
 
         AnimatePlayer();
         FlipSprite(moveHorizontal);
@@ -70,8 +64,6 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
-
-        Climb();
     }
 
     /// <summary>
@@ -136,44 +128,6 @@ public class PlayerController : MonoBehaviour
         rb.velocity = Vector2.up * jumpingPower;
         AudioManager.aud.PlayAudio(AudioManager.aud.JumpingSound);
         isJumping = false;
-    }
-
-    private void IsClimbing()
-    {
-        if (isTouchingLadder && Mathf.Abs(moveVertical) > 0f)
-        {
-            isClimbing = true;
-        }
-    }
-
-    private void Climb()
-    {
-        if (isClimbing)
-        {
-            rb.gravityScale = 0f;
-            rb.velocity = new Vector2(rb.velocity.x, moveVertical * moveSpeed);
-        }
-        else
-        {
-            rb.gravityScale = 4f;
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Ladder"))
-        {
-            isTouchingLadder = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Ladder"))
-        {
-            isTouchingLadder = false;
-            isClimbing = false;
-        }
     }
 
     /// <summary>
