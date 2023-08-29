@@ -130,11 +130,6 @@ public class PlayerController : MonoBehaviour
         isJumping = false;
     }
 
-    private void Climb()
-    {
-
-    }
-
     /// <summary>
     /// Animate the game character.
     /// </summary>
