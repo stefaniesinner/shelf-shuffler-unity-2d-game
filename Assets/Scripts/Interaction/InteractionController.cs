@@ -20,6 +20,16 @@ public class InteractionController : MonoBehaviour
         controller = this;
     }
 
+    private void Update()
+    {
+
+    }
+
+    public GameObject InteractionObject
+    {
+        get { return interactionObject; }
+    }
+
     private void OnDestroy()
     {
         controller = null;
