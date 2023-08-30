@@ -263,10 +263,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 242885095}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6912b25f231b5b645ba06783e5429e7b, type: 3}
+  m_Script: {fileID: 11500000, guid: 2250288cb31c03a4a918b2330f691b60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionType: 1
+  grabPoint: {fileID: 479273620}
+  grabTarget: {fileID: 242885095}
 --- !u!1 &364133384
 GameObject:
   m_ObjectHideFlags: 0
@@ -1025,15 +1026,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 022b32c138ad05d4fa6c0e7425bff25c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionLayer:
+  targetObject: {fileID: 242885095}
+  targetLayer:
     serializedVersion: 2
     m_Bits: 128
-  interactionObject: {fileID: 242885095}
   interactionPoint: {fileID: 1943440946}
   interactionRange: 0.2
-  grabPoint: {fileID: 479273620}
-  grabbedItem: {fileID: 0}
-  grabbedItemYValue: 0
+  grabKey: 103
 --- !u!1 &959989447
 GameObject:
   m_ObjectHideFlags: 0

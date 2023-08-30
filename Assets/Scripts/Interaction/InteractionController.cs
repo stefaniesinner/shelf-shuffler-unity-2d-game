@@ -1,72 +1,53 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class InteractionController : MonoBehaviour
 {
+    public static InteractionController controller;
+    
     [SerializeField]
-    private LayerMask interactionLayer; // Only items attaching the respective Layer can be interact with the player
+    private GameObject targetObject;
     [SerializeField]
-    private GameObject interactionObject;
+    private LayerMask targetLayer;
+    private Collider2D targetCollision;
+
     [SerializeField]
     private Transform interactionPoint;
     [SerializeField]
     private float interactionRange = 0.2f;
 
     [SerializeField]
-    private Transform grabPoint;
-    [SerializeField]
-    private GameObject grabbedItem;
-    [SerializeField]
-    private float grabbedItemYValue;
+    private KeyCode grabKey = KeyCode.G;
 
-    private bool isGrabbing;
+    private void Awake()
+    {
+        controller = this;
+    }
 
     private void Update()
     {
-        Collider2D item = Physics2D.OverlapCircle(interactionPoint.position, interactionRange, interactionLayer);
-
-        if (isDetecting(item))
+        if (Input.GetKeyUp(grabKey))
         {
-            interactionObject.GetComponent<InteractionManager>().Interact();
+            GrabController.grab.GrabTarget = targetObject;
+            Debug.Log("GRABBED OBJECT");
         }
-
     }
 
-    private bool isDetecting(Collider2D collider)
+    private void FixedUpdate()
     {
-        if (collider != null)
-        {
-            interactionObject = collider.gameObject;
-            return true;
-        }
-
-        interactionObject = null;
-
-        return false;
+        targetCollision = Physics2D.OverlapCircle(interactionPoint.position,
+            interactionRange, targetLayer);
     }
 
-    public void GrabAndDropItem()
+    public GameObject TargetObject
     {
-        if (isGrabbing)
-        {
-            isGrabbing = false;
-            grabbedItem.transform.parent = null;
-            grabbedItem.transform.position = new Vector2(grabbedItem.transform.position.x, grabbedItemYValue);
-            grabbedItem = null;
-        }
-        else
-        {
-            isGrabbing = true;
-            grabbedItem = interactionObject;
-            grabbedItem.transform.parent = transform;
-            grabbedItemYValue = grabbedItem.transform.position.y;
-            grabbedItem.transform.localPosition = grabPoint.localPosition;
-        }
+        get { return targetObject; }
     }
 
     private void OnDestroy()
     {
-        interactionObject = null;
+        controller = null;
     }
 }

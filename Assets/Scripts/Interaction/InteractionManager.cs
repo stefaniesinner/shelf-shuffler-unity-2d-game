@@ -4,23 +4,20 @@ using UnityEngine;
 
 public class InteractionManager : MonoBehaviour
 {
-    public enum Interaction { NONE, GrabAndDrop }
+    public static InteractionManager manager;
 
-    [SerializeField]
-    private Interaction interactionType;
-
-    private KeyCode grabKey = KeyCode.G;
-
-    public void Interact()
+    private void Awake()
     {
-        if (interactionType == Interaction.GrabAndDrop)
-        {
-            if (Input.GetKeyDown(grabKey))
-            {
-                FindObjectOfType<InteractionController>().GrabAndDropItem();
-                Debug.Log("GRABBED ITEM");
-            }
-        }
+        manager = this;
     }
 
+    private void Interact()
+    {
+
+    }
+
+    private void OnDestroy()
+    {
+        manager = null;
+    }
 }
