@@ -22,7 +22,8 @@ public class InteractionController : MonoBehaviour
 
     private void Update()
     {
-
+        //Collider2D object = Physics2D.OverlapCircle(interactionPoint.position,
+            InteractionRange, interactionLayer);
     }
 
     public GameObject InteractionObject
