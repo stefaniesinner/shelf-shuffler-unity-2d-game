@@ -13,9 +13,6 @@ public class GrabController : MonoBehaviour
     [SerializeField]
     private float grabbedObjectYValue;
 
-    [SerializeField]
-    private KeyCode grabKey = KeyCode.G;
-
     private void Awake()
     {
         grab = this;
@@ -28,10 +25,7 @@ public class GrabController : MonoBehaviour
 
     private void Grab()
     {
-        if (Input.GetKeyDown(grabKey))
-        {
-            
-        }
+
     }
 
     private void OnDestroy()
