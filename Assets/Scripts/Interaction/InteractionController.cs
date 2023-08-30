@@ -20,5 +20,8 @@ public class InteractionController : MonoBehaviour
         controller = this;
     }
 
-
+    private void OnDestroy()
+    {
+        controller = null;
+    }
 }
