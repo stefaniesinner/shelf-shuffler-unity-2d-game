@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InteractionController : MonoBehaviour
 {
-    public InteractionController controller;
+    public static InteractionController controller;
 
     [SerializeField]
     private LayerMask interactionLayer; // layer object to interact with
