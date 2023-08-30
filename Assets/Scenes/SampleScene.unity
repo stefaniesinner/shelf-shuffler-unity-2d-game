@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 242885096}
   - component: {fileID: 242885098}
   - component: {fileID: 242885097}
+  - component: {fileID: 242885099}
   m_Layer: 0
   m_Name: Ladder
   m_TagString: Ladder
@@ -253,6 +254,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &242885099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242885095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6912b25f231b5b645ba06783e5429e7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabKey: 103
 --- !u!1 &364133384
 GameObject:
   m_ObjectHideFlags: 0
@@ -975,9 +989,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 919633528}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4b74f8e204f2244a87a9650357ce0c1, type: 3}
+  m_Script: {fileID: 11500000, guid: 022b32c138ad05d4fa6c0e7425bff25c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactableObject: {fileID: 0}
+  interactableCollider: {fileID: 0}
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  interactablePoint: {fileID: 0}
+  InteractableRange: 0.2
 --- !u!1 &959989447
 GameObject:
   m_ObjectHideFlags: 0
