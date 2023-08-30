@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class InteractionManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private KeyCode grabKey = KeyCode.G;
+
+    private void Update()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Interact()
     {
-        
+        if (Input.GetKeyUp(grabKey))
+        {
+
+        }
     }
 }
