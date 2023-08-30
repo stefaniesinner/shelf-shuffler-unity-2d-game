@@ -4,19 +4,21 @@ using UnityEngine;
 
 public class InteractionManager : MonoBehaviour
 {
+    public static InteractionManager manager;
+
     [SerializeField]
     private KeyCode grabKey = KeyCode.G;
 
     private void Update()
     {
-        
+        Interact();
     }
 
-    private void Interact()
+    public void Interact()
     {
         if (Input.GetKeyUp(grabKey))
         {
-
+            GrabController.grab.Grab();
         }
     }
 }

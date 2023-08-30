@@ -24,10 +24,9 @@ public class GrabController : MonoBehaviour
     private void Update()
     {
         Grab();
-        Drop();
     }
 
-    private void Grab()
+    public void Grab()
     {
         if (isGrabbing)
         {
@@ -40,13 +39,8 @@ public class GrabController : MonoBehaviour
         else
         {
             isGrabbing = true;
-            grabbedObject = InteractionController.controller.InteractionObject;
+            grabbedObject = InteractionController.controller.InteractableObject;
         }
-    }
-
-    private void Drop()
-    {
-
     }
 
     private void OnDestroy()

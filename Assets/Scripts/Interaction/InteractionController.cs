@@ -7,13 +7,15 @@ public class InteractionController : MonoBehaviour
     public static InteractionController controller;
 
     [SerializeField]
-    private LayerMask interactionLayer; // layer object to interact with
+    private GameObject interactableObject;
     [SerializeField]
-    private GameObject interactionObject; // object to interact with
+    private Collider2D interactableCollider; 
     [SerializeField]
-    private Transform interactionPoint;
-
-    private const float InteractionRange = 0.2f;
+    private LayerMask interactableLayer;
+    [SerializeField]
+    private Transform interactablePoint;
+    [SerializeField]
+    private float InteractableRange = 0.2f;
 
     private void Awake()
     {
@@ -22,13 +24,32 @@ public class InteractionController : MonoBehaviour
 
     private void Update()
     {
-        //Collider2D object = Physics2D.OverlapCircle(interactionPoint.position,
-            InteractionRange, interactionLayer);
+        if (IsDetectingObject(interactableCollider))
+        {
+            InteractionManager.manager.Interact();
+        }
     }
 
-    public GameObject InteractionObject
+    private void FixedUpdate()
     {
-        get { return interactionObject; }
+        interactableCollider = Physics2D.OverlapCircle(interactablePoint.position,
+            InteractableRange, interactableLayer);
+    }
+
+    private bool IsDetectingObject(Collider2D collider)
+    {
+        if (collider != null)
+        {
+            interactableObject = collider.gameObject;
+            return true;
+        }
+
+        return false;
+    }
+
+    public GameObject InteractableObject
+    {
+        get { return interactableObject; }
     }
 
     private void OnDestroy()
