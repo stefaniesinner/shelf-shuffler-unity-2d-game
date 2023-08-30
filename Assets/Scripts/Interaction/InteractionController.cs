@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class InteractionController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public InteractionController controller;
+
+    [SerializeField]
+    private LayerMask interactionLayer; // layer object to interact with
+    [SerializeField]
+    private GameObject interactionObject; // object to interact with
+    [SerializeField]
+    private Transform interactionPoint;
+
+    private const float InteractionRange = 0.2f;
+
+    private void Awake()
     {
-        
+        controller = this;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
