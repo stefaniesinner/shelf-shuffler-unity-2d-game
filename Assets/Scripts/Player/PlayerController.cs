@@ -59,7 +59,6 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
-        Climb();
 
         if (isJumping)
         {
