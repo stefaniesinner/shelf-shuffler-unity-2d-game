@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class GrabController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static GrabController grab;
+
+    [SerializeField]
+    private Transform grabPoint;
+    [SerializeField]
+    private Transform grabbedObject;
+    [SerializeField]
+    private float grabbedObjectYValue;
+
+    private bool isGrabbing;
+
+    private void Awake()
+    {
+        grab = this;
+    }
+
+    private void Update()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDestroy()
     {
-        
+        grab = null;
     }
 }
