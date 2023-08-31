@@ -11,7 +11,9 @@ public class GrabController : MonoBehaviour
     private Transform grabPoint;
     [SerializeField]
     private GameObject grabTarget;
-
+    [SerializeField]
+    private KeyCode grabKey = KeyCode.G;
+    [SerializeField]
     private float grabTargetYPosition;
 
     private bool isGrabbing;
@@ -23,7 +25,13 @@ public class GrabController : MonoBehaviour
 
     private void Update()
     {
-        Grab();
+        if (InteractionController.controller.IsDetectingObject)
+        {
+            if (Input.GetKeyUp(grabKey))
+            {
+                Grab();
+            }
+        }
     }
 
     private void Grab()
@@ -44,11 +52,6 @@ public class GrabController : MonoBehaviour
             grabTargetYPosition = grabTarget.transform.position.y;
             grabTarget.transform.localPosition = grabPoint.localPosition;
         }
-    }
-
-    public GameObject GrabTarget
-    {
-        set { grabTarget = value; }
     }
 
     private void OnDestroy()

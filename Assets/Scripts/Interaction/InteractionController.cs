@@ -6,20 +6,19 @@ using UnityEngine;
 public class InteractionController : MonoBehaviour
 {
     public static InteractionController controller;
-    
-    [SerializeField]
-    private GameObject targetObject;
-    [SerializeField]
-    private LayerMask targetLayer;
-    private Collider2D targetCollision;
 
     [SerializeField]
     private Transform interactionPoint;
     [SerializeField]
     private float interactionRange = 0.2f;
 
+    private Collider2D targetCollision;
     [SerializeField]
-    private KeyCode grabKey = KeyCode.G;
+    private GameObject targetObject;
+    [SerializeField]
+    private LayerMask targetLayer;
+
+    private bool isDetectingObject;
 
     private void Awake()
     {
@@ -28,17 +27,32 @@ public class InteractionController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyUp(grabKey))
-        {
-            GrabController.grab.GrabTarget = targetObject;
-            Debug.Log("GRABBED OBJECT");
-        }
+        IsDetecting(targetCollision);
     }
 
     private void FixedUpdate()
     {
         targetCollision = Physics2D.OverlapCircle(interactionPoint.position,
             interactionRange, targetLayer);
+    }
+
+    private void IsDetecting(Collider2D collider)
+    {
+        if (collider != null)
+        {
+            targetObject = collider.gameObject;
+            isDetectingObject = true;
+        }
+        else
+        {
+            targetObject = null;
+            isDetectingObject = false;
+        }
+    }
+
+    public bool IsDetectingObject
+    {
+        get { return isDetectingObject; }
     }
 
     public GameObject TargetObject
