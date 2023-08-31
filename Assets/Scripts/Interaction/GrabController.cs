@@ -5,38 +5,5 @@ using UnityEngine.UI;
 
 public class GrabController : MonoBehaviour
 {
-    public static GrabController controller;
 
-    [SerializeField]
-    private Transform grabPoint;
-    [SerializeField]
-    private GameObject grabbedItem;
-    [SerializeField]
-    private float grabbedItemYValue;
-
-    private bool isGrabbing;
-
-    private void Awake()
-    {
-        controller = this;
-    }
-
-    public void GrabAndDropItem()
-    {
-        if (isGrabbing)
-        {
-            isGrabbing = false;
-            grabbedItem.transform.parent = null;
-            grabbedItem.transform.position = new Vector2(grabbedItem.transform.position.x, grabbedItemYValue);
-            grabbedItem = null;
-        }
-        else
-        {
-            isGrabbing = true;
-            grabbedItem = InteractionController.controller.InteractionObject;
-            grabbedItem.transform.parent = transform;
-            grabbedItemYValue = grabbedItem.transform.position.y;
-            grabbedItem.transform.localPosition = grabPoint.localPosition;
-        }
-    }
 }

@@ -16,12 +16,14 @@ public class InteractionController : MonoBehaviour
     [SerializeField]
     private float interactionRange = 0.2f;
 
-    private KeyCode grabKey = KeyCode.G;
+    [SerializeField]
+    private Transform grabPoint;
+    [SerializeField]
+    private GameObject grabbedItem;
+    [SerializeField]
+    private float grabbedItemYValue;
 
-    private void Awake()
-    {
-        controller = this;
-    }
+    private bool isGrabbing;
 
     private void Update()
     {
@@ -29,12 +31,8 @@ public class InteractionController : MonoBehaviour
 
         if (isDetecting(item))
         {
-            if (Input.GetKeyDown(grabKey))
-            {
-                GrabController.controller.GrabAndDropItem();
-            }
+            interactionObject.GetComponent<InteractionManager>().Interact();
         }
-
     }
 
     private bool isDetecting(Collider2D collider)
@@ -50,9 +48,22 @@ public class InteractionController : MonoBehaviour
         return false;
     }
 
-    public GameObject InteractionObject
+    public void GrabAndDropItem()
     {
-        get { return interactionObject; }
+        if (isGrabbing)
+        {
+            isGrabbing = false;
+            grabbedItem.transform.parent = null;
+            grabbedItem.transform.position = new Vector2(grabbedItem.transform.position.x, grabbedItemYValue);
+            grabbedItem = null;
+        }
+        else
+        {
+            isGrabbing = true;
+            grabbedItem = interactionObject;
+            grabbedItem.transform.parent = transform;
+            grabbedItemYValue = grabbedItem.transform.position.y;
+            grabbedItem.transform.localPosition = grabPoint.localPosition;
+        }
     }
-
 }
