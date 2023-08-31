@@ -16,14 +16,10 @@ public class InteractionController : MonoBehaviour
     [SerializeField]
     private float interactionRange = 0.2f;
 
-    [SerializeField]
-    private Transform grabPoint;
-    [SerializeField]
-    private GameObject grabbedItem;
-    [SerializeField]
-    private float grabbedItemYValue;
-
-    private bool isGrabbing;
+    private void Awake()
+    {
+        controller = this;
+    }
 
     private void Update()
     {
@@ -48,22 +44,8 @@ public class InteractionController : MonoBehaviour
         return false;
     }
 
-    public void GrabAndDropItem()
+    public GameObject InteractionObject
     {
-        if (isGrabbing)
-        {
-            isGrabbing = false;
-            grabbedItem.transform.parent = null;
-            grabbedItem.transform.position = new Vector2(grabbedItem.transform.position.x, grabbedItemYValue);
-            grabbedItem = null;
-        }
-        else
-        {
-            isGrabbing = true;
-            grabbedItem = interactionObject;
-            grabbedItem.transform.parent = transform;
-            grabbedItemYValue = grabbedItem.transform.position.y;
-            grabbedItem.transform.localPosition = grabPoint.localPosition;
-        }
+        get { return interactionObject; }
     }
 }
