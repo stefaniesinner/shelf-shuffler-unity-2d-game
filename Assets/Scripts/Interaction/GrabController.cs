@@ -5,57 +5,38 @@ using UnityEngine.UI;
 
 public class GrabController : MonoBehaviour
 {
-    public static GrabController grab;
+    public static GrabController controller;
 
     [SerializeField]
     private Transform grabPoint;
     [SerializeField]
-    private GameObject grabTarget;
+    private GameObject grabbedItem;
     [SerializeField]
-    private KeyCode grabKey = KeyCode.G;
-    [SerializeField]
-    private float grabTargetYPosition;
+    private float grabbedItemYValue;
 
     private bool isGrabbing;
 
     private void Awake()
     {
-        grab = this;
+        controller = this;
     }
 
-    private void Update()
-    {
-        if (InteractionController.controller.IsDetectingObject)
-        {
-            if (Input.GetKeyUp(grabKey))
-            {
-                Grab();
-            }
-        }
-    }
-
-    private void Grab()
+    public void GrabAndDropItem()
     {
         if (isGrabbing)
         {
             isGrabbing = false;
-            grabTarget.transform.parent = null;
-            grabTarget.transform.position = new Vector2(grabTarget.transform.position.x,
-                grabTargetYPosition);
-            grabTarget = null;
+            grabbedItem.transform.parent = null;
+            grabbedItem.transform.position = new Vector2(grabbedItem.transform.position.x, grabbedItemYValue);
+            grabbedItem = null;
         }
         else
         {
             isGrabbing = true;
-            grabTarget = InteractionController.controller.TargetObject;
-            grabTarget.transform.parent = transform;
-            grabTargetYPosition = grabTarget.transform.position.y;
-            grabTarget.transform.localPosition = grabPoint.localPosition;
+            grabbedItem = InteractionController.controller.InteractionObject;
+            grabbedItem.transform.parent = transform;
+            grabbedItemYValue = grabbedItem.transform.position.y;
+            grabbedItem.transform.localPosition = grabPoint.localPosition;
         }
-    }
-
-    private void OnDestroy()
-    {
-        grab = null;
     }
 }

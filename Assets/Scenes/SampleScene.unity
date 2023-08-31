@@ -267,7 +267,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grabPoint: {fileID: 479273620}
-  grabTarget: {fileID: 242885095}
+  grabbedItem: {fileID: 242885095}
+  grabbedItemYValue: 0
 --- !u!1 &364133384
 GameObject:
   m_ObjectHideFlags: 0
@@ -1026,13 +1027,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 022b32c138ad05d4fa6c0e7425bff25c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetObject: {fileID: 242885095}
-  targetLayer:
+  interactionLayer:
     serializedVersion: 2
     m_Bits: 128
+  interactionObject: {fileID: 0}
   interactionPoint: {fileID: 1943440946}
   interactionRange: 0.2
-  grabKey: 103
 --- !u!1 &959989447
 GameObject:
   m_ObjectHideFlags: 0

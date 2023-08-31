@@ -8,17 +8,15 @@ public class InteractionController : MonoBehaviour
     public static InteractionController controller;
 
     [SerializeField]
+    private LayerMask interactionLayer; // Only items attaching the respective Layer can be interact with the player
+    [SerializeField]
+    private GameObject interactionObject;
+    [SerializeField]
     private Transform interactionPoint;
     [SerializeField]
     private float interactionRange = 0.2f;
 
-    private Collider2D targetCollision;
-    [SerializeField]
-    private GameObject targetObject;
-    [SerializeField]
-    private LayerMask targetLayer;
-
-    private bool isDetectingObject;
+    private KeyCode grabKey = KeyCode.G;
 
     private void Awake()
     {
@@ -27,41 +25,34 @@ public class InteractionController : MonoBehaviour
 
     private void Update()
     {
-        IsDetecting(targetCollision);
+        Collider2D item = Physics2D.OverlapCircle(interactionPoint.position, interactionRange, interactionLayer);
+
+        if (isDetecting(item))
+        {
+            if (Input.GetKeyDown(grabKey))
+            {
+                GrabController.controller.GrabAndDropItem();
+            }
+        }
+
     }
 
-    private void FixedUpdate()
-    {
-        targetCollision = Physics2D.OverlapCircle(interactionPoint.position,
-            interactionRange, targetLayer);
-    }
-
-    private void IsDetecting(Collider2D collider)
+    private bool isDetecting(Collider2D collider)
     {
         if (collider != null)
         {
-            targetObject = collider.gameObject;
-            isDetectingObject = true;
+            interactionObject = collider.gameObject;
+            return true;
         }
-        else
-        {
-            targetObject = null;
-            isDetectingObject = false;
-        }
+
+        interactionObject = null;
+
+        return false;
     }
 
-    public bool IsDetectingObject
+    public GameObject InteractionObject
     {
-        get { return isDetectingObject; }
+        get { return interactionObject; }
     }
 
-    public GameObject TargetObject
-    {
-        get { return targetObject; }
-    }
-
-    private void OnDestroy()
-    {
-        controller = null;
-    }
 }
