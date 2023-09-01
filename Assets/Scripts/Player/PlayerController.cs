@@ -32,8 +32,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private KeyCode jumpKey = KeyCode.Space;
 
-    private float moveVertical;
-
     private void Awake()
     {
         player = this;
@@ -49,12 +47,10 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         moveHorizontal = Input.GetAxis("Horizontal");
-        moveVertical = Input.GetAxisRaw("Vertical");
 
         IsMoving();
         IsGrounded();
         IsJumping();
-        IsClimbing();
 
         AnimatePlayer();
         FlipSprite(moveHorizontal);
@@ -68,8 +64,6 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
-
-        Climb();
     }
 
     /// <summary>
@@ -167,27 +161,6 @@ public class PlayerController : MonoBehaviour
         }
 
         transform.localScale = scaleOfObject;
-    }
-
-    private void IsClimbing()
-    {
-        if (ClimbController.controller.IsTouchingLadder && Mathf.Abs(moveVertical) > 0f)
-        {
-            ClimbController.controller.IsClimbing = true;
-        }
-    }
-
-    private void Climb()
-    {
-        if (ClimbController.controller.IsClimbing)
-        {
-            rb.gravityScale = 0f;
-            rb.velocity = new Vector2(rb.velocity.x, moveVertical * moveSpeed);
-        }
-        else
-        {
-            rb.gravityScale = 4f;
-        }
     }
 
     private void OnDestroy()
