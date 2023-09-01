@@ -12,9 +12,8 @@ public class ClimbController : MonoBehaviour
     private bool isClimbingLadder;
 
     private float moveVertical;
-    private float gravityScale;
     [SerializeField]
-    private float climbSpeed = 3f;
+    private float climbSpeed = 4f;
 
     private void Awake()
     {
