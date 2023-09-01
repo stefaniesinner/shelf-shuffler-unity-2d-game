@@ -61,6 +61,7 @@ public class ClimbController : MonoBehaviour
         if (collision.CompareTag("Ladder"))
         {
             isTouchingLadder = true;
+            Debug.Log("IS TOUCHING LADDER");
         }
     }
 
