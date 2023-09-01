@@ -163,11 +163,6 @@ public class PlayerController : MonoBehaviour
         transform.localScale = scaleOfObject;
     }
 
-    public Rigidbody2D Rb
-    {
-        get { return rb; }
-    }
-
     private void OnDestroy()
     {
         player = null;
