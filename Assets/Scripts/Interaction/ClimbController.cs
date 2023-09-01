@@ -10,6 +10,8 @@ public class ClimbController : MonoBehaviour
     public static ClimbController controller;
 
     private Rigidbody2D rb;
+    [SerializeField]
+    private GameObject[] ladderBorder;
 
     private bool isTouchingLadder;
     private bool isClimbingLadder;
@@ -60,10 +62,28 @@ public class ClimbController : MonoBehaviour
         {
             rb.gravityScale = 0f;
             rb.velocity = new Vector2(rb.velocity.x, moveVertical * climbSpeed);
+            ShowBorder();
         }
         else
         {
             rb.gravityScale = 2f;
+            HideBorder();
+        }
+    }
+
+    private void ShowBorder()
+    {
+        for (int i = 0; i < ladderBorder.Length; i++)
+        {
+            ladderBorder[i].SetActive(true);
+        }
+    }
+
+    private void HideBorder()
+    {
+        for (int i = 0; i < ladderBorder.Length; i++)
+        {
+            ladderBorder[i].SetActive(false);
         }
     }
 

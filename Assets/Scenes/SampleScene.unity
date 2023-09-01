@@ -1045,6 +1045,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 667b328ae6b9c31448409efdefd815d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ladderBorder:
+  - {fileID: 1468582746}
   climbSpeed: 4
 --- !u!1 &959989447
 GameObject:
@@ -1295,7 +1297,7 @@ GameObject:
   - component: {fileID: 1468582747}
   - component: {fileID: 1468582748}
   m_Layer: 7
-  m_Name: Border
+  m_Name: TopBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
