@@ -12,9 +12,9 @@ public class GrabController : MonoBehaviour
     [SerializeField]
     private GameObject grabbedObject;
     [SerializeField]
-    private float grabbedObjectYPosition;
-    [SerializeField]
     private KeyCode grabKey = KeyCode.G;
+
+    private float grabbedObjectYPosition;
 
     private bool isGrabbing;
 
