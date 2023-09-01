@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+/// <summary>
+/// Class <c>InteractionController</c> handles the interaction between player and object.
+/// The player is able to detect and interact with the respective object.
+/// </summary>
 public class InteractionController : MonoBehaviour
 {
     public static InteractionController controller;
@@ -35,7 +39,11 @@ public class InteractionController : MonoBehaviour
         detectionCollision = Physics2D.OverlapCircle(detectionPoint.position,
             detectionRange, detectionLayer);
     }
-    
+
+    /// <summary>
+    /// Check if there is an object to interact with.
+    /// </summary>
+    /// <param name="collision">collider of the object to interact with.</param>
     private void DetectObject(Collider2D collision)
     {
         if (collision != null)
