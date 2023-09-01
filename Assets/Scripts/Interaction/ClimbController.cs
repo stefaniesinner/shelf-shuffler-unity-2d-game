@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Class <c>ClimbController</c> handles the ladder climbing. All objects possessing this
+/// component are able to climb the ladder.
+/// </summary>
 public class ClimbController : MonoBehaviour
 {
     public static ClimbController controller;
@@ -37,6 +40,9 @@ public class ClimbController : MonoBehaviour
         Climb();
     }
 
+    /// <summary>
+    /// Check if the object climbs the ladder.
+    /// </summary>
     private void IsClimbing()
     {
         if (isTouchingLadder && Mathf.Abs(moveVertical) > 0f)
@@ -45,6 +51,9 @@ public class ClimbController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Climb the ladder with the respective speed.
+    /// </summary>
     private void Climb()
     {
         if (isClimbingLadder)

@@ -113,7 +113,7 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// Move to the respective direction and speed.
+    /// Move to the direction with the respective speed.
     /// </summary>
     private void Move()
     {
