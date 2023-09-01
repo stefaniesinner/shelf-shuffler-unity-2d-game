@@ -6,8 +6,6 @@ public class ClimbController : MonoBehaviour
 {
     public static ClimbController controller;
 
-    private Rigidbody2D rb;
-
     private bool isTouchingLadder;
     private bool isClimbingLadder;
 
@@ -20,17 +18,17 @@ public class ClimbController : MonoBehaviour
         controller = this;
     }
 
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
-
     private void Update()
     {
         moveVertical = Input.GetAxisRaw("Vertical");
+
+        if (isClimbingLadder)
+        {
+            Climb(PlayerController.player.Rb);
+        }
     }
 
-    private void Climb()
+    private void Climb(Rigidbody2D rb)
     {
         if (isClimbingLadder)
         {
@@ -66,11 +64,6 @@ public class ClimbController : MonoBehaviour
             isTouchingLadder = false;
             isClimbingLadder = false;
         }
-    }
-
-    public bool IsClimbingLadder
-    {
-        get { return isClimbingLadder; }
     }
 
     private void OnDestroy()
