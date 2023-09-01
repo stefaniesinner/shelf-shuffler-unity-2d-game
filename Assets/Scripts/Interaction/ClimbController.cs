@@ -12,7 +12,9 @@ public class ClimbController : MonoBehaviour
     private bool isClimbingLadder;
 
     private float moveVertical;
-    private float moveSpeed = 3f;
+    private float gravityScale;
+    [SerializeField]
+    private float climbSpeed = 3f;
 
     private void Awake()
     {
@@ -49,11 +51,11 @@ public class ClimbController : MonoBehaviour
         if (isClimbingLadder)
         {
             rb.gravityScale = 0f;
-            rb.velocity = new Vector2(rb.velocity.x, moveVertical * moveSpeed);
+            rb.velocity = new Vector2(rb.velocity.x, moveVertical * climbSpeed);
         }
         else
         {
-            rb.gravityScale = 4f;
+            rb.gravityScale = 2f;
         }
     }
 
@@ -72,10 +74,5 @@ public class ClimbController : MonoBehaviour
             isTouchingLadder = false;
             isClimbingLadder = false;
         }
-    }
-
-    public bool IsTouchingLadder
-    {
-        get { return isTouchingLadder; }
     }
 }
