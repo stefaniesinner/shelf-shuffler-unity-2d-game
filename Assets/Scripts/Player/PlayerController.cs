@@ -33,8 +33,6 @@ public class PlayerController : MonoBehaviour
     private KeyCode jumpKey = KeyCode.Space;
 
     private float moveVertical;
-    private bool isTouchingLadder;
-    private bool isClimbing;
 
     private void Awake()
     {
@@ -173,15 +171,15 @@ public class PlayerController : MonoBehaviour
 
     private void IsClimbing()
     {
-        if (isTouchingLadder && Mathf.Abs(moveVertical) > 0f)
+        if (ClimbController.controller.IsTouchingLadder && Mathf.Abs(moveVertical) > 0f)
         {
-            isClimbing = true;
+            ClimbController.controller.IsClimbing = true;
         }
     }
 
     private void Climb()
     {
-        if (isClimbing)
+        if (ClimbController.controller.IsClimbing)
         {
             rb.gravityScale = 0f;
             rb.velocity = new Vector2(rb.velocity.x, moveVertical * moveSpeed);
@@ -191,24 +189,6 @@ public class PlayerController : MonoBehaviour
             rb.gravityScale = 4f;
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Ladder"))
-        {
-            isTouchingLadder = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Ladder"))
-        {
-            isTouchingLadder = false;
-            isClimbing = false;
-        }
-    }
-
 
     private void OnDestroy()
     {
