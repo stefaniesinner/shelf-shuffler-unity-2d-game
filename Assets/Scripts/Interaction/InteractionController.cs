@@ -8,10 +8,13 @@ public class InteractionController : MonoBehaviour
     public static InteractionController controller;
 
     private GameObject detectedObject;
+
+    private Collider2D detectionCollision;
     [SerializeField]
     private Transform detectionPoint;
     [SerializeField]
     private LayerMask detectionLayer;
+
     [SerializeField]
     private float detectionRange = 0.2f;
 
