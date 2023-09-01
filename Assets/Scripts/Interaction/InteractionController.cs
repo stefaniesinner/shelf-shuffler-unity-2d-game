@@ -7,6 +7,14 @@ public class InteractionController : MonoBehaviour
 {
     public static InteractionController controller;
 
+    private GameObject detectedObject;
+    [SerializeField]
+    private Transform detectionPoint;
+    [SerializeField]
+    private LayerMask detectionLayer;
+    [SerializeField]
+    private float detectionRange = 0.2f;
+
     private void Awake()
     {
         controller = this;
