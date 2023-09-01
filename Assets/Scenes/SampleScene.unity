@@ -134,7 +134,6 @@ GameObject:
   - component: {fileID: 242885096}
   - component: {fileID: 242885098}
   - component: {fileID: 242885097}
-  - component: {fileID: 242885100}
   m_Layer: 7
   m_Name: Ladder
   m_TagString: Ladder
@@ -254,18 +253,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &242885100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 242885095}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6912b25f231b5b645ba06783e5429e7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &364133384
 GameObject:
   m_ObjectHideFlags: 0
@@ -1025,10 +1012,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 022b32c138ad05d4fa6c0e7425bff25c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionPoint: {fileID: 0}
+  detectionPoint: {fileID: 1943440946}
   detectionLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   detectionRange: 0.2
 --- !u!114 &919633536
 MonoBehaviour:
@@ -1043,7 +1030,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grabPoint: {fileID: 479273620}
-  grabbedObject: {fileID: 0}
+  grabbedObject: {fileID: 242885095}
   grabbedObjectYPosition: 0
 --- !u!1 &959989447
 GameObject:

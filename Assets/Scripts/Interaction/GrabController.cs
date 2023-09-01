@@ -13,6 +13,8 @@ public class GrabController : MonoBehaviour
     private GameObject grabbedObject;
     [SerializeField]
     private float grabbedObjectYPosition;
+    [SerializeField]
+    private KeyCode grabKey = KeyCode.G;
 
     private bool isGrabbing;
 
@@ -25,8 +27,10 @@ public class GrabController : MonoBehaviour
     {
         if (InteractionController.controller.IsDetectingObject)
         {
-            Grab();
-            Drop();
+            if (Input.GetKeyDown(grabKey))
+            {
+                Grab();
+            }
         }
     }
 
@@ -40,11 +44,7 @@ public class GrabController : MonoBehaviour
                 grabbedObjectYPosition);
             grabbedObject = null;
         }
-    }
-
-    private void Drop()
-    {
-        if (!isGrabbing)
+        else
         {
             isGrabbing = true;
             grabbedObject = InteractionController.controller.DetectedObject;
