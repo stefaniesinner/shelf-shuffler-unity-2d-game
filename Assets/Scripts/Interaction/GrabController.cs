@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Class <c>GrabController</c> handles the grabbing and dropping of objects.
+/// </summary>
 public class GrabController : MonoBehaviour
 {
     public static GrabController controller;
@@ -34,6 +37,9 @@ public class GrabController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Grab the respective object. If the object is already grabbed, drop it.
+    /// </summary>
     private void Grab()
     {
         if (isGrabbing)
