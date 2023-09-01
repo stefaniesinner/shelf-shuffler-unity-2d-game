@@ -7,7 +7,6 @@ public class ClimbController : MonoBehaviour
     public static ClimbController controller;
 
     private bool isTouchingLadder;
-    private bool isClimbing;
 
     private void Awake()
     {
@@ -27,7 +26,7 @@ public class ClimbController : MonoBehaviour
         if (collision.CompareTag("Ladder"))
         {
             isTouchingLadder = false;
-            isClimbing = false;
+            IsClimbing = false;
         }
     }
 
@@ -36,9 +35,5 @@ public class ClimbController : MonoBehaviour
         get { return isTouchingLadder; }
     }
 
-    public bool IsClimbing
-    {
-        get { return isClimbing; }
-        set { isClimbing = value; }
-    }
+    public bool IsClimbing { get; set; }
 }
