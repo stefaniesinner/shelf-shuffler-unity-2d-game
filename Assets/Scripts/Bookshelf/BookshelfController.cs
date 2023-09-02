@@ -5,7 +5,7 @@ using UnityEngine;
 public class BookshelfController : MonoBehaviour
 {
     [SerializeField]
-    public BookshelfUI bookshelfUI;
+    public BookshelfUIManager bookshelfUI;
     [SerializeField]
     private BookshelfHighlighter selection;
     [SerializeField]
@@ -48,7 +48,7 @@ public class BookshelfController : MonoBehaviour
         get { return currentBookshelfSectionIndex; }
     }
 
-    public BookshelfUI BookshelfUI
+    public BookshelfUIManager BookshelfUI
     {
         get { return bookshelfUI; }
     }
