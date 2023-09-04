@@ -381,7 +381,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8478883163264310391, guid: 7a853718e217a4146ba528544d9d6a6b, type: 3}
       propertyPath: m_Name
-      value: SectionR
+      value: SectionK
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3793,7 +3793,16 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1275511526}
+  - {fileID: 594675053}
+  - {fileID: 1948913797}
+  - {fileID: 1372525110}
+  - {fileID: 133734327}
   - {fileID: 1992169400563410498}
+  - {fileID: 2011445540}
+  - {fileID: 1704070178}
+  - {fileID: 805575564}
+  - {fileID: 48414971}
   - {fileID: 914396208}
   - {fileID: 950288656}
   - {fileID: 602010456}
@@ -3803,16 +3812,7 @@ Transform:
   - {fileID: 108512002}
   - {fileID: 712777619}
   - {fileID: 2101409724}
-  - {fileID: 48414971}
-  - {fileID: 2011445540}
-  - {fileID: 805575564}
   - {fileID: 2139360218}
-  - {fileID: 1704070178}
-  - {fileID: 133734327}
-  - {fileID: 594675053}
-  - {fileID: 1372525110}
-  - {fileID: 1275511526}
-  - {fileID: 1948913797}
   m_Father: {fileID: 1242321503}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
