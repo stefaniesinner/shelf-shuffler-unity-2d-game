@@ -6,8 +6,8 @@ public class BookshelfUIManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject bookshelfWindow;
-    [SerializeField]
-    private GameObject buttonIndicator; // To inform the player which button to press to open/close the bookshelf window
+    //[SerializeField]
+    //private GameObject buttonIndicator; // To inform the player which button to press to open/close the bookshelf window
     [SerializeField]
     private BookSelectionController bookSelectionController;
     [SerializeField]
@@ -51,7 +51,7 @@ public class BookshelfUIManager : MonoBehaviour
 
     private void ActivateButtonIndicator(bool isShowing)
     {
-        buttonIndicator.SetActive(isShowing);
+        //buttonIndicator.SetActive(isShowing);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -80,6 +80,5 @@ public class BookshelfUIManager : MonoBehaviour
     private void OnDestroy()
     {
         bookshelfWindow = null;
-        buttonIndicator = null;
     }
 }
