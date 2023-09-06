@@ -4248,6 +4248,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1300776347911716128}
+  - component: {fileID: 1300776347911716129}
   m_Layer: 0
   m_Name: SingleBooks
   m_TagString: Untagged
@@ -4275,6 +4276,31 @@ Transform:
   m_Father: {fileID: 1772991559}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1300776347911716129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190192841339069856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e5980c059426c47be98e77cb9c42d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 1669256285}
+  highlighter: {fileID: 0}
+  redBook: {fileID: 238330104831265219}
+  blueBook: {fileID: 2065741816927537453}
+  greenBook: {fileID: 864780958313825197}
+  purpleBook: {fileID: 6654476006497913397}
+  orangeBook: {fileID: 3351506550081904655}
+  redBookHighlight: {fileID: 0}
+  blueBookHighlight: {fileID: 0}
+  greenBookHighlight: {fileID: 0}
+  purpleBookHighlight: {fileID: 0}
+  orangeBookHighlight: {fileID: 0}
+  currentBook: 0
 --- !u!1 &2065741816927537453
 GameObject:
   m_ObjectHideFlags: 0
