@@ -3445,7 +3445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookshelfUI: {fileID: 1242321504}
-  selection: {fileID: 0}
+  selection: {fileID: 286638752}
   singleBooks: {fileID: 0}
   currentBookshelfSectionIndex: 0
   visibleBooks: 
