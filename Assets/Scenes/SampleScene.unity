@@ -3396,7 +3396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f3c4fa66898153419cec74273f10d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bookshelfUI: {fileID: 0}
+  bookshelfUI: {fileID: 1242321504}
   selection: {fileID: 0}
   singleBooks: {fileID: 0}
   currentBookshelfSectionIndex: 0
