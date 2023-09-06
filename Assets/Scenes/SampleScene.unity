@@ -7282,14 +7282,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61d623d24e253ea4d9a7e361046ba22b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  section: {fileID: 0}
+  section: {fileID: 2978640568933737288}
   controller: {fileID: 0}
-  redBook: {fileID: 0}
-  blueBook: {fileID: 0}
-  greenBook: {fileID: 0}
-  purpleBook: {fileID: 0}
-  orangeBook: {fileID: 0}
-  highlight: {fileID: 0}
+  redBook: {fileID: 7832002664736662453}
+  blueBook: {fileID: 9000718298977093498}
+  greenBook: {fileID: 2475517856719592941}
+  purpleBook: {fileID: 7505479818461089855}
+  orangeBook: {fileID: 6695656963419819504}
+  highlight: {fileID: 2386030684806632747}
 --- !u!1 &2978640569034892914
 GameObject:
   m_ObjectHideFlags: 0
