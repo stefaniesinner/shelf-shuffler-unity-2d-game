@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Student
   - Ladder
+  - Books
   layers:
   - Default
   - TransparentFX
