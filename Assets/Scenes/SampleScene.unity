@@ -141,7 +141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2909528354630034176, guid: 6e03ac51ab1baa247b98c0728734dd44, type: 3}
       propertyPath: m_Name
-      value: BookSection (15)
+      value: SectionQ
       objectReference: {fileID: 0}
     - target: {fileID: 3317399100527959918, guid: 6e03ac51ab1baa247b98c0728734dd44, type: 3}
       propertyPath: m_LocalPosition.x
@@ -938,7 +938,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2909528354630034176, guid: 6e03ac51ab1baa247b98c0728734dd44, type: 3}
       propertyPath: m_Name
-      value: BookSection (14)
+      value: SectionP
       objectReference: {fileID: 0}
     - target: {fileID: 7296602363013801333, guid: 6e03ac51ab1baa247b98c0728734dd44, type: 3}
       propertyPath: m_RootOrder
@@ -1287,7 +1287,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2909528354630034176, guid: 6e03ac51ab1baa247b98c0728734dd44, type: 3}
       propertyPath: m_Name
-      value: BookSection (5)
+      value: SectionG
       objectReference: {fileID: 0}
     - target: {fileID: 3317399100527959918, guid: 6e03ac51ab1baa247b98c0728734dd44, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1480,7 +1480,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2909528354630034176, guid: 6e03ac51ab1baa247b98c0728734dd44, type: 3}
       propertyPath: m_Name
-      value: BookSection (8)
+      value: SectionJ
       objectReference: {fileID: 0}
     - target: {fileID: 3317399100527959918, guid: 6e03ac51ab1baa247b98c0728734dd44, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1810,7 +1810,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2909528354630034176, guid: 6e03ac51ab1baa247b98c0728734dd44, type: 3}
       propertyPath: m_Name
-      value: BookSection (11)
+      value: SectionM
       objectReference: {fileID: 0}
     - target: {fileID: 7296602363013801333, guid: 6e03ac51ab1baa247b98c0728734dd44, type: 3}
       propertyPath: m_RootOrder
@@ -1904,7 +1904,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2909528354630034176, guid: 6e03ac51ab1baa247b98c0728734dd44, type: 3}
       propertyPath: m_Name
-      value: BookSection (16)
+      value: SectionR
       objectReference: {fileID: 0}
     - target: {fileID: 7296602363013801333, guid: 6e03ac51ab1baa247b98c0728734dd44, type: 3}
       propertyPath: m_RootOrder
@@ -1965,7 +1965,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2909528354630034176, guid: 6e03ac51ab1baa247b98c0728734dd44, type: 3}
       propertyPath: m_Name
-      value: BookSection (4)
+      value: SectionF
       objectReference: {fileID: 0}
     - target: {fileID: 7296602363013801333, guid: 6e03ac51ab1baa247b98c0728734dd44, type: 3}
       propertyPath: m_RootOrder
@@ -2198,7 +2198,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2909528354630034176, guid: 6e03ac51ab1baa247b98c0728734dd44, type: 3}
       propertyPath: m_Name
-      value: BookSection
+      value: SectionB
       objectReference: {fileID: 0}
     - target: {fileID: 3317399100527959918, guid: 6e03ac51ab1baa247b98c0728734dd44, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2507,7 +2507,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2909528354630034176, guid: 6e03ac51ab1baa247b98c0728734dd44, type: 3}
       propertyPath: m_Name
-      value: BookSection (12)
+      value: SectionN
       objectReference: {fileID: 0}
     - target: {fileID: 7296602363013801333, guid: 6e03ac51ab1baa247b98c0728734dd44, type: 3}
       propertyPath: m_RootOrder
@@ -2653,7 +2653,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2909528354630034176, guid: 6e03ac51ab1baa247b98c0728734dd44, type: 3}
       propertyPath: m_Name
-      value: BookSection (10)
+      value: SectionL
       objectReference: {fileID: 0}
     - target: {fileID: 3317399100527959918, guid: 6e03ac51ab1baa247b98c0728734dd44, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3196,7 +3196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2909528354630034176, guid: 6e03ac51ab1baa247b98c0728734dd44, type: 3}
       propertyPath: m_Name
-      value: BookSection (18)
+      value: SectionT
       objectReference: {fileID: 0}
     - target: {fileID: 3317399100527959918, guid: 6e03ac51ab1baa247b98c0728734dd44, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3357,7 +3357,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2909528354630034176, guid: 6e03ac51ab1baa247b98c0728734dd44, type: 3}
       propertyPath: m_Name
-      value: BookSection (2)
+      value: SectionD
       objectReference: {fileID: 0}
     - target: {fileID: 7296602363013801333, guid: 6e03ac51ab1baa247b98c0728734dd44, type: 3}
       propertyPath: m_RootOrder
@@ -3530,7 +3530,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2909528354630034176, guid: 6e03ac51ab1baa247b98c0728734dd44, type: 3}
       propertyPath: m_Name
-      value: BookSection (3)
+      value: SectionE
       objectReference: {fileID: 0}
     - target: {fileID: 3317399100527959918, guid: 6e03ac51ab1baa247b98c0728734dd44, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3607,7 +3607,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2909528354630034176, guid: 6e03ac51ab1baa247b98c0728734dd44, type: 3}
       propertyPath: m_Name
-      value: BookSection (17)
+      value: SectionS
       objectReference: {fileID: 0}
     - target: {fileID: 7296602363013801333, guid: 6e03ac51ab1baa247b98c0728734dd44, type: 3}
       propertyPath: m_RootOrder
@@ -3668,7 +3668,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2909528354630034176, guid: 6e03ac51ab1baa247b98c0728734dd44, type: 3}
       propertyPath: m_Name
-      value: BookSection (1)
+      value: SectionC
       objectReference: {fileID: 0}
     - target: {fileID: 7296602363013801333, guid: 6e03ac51ab1baa247b98c0728734dd44, type: 3}
       propertyPath: m_RootOrder
@@ -3729,7 +3729,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2909528354630034176, guid: 6e03ac51ab1baa247b98c0728734dd44, type: 3}
       propertyPath: m_Name
-      value: BookSection (9)
+      value: SectionK
       objectReference: {fileID: 0}
     - target: {fileID: 7296602363013801333, guid: 6e03ac51ab1baa247b98c0728734dd44, type: 3}
       propertyPath: m_RootOrder
@@ -4054,7 +4054,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2909528354630034176, guid: 6e03ac51ab1baa247b98c0728734dd44, type: 3}
       propertyPath: m_Name
-      value: BookSection (7)
+      value: SectionI
       objectReference: {fileID: 0}
     - target: {fileID: 7296602363013801333, guid: 6e03ac51ab1baa247b98c0728734dd44, type: 3}
       propertyPath: m_RootOrder
@@ -4115,7 +4115,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2909528354630034176, guid: 6e03ac51ab1baa247b98c0728734dd44, type: 3}
       propertyPath: m_Name
-      value: BookSection (6)
+      value: SectionH
       objectReference: {fileID: 0}
     - target: {fileID: 7296602363013801333, guid: 6e03ac51ab1baa247b98c0728734dd44, type: 3}
       propertyPath: m_RootOrder
@@ -4263,7 +4263,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2909528354630034176, guid: 6e03ac51ab1baa247b98c0728734dd44, type: 3}
       propertyPath: m_Name
-      value: BookSection (13)
+      value: SectionO
       objectReference: {fileID: 0}
     - target: {fileID: 3317399100527959918, guid: 6e03ac51ab1baa247b98c0728734dd44, type: 3}
       propertyPath: m_LocalPosition.x
