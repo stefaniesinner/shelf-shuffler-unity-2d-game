@@ -4720,11 +4720,11 @@ MonoBehaviour:
   greenBook: {fileID: 864780958313825197}
   purpleBook: {fileID: 6654476006497913397}
   orangeBook: {fileID: 3351506550081904655}
-  redBookHighlight: {fileID: 0}
-  blueBookHighlight: {fileID: 0}
-  greenBookHighlight: {fileID: 0}
-  purpleBookHighlight: {fileID: 0}
-  orangeBookHighlight: {fileID: 0}
+  redBookHighlight: {fileID: 1066323473}
+  blueBookHighlight: {fileID: 511318928}
+  greenBookHighlight: {fileID: 750415341}
+  purpleBookHighlight: {fileID: 1684399297}
+  orangeBookHighlight: {fileID: 1519348557}
   currentBook: 0
 --- !u!1 &2065741816927537453
 GameObject:
