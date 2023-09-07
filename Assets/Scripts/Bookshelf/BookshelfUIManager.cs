@@ -23,7 +23,7 @@ public class BookshelfUIManager : MonoBehaviour
 
     private void Start()
     {
-        ActivateBookshelfWindow(false);
+        ShowBookshelfWindow(false);
     }
 
     private void Update()
@@ -34,6 +34,10 @@ public class BookshelfUIManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Open the bookshelf window when the player is next to the
+    /// bookshelf.
+    /// </summary>
     public void OpenBookshelfWindow()
     {
         if (!isOpen && isDetectingPlayer)
@@ -48,7 +52,12 @@ public class BookshelfUIManager : MonoBehaviour
         }
     }
 
-    private void ActivateBookshelfWindow(bool isShowing)
+    /// <summary>
+    /// Show the bookshelf window to show the books left in the
+    /// respective book section.
+    /// </summary>
+    /// <param name="isShowing">True, if the window should be shown.</param>
+    private void ShowBookshelfWindow(bool isShowing)
     {
         bookshelfWindow.SetActive(isShowing);
     }
