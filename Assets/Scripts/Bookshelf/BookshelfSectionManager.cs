@@ -9,7 +9,6 @@ using UnityEngine;
 public class BookshelfSectionManager : MonoBehaviour
 {
     // The bookshelf section, where this Script is attached to
-    [SerializeField]
     private GameObject section;
 
     // The Book GameObjects that are inside this book section
