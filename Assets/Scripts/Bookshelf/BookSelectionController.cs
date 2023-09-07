@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class <c>BookSelectionController</c> to choose a book from the 
+/// respective bookshelf section in the bookshelf window.
+/// </summary>
 public class BookSelectionController : MonoBehaviour
 {
     [SerializeField]

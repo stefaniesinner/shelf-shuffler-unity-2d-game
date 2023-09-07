@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Class <c>BookshelfController</c> to choose a book from the respective 
-/// bookshelf section in the bookshelf window.
+/// Class <c>BookshelfController</c> to show how many books 
+/// are left in all bookshelf sections.
 /// </summary>
 public class BookshelfController : MonoBehaviour
 {
