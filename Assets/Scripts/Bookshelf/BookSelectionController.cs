@@ -57,7 +57,7 @@ public class BookSelectionController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L)) // Platzhalter, lieber pfeiltasten?
+        if (Input.GetKeyDown(KeyCode.L))
         {
             if (currentBook == bookList.Count - 1)
             {
@@ -70,7 +70,7 @@ public class BookSelectionController : MonoBehaviour
                 SelectBook();
             }
         }
-        if (Input.GetKeyDown(KeyCode.J)) // Platzhalter, lieber pfeiltasten?
+        if (Input.GetKeyDown(KeyCode.J))
         {
             if (currentBook == 0)
             {
@@ -83,12 +83,12 @@ public class BookSelectionController : MonoBehaviour
                 SelectBook();
             }
         }
-        if (Input.GetKeyDown(KeyCode.K)) // Platzhalter
+        if (Input.GetKeyDown(KeyCode.K))
         {
             TakeSelectedBook(currentBook);
         }
 
-        if (Input.GetKeyDown(KeyCode.I)) //controller.GetComponent<BookshelfUI>().isOpen
+        if (Input.GetKeyDown(KeyCode.I))
         {
             PlaceBook(currentBook);
         }
@@ -110,10 +110,7 @@ public class BookSelectionController : MonoBehaviour
     private void TakeSelectedBook(int takenBook)
     {
         bookList[takenBook].SetActive(false);
-        // bookList.RemoveAt(currentBook);
-        // highlights.RemoveAt(currentBook);
         takenBookIndex = currentBook;
-        //controller.GetComponent<BookshelfUI>().OpenAndCloseBookshelfWindow();
         controller.PlaceTakenBook(takenBook, false);
     }
 
@@ -121,11 +118,6 @@ public class BookSelectionController : MonoBehaviour
     {
         bookList[takenBook].SetActive(true);
         controller.PlaceTakenBook(takenBook, true);
-        /** if (currentBook == controller.TakenBookIndex 
-             && controller.CurrentBookshelfSectionIndex == controller.TakenBookSection)
-         {
-             bookList[currentBook].SetActive(true);
-         } */
     }
 
     private void UnselectAllHighlights()
