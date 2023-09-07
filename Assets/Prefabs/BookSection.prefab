@@ -261,8 +261,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7296602363013801333}
-  - component: {fileID: 4470459258427761307}
   - component: {fileID: 862472071997227266}
+  - component: {fileID: 4470459258427761307}
   m_Layer: 0
   m_Name: BookSection
   m_TagString: Books
@@ -291,26 +291,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4470459258427761307
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2909528354630034176}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61d623d24e253ea4d9a7e361046ba22b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  section: {fileID: 2909528354630034176}
-  controller: {fileID: 0}
-  redBook: {fileID: 2383788087726848282}
-  blueBook: {fileID: 2898907612251340272}
-  greenBook: {fileID: 8324459773240360527}
-  purpleBook: {fileID: 514495403501505969}
-  orangeBook: {fileID: 3772635582922557782}
-  highlight: {fileID: 8205247556536950824}
 --- !u!61 &862472071997227266
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -356,6 +336,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5576019, y: 0.1403288}
   m_EdgeRadius: 0
+--- !u!114 &4470459258427761307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2909528354630034176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61d623d24e253ea4d9a7e361046ba22b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  section: {fileID: 2909528354630034176}
+  controller: {fileID: 0}
+  redBook: {fileID: 2383788087726848282}
+  blueBook: {fileID: 2898907612251340272}
+  greenBook: {fileID: 8324459773240360527}
+  purpleBook: {fileID: 514495403501505969}
+  orangeBook: {fileID: 3772635582922557782}
+  highlight: {fileID: 8205247556536950824}
 --- !u!1 &3772635582922557782
 GameObject:
   m_ObjectHideFlags: 0

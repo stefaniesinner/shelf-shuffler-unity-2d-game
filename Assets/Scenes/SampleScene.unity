@@ -2327,8 +2327,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1242321503}
   - component: {fileID: 1242321502}
-  - component: {fileID: 1242321504}
   - component: {fileID: 1242321505}
+  - component: {fileID: 1242321504}
   m_Layer: 0
   m_Name: Bookshelf
   m_TagString: Untagged
@@ -2420,7 +2420,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookshelfWindow: {fileID: 1772991558}
-  bookSelectionController: {fileID: 0}
   windowKey: 101
 --- !u!61 &1242321505
 BoxCollider2D:
