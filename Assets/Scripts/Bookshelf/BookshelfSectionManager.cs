@@ -9,14 +9,21 @@ using UnityEngine;
 public class BookshelfSectionManager : MonoBehaviour
 {
     // The bookshelf section, where this Script is attached to
+    [SerializeField]
     private GameObject section;
 
     // The Book GameObjects that are inside this book section
+    [SerializeField]
     private GameObject redBook;
+    [SerializeField]
     private GameObject blueBook;
+    [SerializeField]
     private GameObject greenBook;
+    [SerializeField]
     private GameObject purpleBook;
+    [SerializeField]
     private GameObject orangeBook;
+    [SerializeField]
     private GameObject highlight;
 
     private bool[] visibleBooks;
