@@ -15,11 +15,6 @@ public class BookshelfUIManager : MonoBehaviour
     private bool isDetectingPlayer;
     private bool isOpen;
 
-    private void Awake()
-    {
-        bookshelfWindow = GetComponent<GameObject>();
-    }
-
     private void Start()
     {
         ShowBookshelfWindow(false);
@@ -75,10 +70,5 @@ public class BookshelfUIManager : MonoBehaviour
         {
             isDetectingPlayer = false;
         }
-    }
-
-    private void OnDestroy()
-    {
-        bookshelfWindow = null;
     }
 }
