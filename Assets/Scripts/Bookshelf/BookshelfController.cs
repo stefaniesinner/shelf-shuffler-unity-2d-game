@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class <c>BookshelfController</c> to choose a book from the respective 
+/// bookshelf section in the bookshelf window.
+/// </summary>
 public class BookshelfController : MonoBehaviour
 {
     [SerializeField]
@@ -88,15 +92,5 @@ public class BookshelfController : MonoBehaviour
         {
             currentBookSection.OrangeBook.SetActive(isPlaced);
         }
-    }
-
-    public int TakenBookIndex
-    {
-        get { return takenBookIndex; }
-    }
-
-    public int TakenBookSection
-    {
-        get { return takenBookSection; }
     }
 }
