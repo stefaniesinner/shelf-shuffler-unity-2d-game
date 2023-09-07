@@ -7,10 +7,9 @@ using UnityEngine;
 /// </summary>
 public class BookshelfUIManager : MonoBehaviour
 {
+    private BookSelectionController bookSelectionController;
     [SerializeField]
     private GameObject bookshelfWindow;
-    [SerializeField]
-    private BookSelectionController bookSelectionController;
     [SerializeField]
     private KeyCode windowKey = KeyCode.E;
 
@@ -63,11 +62,6 @@ public class BookshelfUIManager : MonoBehaviour
         {
             isDetectingPlayer = false;
         }
-    }
-
-    public bool IsOpen
-    {
-        get { return isOpen; }
     }
 
     private void OnDestroy()
