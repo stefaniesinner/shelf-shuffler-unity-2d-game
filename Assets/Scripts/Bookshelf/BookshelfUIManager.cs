@@ -7,7 +7,6 @@ using UnityEngine;
 /// </summary>
 public class BookshelfUIManager : MonoBehaviour
 {
-    private BookSelectionController bookSelectionController;
     [SerializeField]
     private GameObject bookshelfWindow;
     [SerializeField]
