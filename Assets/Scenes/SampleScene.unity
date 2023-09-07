@@ -350,7 +350,7 @@ GameObject:
   - component: {fileID: 286638751}
   - component: {fileID: 286638752}
   m_Layer: 0
-  m_Name: Selection
+  m_Name: Highlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
