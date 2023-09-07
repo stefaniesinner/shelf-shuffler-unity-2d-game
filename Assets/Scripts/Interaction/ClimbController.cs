@@ -62,7 +62,7 @@ public class ClimbController : MonoBehaviour
         {
             rb.gravityScale = 0f;
             rb.velocity = new Vector2(rb.velocity.x, moveVertical * climbSpeed);
-            ShowBorder();
+            DisplayBorder();
         }
         else
         {
@@ -71,7 +71,10 @@ public class ClimbController : MonoBehaviour
         }
     }
 
-    private void ShowBorder()
+    /// <summary>
+    /// Display the border to prevent the user from falling off the ladder.
+    /// </summary>
+    private void DisplayBorder()
     {
         for (int i = 0; i < ladderBorder.Length; i++)
         {
@@ -79,6 +82,9 @@ public class ClimbController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Hide the border.
+    /// </summary>
     private void HideBorder()
     {
         for (int i = 0; i < ladderBorder.Length; i++)
