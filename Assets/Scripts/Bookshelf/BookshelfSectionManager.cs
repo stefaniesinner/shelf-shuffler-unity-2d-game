@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class <c>BookshelfSectionManager</c> to check from which bookshelf section
+/// the respective book was taken from.
+/// </summary>
 public class BookshelfSectionManager : MonoBehaviour
 {
     // The bookshelf section, where this Script is attached to
@@ -34,11 +38,6 @@ public class BookshelfSectionManager : MonoBehaviour
         visibleBooks = new bool[5] { true, true, true, true, true };
     }
 
-    private void Update()
-    {
-
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Sets selected true if the player touches this bookshelf section
@@ -55,7 +54,7 @@ public class BookshelfSectionManager : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        //Sets selected false if the player doesnt touch this bookshelf section
+        // Sets selected false if the player doesnt touch this bookshelf section
         if (collision.tag == "Player")
         {
             selected = false;
@@ -67,14 +66,20 @@ public class BookshelfSectionManager : MonoBehaviour
         }
     }
 
-
-    // Method to check if this bookshelf section is currently selected or not
+    /// <summary>
+    /// Method to check if this bookshelf section is currently selected or not.
+    /// </summary>
+    /// <returns></returns>
     public bool IsSelected()
     {
         return selected;
     }
 
-    // Sets the visibility of GameObjects. Used to set the books inside this section
+    /// <summary>
+    /// Sets the visibility of GameObjects. Used to set the books inside this section.
+    /// </summary>
+    /// <param name="gameObject">The respective books.</param>
+    /// <param name="isVisible">True if the book is inside the section.</param>
     public void SetVisible(GameObject gameObject, bool isVisible)
     {
         gameObject.SetActive(isVisible);
