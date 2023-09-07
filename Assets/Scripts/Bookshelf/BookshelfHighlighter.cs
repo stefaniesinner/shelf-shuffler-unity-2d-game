@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class <c>BookshelfHighlighter</c> to handle the highlighting of 
+/// the currently selected bookshelf section.
+/// </summary>
 public class BookshelfHighlighter : MonoBehaviour
 {
     // Array of all Bookshelf section GameObjects
