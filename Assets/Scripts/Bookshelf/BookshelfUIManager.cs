@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class <c>BookshelfUIManager</c> to handle the bookshelf window.
+/// </summary>
 public class BookshelfUIManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject bookshelfWindow;
-    //[SerializeField]
-    //private GameObject buttonIndicator; // To inform the player which button to press to open/close the bookshelf window
     [SerializeField]
     private BookSelectionController bookSelectionController;
     [SerializeField]
@@ -19,18 +20,17 @@ public class BookshelfUIManager : MonoBehaviour
     private void Start()
     {
         ActivateBookshelfWindow(false);
-        ActivateButtonIndicator(false);
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(windowKey))
         {
-            OpenAndCloseBookshelfWindow();
+            OpenBookshelfWindow();
         }
     }
 
-    public void OpenAndCloseBookshelfWindow()
+    public void OpenBookshelfWindow()
     {
         if (!isOpen && isDetectingPlayer)
         {
@@ -49,17 +49,11 @@ public class BookshelfUIManager : MonoBehaviour
         bookshelfWindow.SetActive(isShowing);
     }
 
-    private void ActivateButtonIndicator(bool isShowing)
-    {
-        //buttonIndicator.SetActive(isShowing);
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
             isDetectingPlayer = true;
-            ActivateButtonIndicator(true);
         }
     }
 
@@ -68,7 +62,6 @@ public class BookshelfUIManager : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isDetectingPlayer = false;
-            ActivateButtonIndicator(false);
         }
     }
 
