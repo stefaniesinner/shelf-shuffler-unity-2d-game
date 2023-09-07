@@ -4004,7 +4004,7 @@ GameObject:
   - component: {fileID: 1787295335}
   - component: {fileID: 1787295336}
   m_Layer: 0
-  m_Name: BookSections
+  m_Name: BookSelection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
