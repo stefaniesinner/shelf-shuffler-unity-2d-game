@@ -2348,6 +2348,7 @@ GameObject:
   - component: {fileID: 1319423293}
   - component: {fileID: 1319423295}
   - component: {fileID: 1319423296}
+  - component: {fileID: 1319423297}
   m_Layer: 0
   m_Name: ground
   m_TagString: Untagged
@@ -2718,6 +2719,63 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!66 &1319423297
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319423291}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths:
+  - m_Collider: {fileID: 1319423295}
+    m_ColliderPaths:
+    - - X: 60047468
+        Y: -28433544
+      - X: -67547472
+        Y: -28433544
+      - X: -67547472
+        Y: -39066456
+      - X: 60047468
+        Y: -39066456
+  m_CompositePaths:
+    m_Paths:
+    - - {x: 6.004718, y: -3.9066455}
+      - {x: 6.004718, y: -2.8433545}
+      - {x: -6.7547474, y: -2.8433836}
+      - {x: -6.754718, y: -3.9066455}
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
+  m_UseDelaunayMesh: 0
+  m_CompositeGameObject: {fileID: 1319423291}
 --- !u!1 &1386428060
 GameObject:
   m_ObjectHideFlags: 0
