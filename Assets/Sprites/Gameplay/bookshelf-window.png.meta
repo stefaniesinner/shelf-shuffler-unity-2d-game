@@ -45,7 +45,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 32
@@ -126,13 +126,13 @@ TextureImporter:
       name: bookshelf-window_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 130
-        height: 32
+        x: 3
+        y: 2
+        width: 124
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 5, y: 6, z: 5, w: 4}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
