@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 /// <summary>
 /// Class <c>TimerManager</c> handles the timer that runs during the game and ends the game when 
@@ -11,7 +11,7 @@ using UnityEngine.SceneManagement;
 public class TimerManager : MonoBehaviour
 {
     public float timeValue = 90;
-    public TextMeshProUGUI timerText;
+    public Text timerText;
 
     void Update()
     {
