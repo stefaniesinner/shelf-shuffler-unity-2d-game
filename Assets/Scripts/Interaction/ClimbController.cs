@@ -109,14 +109,4 @@ public class ClimbController : MonoBehaviour
             isClimbingLadder = false;
         }
     }
-
-    public bool IsTouchingLadder
-    {
-        get { return isTouchingLadder; }
-    }
-
-    public bool IsClimbingLadder
-    {
-        get { return isClimbingLadder; }
-    }
 }
