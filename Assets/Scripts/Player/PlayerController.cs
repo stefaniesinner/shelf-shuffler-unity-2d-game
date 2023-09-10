@@ -137,8 +137,6 @@ public class PlayerController : MonoBehaviour
     {
         anim.SetBool("isMoving", IsMoving());
         anim.SetBool("isGrounded", IsGrounded());
-        anim.SetBool("isClimbing", ClimbController.controller.IsClimbing);
-        anim.SetBool("isVertical", ClimbController.controller.IsOnLadder);
     }
 
     /// <summary>
