@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float groundRayDist = 0.5f;
 
-    private bool isJumping;
+    private bool canJump;
 
     [SerializeField]
     private LayerMask groundLayer;
@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
 
         IsMoving();
         IsGrounded();
-        IsJumping();
+        CanJump();
 
         AnimatePlayer();
         FlipSprite(moveHorizontal);
@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
     {
         Move();
 
-        if (isJumping)
+        if (canJump)
         {
             Jump();
         }
@@ -96,9 +96,9 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// Check if the player jumps.
+    /// Check if the player is allowed to jump.
     /// </summary>
-    private void IsJumping()
+    private void CanJump()
     {
         // prevents multiple jumping
         if (!IsGrounded())
@@ -108,7 +108,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(jumpKey))
         {
-            isJumping = true;
+            canJump = true;
         }
     }
 
@@ -127,7 +127,7 @@ public class PlayerController : MonoBehaviour
     {
         rb.velocity = Vector2.up * jumpingPower;
         AudioManager.aud.PlayAudio(AudioManager.aud.JumpingSound);
-        isJumping = false;
+        canJump = false;
     }
 
     /// <summary>
@@ -137,8 +137,6 @@ public class PlayerController : MonoBehaviour
     {
         anim.SetBool("isMoving", IsMoving());
         anim.SetBool("isGrounded", IsGrounded());
-        anim.SetBool("isClimbing", ClimbController.controller.IsClimbing);
-        anim.SetBool("isVertical", ClimbController.controller.IsOnLadder);
     }
 
     /// <summary>
