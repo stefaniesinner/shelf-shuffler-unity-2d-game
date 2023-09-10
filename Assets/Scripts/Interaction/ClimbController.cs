@@ -10,15 +10,14 @@ public class ClimbController : MonoBehaviour
     public static ClimbController controller;
 
     private Rigidbody2D rb;
-    [SerializeField]
-    private GameObject[] ladderBorder;
-
-    private bool isTouchingLadder;
-    private bool isClimbingLadder;
 
     private float moveVertical;
     [SerializeField]
     private float climbSpeed = 4f;
+
+    private bool isTouchingLadder;
+    private bool isClimbing;
+    private bool isOnLadder;
 
     private void Awake()
     {
@@ -34,7 +33,7 @@ public class ClimbController : MonoBehaviour
     {
         moveVertical = Input.GetAxisRaw("Vertical");
 
-        IsClimbing();
+        IsUsingLadder();
     }
 
     private void FixedUpdate()
@@ -42,54 +41,31 @@ public class ClimbController : MonoBehaviour
         Climb();
     }
 
-    /// <summary>
-    /// Check if the object climbs the ladder.
-    /// </summary>
-    private void IsClimbing()
+    private bool IsUsingLadder()
     {
         if (isTouchingLadder && Mathf.Abs(moveVertical) > 0f)
         {
-            isClimbingLadder = true;
+            isClimbing = true;
+            isOnLadder = true;
         }
+        else if (Mathf.Abs(moveVertical) == 0f)
+        {
+            isOnLadder = false;
+        }
+
+        return false;
     }
 
-    /// <summary>
-    /// Climb the ladder with the respective speed.
-    /// </summary>
     private void Climb()
     {
-        if (isClimbingLadder)
+        if (isClimbing)
         {
             rb.gravityScale = 0f;
             rb.velocity = new Vector2(rb.velocity.x, moveVertical * climbSpeed);
-            DisplayBorder();
         }
         else
         {
-            rb.gravityScale = 2f;
-            HideBorder();
-        }
-    }
-
-    /// <summary>
-    /// Display the border to prevent the user from falling off the ladder.
-    /// </summary>
-    private void DisplayBorder()
-    {
-        for (int i = 0; i < ladderBorder.Length; i++)
-        {
-            ladderBorder[i].SetActive(true);
-        }
-    }
-
-    /// <summary>
-    /// Hide the border.
-    /// </summary>
-    private void HideBorder()
-    {
-        for (int i = 0; i < ladderBorder.Length; i++)
-        {
-            ladderBorder[i].SetActive(false);
+            rb.gravityScale = 4f;
         }
     }
 
@@ -106,7 +82,22 @@ public class ClimbController : MonoBehaviour
         if (collision.CompareTag("Ladder"))
         {
             isTouchingLadder = false;
-            isClimbingLadder = false;
+            isClimbing = false;
         }
+    }
+
+    public bool IsOnLadder
+    {
+        get { return isOnLadder; }
+    }
+
+    public bool IsClimbing
+    {
+        get { return isClimbing; }
+    }
+
+    private void OnDestroy()
+    {
+        controller = null;
     }
 }
