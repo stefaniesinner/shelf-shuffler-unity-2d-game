@@ -12,7 +12,6 @@ public class ClimbController : MonoBehaviour
     private Rigidbody2D rb;
 
     private float moveVertical;
-    private float gravityScale;
     [SerializeField]
     private float climbSpeed = 4f;
 
@@ -41,29 +40,26 @@ public class ClimbController : MonoBehaviour
     {
         if (isClimbing)
         {
+            rb.gravityScale = 0f;
             Climb();
+        }
+        else
+        {
+            rb.gravityScale = 4f;
         }
     }
 
     private void CanClimb()
     {
-        if (isTouchingLadder)
+        if (isTouchingLadder && Mathf.Abs(moveVertical) > 0f)
         {
-            if (Mathf.Abs(moveVertical) > 0f)
-            {
-                isClimbing = true;
-                isVertical = true;
-            }
-            else if (Mathf.Abs(moveVertical) == 0f)
-            {
-                isVertical = false;
-            }
+            isClimbing = true;
+            isVertical = true;
         }
-    }
-
-    private void ChangeGravity()
-    {
-
+        else if (Mathf.Abs(moveVertical) == 0f)
+        {
+            isVertical = false;
+        }
     }
 
     private void Climb()
