@@ -16,6 +16,8 @@ public class ClimbController : MonoBehaviour
     private float climbSpeed = 4f;
 
     private bool isTouchingLadder;
+    private bool isClimbing;
+    private bool isVertical;
 
     private void Awake()
     {
@@ -30,11 +32,38 @@ public class ClimbController : MonoBehaviour
     private void Update()
     {
         moveVertical = Input.GetAxisRaw("Vertical");
+
+        CanClimb();
     }
 
     private void FixedUpdate()
     {
+        if (isClimbing)
+        {
+            rb.gravityScale = 0f;
+            Climb();
+        }
+        
+        if (!isClimbing)
+        {
+            rb.gravityScale = 4f;
+        }
+    }
 
+    private void CanClimb()
+    {
+        if (isTouchingLadder)
+        {
+            if (Mathf.Abs(moveVertical) > 0f)
+            {
+                isClimbing = true;
+                isVertical = true;
+            }
+            else if (Mathf.Abs(moveVertical) == 0f)
+            {
+                isVertical = false;
+            }
+        }
     }
 
     private void Climb()
@@ -55,6 +84,7 @@ public class ClimbController : MonoBehaviour
         if (collision.CompareTag("Ladder"))
         {
             isTouchingLadder = false;
+            isVertical = false;
         }
     }
 
