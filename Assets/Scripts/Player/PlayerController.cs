@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float groundRayDist = 0.5f;
 
-    private bool canJump;
+    private bool isJumping;
 
     [SerializeField]
     private LayerMask groundLayer;
@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
     {
         Move();
 
-        if (canJump)
+        if (isJumping)
         {
             Jump();
         }
@@ -108,7 +108,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(jumpKey))
         {
-            canJump = true;
+            isJumping = true;
         }
     }
 
@@ -127,7 +127,7 @@ public class PlayerController : MonoBehaviour
     {
         rb.velocity = Vector2.up * jumpingPower;
         AudioManager.aud.PlayAudio(AudioManager.aud.JumpingSound);
-        canJump = false;
+        isJumping = false;
     }
 
     /// <summary>
