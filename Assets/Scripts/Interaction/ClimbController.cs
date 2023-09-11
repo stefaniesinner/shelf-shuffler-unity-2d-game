@@ -12,6 +12,7 @@ public class ClimbController : MonoBehaviour
     private Rigidbody2D rb;
 
     private float moveVertical;
+    private float gravityScale;
     [SerializeField]
     private float climbSpeed = 4f;
 
@@ -40,13 +41,7 @@ public class ClimbController : MonoBehaviour
     {
         if (isClimbing)
         {
-            rb.gravityScale = 0f;
             Climb();
-        }
-        
-        if (!isClimbing)
-        {
-            rb.gravityScale = 4f;
         }
     }
 
@@ -64,6 +59,11 @@ public class ClimbController : MonoBehaviour
                 isVertical = false;
             }
         }
+    }
+
+    private void ChangeGravity()
+    {
+
     }
 
     private void Climb()
