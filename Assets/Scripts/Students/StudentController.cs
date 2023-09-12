@@ -25,6 +25,7 @@ public class StudentController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         currentPoint = pointB.transform;
+        anim.SetBool("isMoving", true);
     }
 
     private void Update()
@@ -48,7 +49,5 @@ public class StudentController : MonoBehaviour
         {
             currentPoint = pointB.transform;
         }
-
-
     }
 }
