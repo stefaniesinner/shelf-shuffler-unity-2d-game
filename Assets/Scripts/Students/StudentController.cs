@@ -8,46 +8,53 @@ using UnityEngine;
 /// </summary>
 public class StudentController : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject pointA;
-    [SerializeField]
-    private GameObject pointB;
-
     private Rigidbody2D rb;
     private Animator anim;
-    private Transform currentPoint;
+    private SpriteRenderer spr;
 
     [SerializeField]
-    private float speed = 0f;
+    private GameObject waitingPoint;
+
+    [SerializeField]
+    private float moveSpeed = 4f;
+
+    private bool isTouchingPoint;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        currentPoint = pointB.transform;
-        anim.SetBool("isMoving", true);
+        spr = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
     {
-        Vector2 point = currentPoint.position - transform.position;
+        Move();
 
-        if (currentPoint == pointB.transform)
+        if (isTouchingPoint)
         {
-            rb.velocity = new Vector2(speed, 0);
+            rb.velocity = new Vector2(0, rb.velocity.y);
         }
-        else
-        {
-            rb.velocity = new Vector2(-speed, 0);
-        }
+    }
 
-        if (Vector2.Distance(transform.position, currentPoint.position) < 0.5f && currentPoint == pointB.transform)
+    private void Move()
+    {
+        rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Point"))
         {
-            currentPoint = pointA.transform;
+            isTouchingPoint = true;
         }
-        if (Vector2.Distance(transform.position, currentPoint.position) < 0.5f && currentPoint == pointA.transform)
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Point"))
         {
-            currentPoint = pointB.transform;
+            isTouchingPoint = false;
         }
     }
 }
