@@ -16,7 +16,7 @@ public class StudentController : MonoBehaviour
     private GameObject waitingPoint;
 
     [SerializeField]
-    private float moveSpeed = 4f;
+    private float moveSpeed = 2f;
 
     private bool isTouchingPoint;
 
