@@ -9,7 +9,7 @@ public class ClimbController : MonoBehaviour
 {
     public static ClimbController controller;
 
-    private Rigidbody2D rb;
+    private Rigidbody2D rb; // of the player
 
     private float moveVertical;
     [SerializeField]
