@@ -52,6 +52,9 @@ public class ClimbController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Check if the player is allowed to climb.
+    /// </summary>
     private void CanClimb()
     {
         if (isTouchingLadder && Mathf.Abs(moveVertical) > 0f)
@@ -66,26 +69,36 @@ public class ClimbController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Climb the respective object.
+    /// </summary>
     private void Climb()
     {
         rb.velocity = new Vector2(rb.velocity.x, moveVertical * climbSpeed);
     }
 
+    /// <summary>
+    /// Disable the gravity to enable climbing on the respective object. Before 
+    /// changing gravity for the first time, save the player's original gravity scale.
+    /// </summary>
     private void DisableGravity()
     {
         if (rb.gravityScale != climbGravityScale)
         {
-            originalGravityScale = rb.gravityScale; // save the original gravity scale
+            originalGravityScale = rb.gravityScale;
         }
 
         rb.gravityScale = climbGravityScale;
     }
 
+    /// <summary>
+    /// Restore the gravity after disabling it by resetting it to its original value.
+    /// </summary>
     private void RestoreGravity()
     {
         if (rb.gravityScale == climbGravityScale)
         {
-            rb.gravityScale = originalGravityScale; // set the gravity back to origin
+            rb.gravityScale = originalGravityScale;
         }
     }
 
