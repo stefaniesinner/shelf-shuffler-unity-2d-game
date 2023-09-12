@@ -106,6 +106,16 @@ public class ClimbController : MonoBehaviour
         }
     }
 
+    public bool IsVertical
+    {
+        get { return isVertical; }
+    }
+
+    public bool IsClimbing
+    {
+        get { return isClimbing; }
+    }
+
     private void OnDestroy()
     {
         controller = null;
