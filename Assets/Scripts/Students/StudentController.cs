@@ -41,4 +41,12 @@ public class StudentController : MonoBehaviour
     {
         rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("INTERACTING");
+        }
+    }
 }
