@@ -13,11 +13,13 @@ public class ClimbController : MonoBehaviour
 
     private float moveVertical;
     [SerializeField]
-    private float climbSpeed = 4f;
-
+    private float climbSpeed;
+    private const float climbGravityScale = 0f;
+    private float gravityScale;
+    
     private bool isTouchingLadder;
-    private bool isClimbing;
     private bool isVertical;
+    private bool isClimbing;
 
     private void Awake()
     {
@@ -40,12 +42,13 @@ public class ClimbController : MonoBehaviour
     {
         if (isClimbing)
         {
-            rb.gravityScale = 0f;
+            DisableGravity();
             Climb();
         }
-        else
+
+        if (!isClimbing)
         {
-            rb.gravityScale = 4f;
+            RestoreGravity();
         }
     }
 
@@ -56,7 +59,8 @@ public class ClimbController : MonoBehaviour
             isClimbing = true;
             isVertical = true;
         }
-        else if (Mathf.Abs(moveVertical) == 0f)
+
+        if (Mathf.Abs(moveVertical) == 0f)
         {
             isVertical = false;
         }
@@ -65,6 +69,24 @@ public class ClimbController : MonoBehaviour
     private void Climb()
     {
         rb.velocity = new Vector2(rb.velocity.x, moveVertical * climbSpeed);
+    }
+
+    private void DisableGravity()
+    {
+        if (rb.gravityScale != climbGravityScale)
+        {
+            gravityScale = rb.gravityScale;
+        }
+
+        rb.gravityScale = climbGravityScale;
+    }
+
+    private void RestoreGravity()
+    {
+        if (rb.gravityScale == climbGravityScale)
+        {
+            rb.gravityScale = gravityScale;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -80,7 +102,7 @@ public class ClimbController : MonoBehaviour
         if (collision.CompareTag("Ladder"))
         {
             isTouchingLadder = false;
-            isVertical = false;
+            isClimbing = false;
         }
     }
 

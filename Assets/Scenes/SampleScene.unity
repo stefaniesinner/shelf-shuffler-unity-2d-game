@@ -2532,7 +2532,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 2
+  m_GravityScale: 4
   m_Material: {fileID: 6200000, guid: 102d38d10413c4e448ef458de5419a21, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -2653,8 +2653,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 667b328ae6b9c31448409efdefd815d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ladderBorder:
-  - {fileID: 1468582746}
   climbSpeed: 4
 --- !u!1001 &946628665
 PrefabInstance:
