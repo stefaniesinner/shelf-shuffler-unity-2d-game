@@ -15,7 +15,7 @@ public class ClimbController : MonoBehaviour
     [SerializeField]
     private float climbSpeed;
     private const float climbGravityScale = 0f;
-    private float gravityScale;
+    private float originalGravityScale;
     
     private bool isTouchingLadder;
     private bool isVertical;
@@ -75,7 +75,7 @@ public class ClimbController : MonoBehaviour
     {
         if (rb.gravityScale != climbGravityScale)
         {
-            gravityScale = rb.gravityScale;
+            originalGravityScale = rb.gravityScale; // save the original gravity scale
         }
 
         rb.gravityScale = climbGravityScale;
@@ -85,7 +85,7 @@ public class ClimbController : MonoBehaviour
     {
         if (rb.gravityScale == climbGravityScale)
         {
-            rb.gravityScale = gravityScale;
+            rb.gravityScale = originalGravityScale; // set the gravity back to origin
         }
     }
 
