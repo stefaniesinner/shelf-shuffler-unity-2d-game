@@ -50,7 +50,6 @@ public class InteractionController : MonoBehaviour
         {
             detectedObject = collision.gameObject;
             isDetectingObject = true;
-            Debug.Log("IS DETECTING OBJECT");
         }
         else
         {
