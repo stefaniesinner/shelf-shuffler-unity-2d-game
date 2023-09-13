@@ -8,8 +8,10 @@ using UnityEngine;
 /// </summary>
 public class BookshelfController : MonoBehaviour
 {
+    public BookshelfController controller;
+
     [SerializeField]
-    public BookshelfUIManager bookshelfUI;
+    private BookshelfUIManager bookshelfUI;
     [SerializeField]
     private BookshelfHighlighter selection;
     [SerializeField]
@@ -25,6 +27,10 @@ public class BookshelfController : MonoBehaviour
 
     private List<BookshelfSectionManager> bookSectionScripts = new List<BookshelfSectionManager>();
 
+    private void Awake()
+    {
+        controller = this;
+    }
 
     private void Start()
     {
@@ -101,5 +107,10 @@ public class BookshelfController : MonoBehaviour
     public int TakenBookSection
     {
         get { return takenBookSection; }
+    }
+
+    private void OnDestroy()
+    {
+        controller = null;
     }
 }
