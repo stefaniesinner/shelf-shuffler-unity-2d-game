@@ -98,7 +98,7 @@ public class BookshelfController : MonoBehaviour
         get { return takenBookIndex; }
     }
 
-    public int TakenBookSectionIndex
+    public int TakenBookSection
     {
         get { return takenBookSection; }
     }
