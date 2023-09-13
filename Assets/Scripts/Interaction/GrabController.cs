@@ -30,7 +30,8 @@ public class GrabController : MonoBehaviour
     {
         if (InteractionController.controller.IsDetectingObject)
         {
-            if (Input.GetKeyDown(grabKey))
+            if (Input.GetKeyDown(grabKey) 
+                && InteractionController.controller.DetectedObject == grabbedObject)
             {
                 Grab();
             }
