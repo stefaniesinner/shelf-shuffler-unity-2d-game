@@ -10,7 +10,7 @@ using UnityEngine.UI;
 /// </summary>
 public class TimerManager : MonoBehaviour
 {
-    public float timeValue = 90;
+    public float timeValue = 20;
     public Text timerText;
 
     void Update()
@@ -43,7 +43,6 @@ public class TimerManager : MonoBehaviour
 
     void LoadGameOverScene()
     {
-
-        //SceneManager.LoadScene("EndScreen");
+        SceneManager.LoadScene("EndScreen");
     }
 }
