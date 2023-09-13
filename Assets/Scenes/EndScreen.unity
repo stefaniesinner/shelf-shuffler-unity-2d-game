@@ -132,7 +132,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 251885658}
-  - component: {fileID: 251885657}
   - component: {fileID: 251885659}
   m_Layer: 0
   m_Name: EndScreen Controller
@@ -141,18 +140,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &251885657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 251885656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18f887253cfbd41f6af8eaf0783a4df5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &251885658
 Transform:
   m_ObjectHideFlags: 0
@@ -177,7 +164,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 251885656}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2a75dd5297506e4e8a0a24a47a7dcb7, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f4d733101652ad449c2d64e6b2de53e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &325777371
