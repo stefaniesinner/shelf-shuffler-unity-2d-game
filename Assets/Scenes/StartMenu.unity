@@ -309,8 +309,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 12.960022}
-  m_SizeDelta: {x: 0, y: 118.05}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 21.92, y: 131.73}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &797016825
 MonoBehaviour:
@@ -527,8 +527,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3c3fb8c1735aba4293e33cd5db89712, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flippingBook: {fileID: 0}
-  backgroundSoundStart: {fileID: 0}
 --- !u!1 &1094484376
 GameObject:
   m_ObjectHideFlags: 0
