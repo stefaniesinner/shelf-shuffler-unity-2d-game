@@ -912,7 +912,7 @@ GameObject:
   - component: {fileID: 2017208896}
   - component: {fileID: 2017208895}
   m_Layer: 0
-  m_Name: logo_final_0
+  m_Name: Logo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
