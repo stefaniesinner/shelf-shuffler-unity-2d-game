@@ -1,2 +1,2 @@
-# mmp-shelf-shuffler
+# Shelf Shuffler
 
