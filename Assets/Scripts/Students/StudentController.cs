@@ -25,22 +25,12 @@ public class StudentController : MonoBehaviour
 
     private void Update()
     {
-        CanMove();
+
     }
 
     private void FixedUpdate()
     {
-        Move();
-    }
 
-    private bool CanMove()
-    {
-        if (moveHorizontal != 0f)
-        {
-            return true;
-        }
-
-        return false;
     }
 
     private void Move()
