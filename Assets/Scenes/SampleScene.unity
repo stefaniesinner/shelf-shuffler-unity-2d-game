@@ -416,10 +416,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 022b32c138ad05d4fa6c0e7425bff25c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionPoint: {fileID: 0}
+  detectionPoint: {fileID: 868967168}
   detectionLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 8
   detectionRange: 0.2
 --- !u!1 &64656896
 GameObject:
@@ -2484,7 +2484,7 @@ GameObject:
   - component: {fileID: 919633535}
   - component: {fileID: 919633536}
   - component: {fileID: 919633537}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
