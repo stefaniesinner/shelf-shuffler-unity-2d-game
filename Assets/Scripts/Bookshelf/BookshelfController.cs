@@ -92,4 +92,14 @@ public class BookshelfController : MonoBehaviour
             currentBookSection.OrangeBook.SetActive(isPlaced);
         }
     }
+
+    public int TakenBookIndex
+    {
+        get { return takenBookIndex; }
+    }
+
+    public int TakenBookSectionIndex
+    {
+        get { return takenBookSection; }
+    }
 }
