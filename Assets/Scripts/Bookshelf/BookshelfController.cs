@@ -8,7 +8,7 @@ using UnityEngine;
 /// </summary>
 public class BookshelfController : MonoBehaviour
 {
-    public BookshelfController controller;
+    public static BookshelfController controller;
 
     [SerializeField]
     private BookshelfUIManager bookshelfUI;
