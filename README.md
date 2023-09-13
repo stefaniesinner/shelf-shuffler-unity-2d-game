@@ -1,6 +1,6 @@
 # Shelf Shuffler
 
-![](https://github.com/stefaniesinner/Shelf-Shuffler/blob/main/game.gif)
+<img src="https://github.com/stefaniesinner/Shelf-Shuffler/blob/main/game.gif" width="50%" height="50%"/>
 
 ## About Project
 
