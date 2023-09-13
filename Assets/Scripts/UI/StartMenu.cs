@@ -11,7 +11,7 @@ public class StartMenu : MonoBehaviour
     public void StartGame()
     {
 
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Gameplay");
         flippingBook.Play();
 
         backgroundSoundStart.Play();

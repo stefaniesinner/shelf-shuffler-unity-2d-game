@@ -8,7 +8,7 @@ public class EndScreen : MonoBehaviour
 
     public void PlayAgain()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Gameplay");
     }
 
     public void QuitGame()
