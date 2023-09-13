@@ -13,12 +13,7 @@ public class StudentController : MonoBehaviour
     private SpriteRenderer spr;
 
     [SerializeField]
-    private GameObject waitingPoint;
-
-    [SerializeField]
     private float moveSpeed = 2f;
-
-    private bool isTouchingPoint;
 
     private void Start()
     {
@@ -29,12 +24,12 @@ public class StudentController : MonoBehaviour
 
     private void Update()
     {
-        Move();
 
-        if (isTouchingPoint)
-        {
-            rb.velocity = new Vector2(0, rb.velocity.y);
-        }
+    }
+
+    private void FixedUpdate()
+    {
+        Move();
     }
 
     private void Move()
@@ -42,11 +37,8 @@ public class StudentController : MonoBehaviour
         rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void Enqueue()
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("INTERACTING");
-        }
+        
     }
 }
