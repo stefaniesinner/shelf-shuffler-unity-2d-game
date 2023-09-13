@@ -5,17 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class StartMenu : MonoBehaviour
 {
-    [SerializeField] private AudioSource flippingBook;
-    [SerializeField] private AudioSource backgroundSoundStart;
-
     public void StartGame()
     {
-
         SceneManager.LoadScene("Gameplay");
-        flippingBook.Play();
-
-        backgroundSoundStart.Play();
-
     }
 
     public void Help()
@@ -25,10 +17,8 @@ public class StartMenu : MonoBehaviour
 
     public void QuitGame()
     {
-
         Debug.Log("Quitting Game...");
         Application.Quit();
-
     }
 
 }
