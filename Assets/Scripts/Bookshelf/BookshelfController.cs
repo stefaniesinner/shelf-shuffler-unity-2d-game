@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Class <c>BookshelfController</c> to show how many books 
-/// are left in all bookshelf sections.
+/// Class <c>BookshelfController</c> to show how many books are left 
+/// in all bookshelf sections.
 /// </summary>
 public class BookshelfController : MonoBehaviour
 {
@@ -40,7 +40,6 @@ public class BookshelfController : MonoBehaviour
             visibleBooks = bookSectionScripts[currentBookshelfSectionIndex].VisibleBooks;
         }
     }
-
 
     public bool[] VisibleBooks
     {

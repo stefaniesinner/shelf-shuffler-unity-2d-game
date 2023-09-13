@@ -102,7 +102,6 @@ public class BookSelectionController : MonoBehaviour
             ResetAll();
             SetAll();
         }
-
     }
 
     private void SelectBook()

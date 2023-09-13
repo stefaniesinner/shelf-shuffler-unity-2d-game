@@ -8,5 +8,10 @@ using UnityEngine;
 /// </summary>
 public class GiveController : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject transferPoint;
+    [SerializeField]
+    private KeyCode transferKey = KeyCode.G;
+
 
 }
