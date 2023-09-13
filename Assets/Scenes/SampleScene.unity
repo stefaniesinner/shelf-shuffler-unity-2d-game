@@ -2311,7 +2311,7 @@ GameObject:
   m_Component:
   - component: {fileID: 868967168}
   m_Layer: 0
-  m_Name: DetectionPoint
+  m_Name: InteractionPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
