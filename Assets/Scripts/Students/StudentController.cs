@@ -12,6 +12,7 @@ public class StudentController : MonoBehaviour
     private Animator anim;
     private SpriteRenderer spr;
 
+    private float moveHorizontal;
     [SerializeField]
     private float moveSpeed = 2f;
 
@@ -24,7 +25,7 @@ public class StudentController : MonoBehaviour
 
     private void Update()
     {
-
+        CanMove();
     }
 
     private void FixedUpdate()
@@ -32,9 +33,19 @@ public class StudentController : MonoBehaviour
         Move();
     }
 
+    private bool CanMove()
+    {
+        if (moveHorizontal != 0f)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
     private void Move()
     {
-        rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
+        rb.velocity = new Vector2(moveHorizontal * moveSpeed, rb.velocity.y);
     }
 
     private void Enqueue()

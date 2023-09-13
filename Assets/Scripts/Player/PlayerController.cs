@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
     /// <returns>true if the player is moving to the left or right.</returns>
     private bool IsMoving()
     {
-        if ((moveHorizontal != 0f))
+        if (moveHorizontal != 0f)
         {
             return true;
         }
