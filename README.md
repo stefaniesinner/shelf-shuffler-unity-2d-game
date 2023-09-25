@@ -1,11 +1,10 @@
 # Shelf Shuffler
 
-<img src="https://github.com/stefaniesinner/Shelf-Shuffler/blob/main/game.gif" width="50%" height="50%"/>
+<img src="https://github.com/stefaniesinner/Shelf-Shuffler/blob/dev/game.gif" width="690" height="388"/>
 
 ## About Project
 
-## Instructions
-
-## How To Get
-
-## How To Play
+### How to install
+```
+git clone https://github.com/stefaniesinner/shelf-shuffler.git
+```
