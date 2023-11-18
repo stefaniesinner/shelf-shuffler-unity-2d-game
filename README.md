@@ -15,7 +15,7 @@ In Shelf Shuffler, the player steps into the shoes of a librarian overseeing a l
 | `E` | Open bookshelf window |
 | `J` `L` | Navigate on bookshelf |
 | `K` | Take book from bookshelf |
-| `H` | Hand over the book |
+| `H` | Handover the book |
 
 ### How to install
 1. Clone the repository to your local machine using the following command:
